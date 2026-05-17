@@ -1,0 +1,14 @@
+# project.yaml — fill this in once per paper
+title: "Your paper title"
+venue: "Pattern Recognition"
+anonymity: false
+storyline: "One sentence core story"
+results_dir: "Results/aggregate_stats/"
+primary_results_file: "mean_std_summary.csv"
+baseline_table: "tables/paper_ready_baseline_comparison_table.csv"
+ablation_table: "tables/ablation_summary.csv"
+writing_sample: "Writting_Sample.pdf"
+project_summary: "Project_Summary.docx"
+
+
+

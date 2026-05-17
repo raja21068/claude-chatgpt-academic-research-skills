@@ -1,0 +1,171 @@
+# claude_research_pipeline.py
+"""
+Ultimate Claude AI Research Pipeline
+
+Features:
+- Generate Python code via Claude
+- Execute it safely in a sandbox
+- Capture stdout output
+- Capture and save matplotlib/seaborn figures
+- Save logs and outputs to a project folder
+- Handle multiple consecutive tasks for reproducible experiments
+"""
+
+import os
+import requests
+import io
+import traceback
+import matplotlib.pyplot as plt
+from datetime import datetime
+from contextlib import redirect_stdout
+
+# ==========================
+# CONFIGURATION
+# ==========================
+API_KEY = "your_claude_api_key_here"  # Replace with your Claude API key
+BASE_URL = "https://api.anthropic.com/v1/complete"
+DEFAULT_MODEL = "claude-v1"
+DEFAULT_MAX_TOKENS = 700
+PROJECT_FOLDER = "research_output"  # folder to save logs and figures
+
+# Ensure project folder exists
+os.makedirs(PROJECT_FOLDER, exist_ok=True)
+
+# ==========================
+# CLAUDE API CORE
+# ==========================
+def ask_claude(prompt, model=DEFAULT_MODEL, max_tokens=DEFAULT_MAX_TOKENS):
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": model,
+        "prompt": prompt,
+        "max_tokens_to_sample": max_tokens
+    }
+    try:
+        response = requests.post(BASE_URL, headers=headers, json=data)
+        response.raise_for_status()
+        return response.json().get("completion", "")
+    except Exception as e:
+        return f"Error contacting Claude API: {str(e)}"
+
+# ==========================
+# CODE GENERATION
+# ==========================
+def generate_code(task_description):
+    """Ask Claude to generate Python code for a task."""
+    prompt = f"Write clean Python code to: {task_description}"
+    return ask_claude(prompt)
+
+# ==========================
+# CODE EXECUTION WITH FIGURES
+# ==========================
+def run_code_capture_figures(code_snippet):
+    """
+    Run Python code, capture stdout, and capture matplotlib figures.
+    Returns:
+        dict: {"output": str, "figures": list of Figure objects}
+    """
+    output_io = io.StringIO()
+    figures = []
+
+    try:
+        with redirect_stdout(output_io):
+            local_ns = {}
+            exec(code_snippet, {"plt": plt, "__name__": "__main__"}, local_ns)
+            figures = [plt.figure(num) for num in plt.get_fignums()]
+            plt.close("all")
+        return {"output": output_io.getvalue(), "figures": figures}
+    except Exception:
+        return {"output": f"Error executing code:\n{traceback.format_exc()}", "figures": []}
+
+# ==========================
+# SAVE OUTPUTS
+# ==========================
+def save_results(task_name, generated_code, run_result):
+    """
+    Save code, stdout, and figures to PROJECT_FOLDER with timestamped filenames.
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    safe_task_name = task_name.replace(" ", "_")[:50]
+
+    # Save code
+    code_file = os.path.join(PROJECT_FOLDER, f"{timestamp}_{safe_task_name}_code.py")
+    with open(code_file, "w", encoding="utf-8") as f:
+        f.write(generated_code)
+
+    # Save stdout
+    output_file = os.path.join(PROJECT_FOLDER, f"{timestamp}_{safe_task_name}_output.txt")
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(run_result["output"])
+
+    # Save figures
+    figure_files = []
+    for i, fig in enumerate(run_result["figures"], 1):
+        fig_file = os.path.join(PROJECT_FOLDER, f"{timestamp}_{safe_task_name}_fig{i}.png")
+        fig.savefig(fig_file)
+        figure_files.append(fig_file)
+
+    return {"code_file": code_file, "output_file": output_file, "figure_files": figure_files}
+
+# ==========================
+# FULL TASK PIPELINE
+# ==========================
+def run_task(task_description):
+    """
+    Generate code, execute it, capture figures and stdout, save all outputs.
+    Returns:
+        dict with 'generated_code', 'output', 'figures', and saved file paths
+    """
+    generated_code = generate_code(task_description)
+    run_result = run_code_capture_figures(generated_code)
+    saved_files = save_results(task_description, generated_code, run_result)
+    return {"generated_code": generated_code, **run_result, **saved_files}
+
+# ==========================
+# MULTIPLE TASKS PIPELINE
+# ==========================
+def run_multiple_tasks(task_list):
+    """
+    Run multiple tasks sequentially and save all outputs.
+    Returns a list of results for each task.
+    """
+    results = []
+    for task in task_list:
+        print(f"Running task: {task}")
+        result = run_task(task)
+        results.append(result)
+        print(f"Task '{task}' completed. Code saved to: {result['code_file']}\n")
+    return results
+
+# ==========================
+# HELPER FUNCTIONS
+# ==========================
+def explain_code(code_snippet):
+    prompt = f"Explain the following Python code in simple terms:\n\n{code_snippet}"
+    return ask_claude(prompt)
+
+def suggest_plot(data_description):
+    prompt = f"Suggest Python code using matplotlib or seaborn to visualize: {data_description}"
+    return ask_claude(prompt)
+
+def summarize_text(text):
+    prompt = f"Summarize the following text concisely:\n\n{text}"
+    return ask_claude(prompt)
+
+# ==========================
+# DEMO
+# ==========================
+if __name__ == "__main__":
+    tasks = [
+        "Plot a histogram of 50 random integers between 1 and 100",
+        "Plot a scatter plot of 50 random points with x and y between 0 and 10"
+    ]
+    results = run_multiple_tasks(tasks)
+    for i, res in enumerate(results, 1):
+        print(f"Task {i} generated code:\n{res['generated_code']}\n")
+        print(f"Task {i} output:\n{res['output']}\n")
+        if res["figure_files"]:
+            print(f"Figures saved: {res['figure_files']}\n")

@@ -1,0 +1,144 @@
+% ============================================================
+% Response / Rebuttal Letter Template
+% ============================================================
+% Use this to respond to reviewer comments (journal revision or
+% conference rebuttal). Adjust formatting to match venue requirements.
+%
+% Compile with: pdflatex response_letter.tex
+% ============================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% ── Color definitions ──
+\definecolor{reviewercolor}{RGB}{0, 70, 140}
+\definecolor{responsecolor}{RGB}{0, 100, 0}
+\definecolor{changecolor}{RGB}{140, 70, 0}
+
+% ── Commands for consistent formatting ──
+\newcommand{\reviewer}[1]{\subsection*{#1}}
+\newcommand{\comment}[1]{%
+    \vspace{6pt}
+    \noindent\textcolor{reviewercolor}{\textbf{Comment:} \textit{#1}}
+    \vspace{4pt}
+}
+\newcommand{\response}[1]{%
+    \noindent\textcolor{responsecolor}{\textbf{Response:}} #1
+    \vspace{2pt}
+}
+\newcommand{\change}[1]{%
+    \noindent\textcolor{changecolor}{\textbf{Change in manuscript:}} \textit{#1}
+    \vspace{8pt}
+}
+
+% ============================================================
+
+\begin{document}
+
+\begin{center}
+    {\Large\textbf{Response to Reviewer Comments}}\\[8pt]
+    {\large Manuscript ID: TODO:MANUSCRIPT\_ID}\\[4pt]
+    {\large Title: ``TODO:PAPER\_TITLE''}\\[4pt]
+    \today
+\end{center}
+
+\vspace{12pt}
+
+\noindent Dear Editor and Reviewers,
+
+\vspace{6pt}
+\noindent We sincerely thank the editor and reviewers for their constructive and insightful comments. We have carefully addressed all concerns and revised the manuscript accordingly. Below, we provide point-by-point responses to each comment. Reviewer comments are shown in \textcolor{reviewercolor}{blue}, our responses in \textcolor{responsecolor}{green}, and manuscript changes in \textcolor{changecolor}{brown}.
+
+\vspace{6pt}
+\noindent \textbf{Summary of major changes:}
+\begin{itemize}[nosep]
+    \item TODO: Major change 1
+    \item TODO: Major change 2
+    \item TODO: Major change 3
+\end{itemize}
+
+\vspace{12pt}
+\noindent\rule{\textwidth}{0.4pt}
+
+% ============================================================
+% REVIEWER 1
+% ============================================================
+\reviewer{Reviewer 1}
+
+\comment{TODO: Paste reviewer comment 1 here.}
+
+\response{TODO: Write your response here. Thank the reviewer if the point is valid, explain your reasoning, and describe what was changed.}
+
+\change{TODO: Describe the specific change made in the manuscript, including section and page number. E.g., ``Section 4.2, page 7: Added comparison with Baseline-X as suggested.''}
+
+% ---
+
+\comment{TODO: Paste reviewer comment 2 here.}
+
+\response{TODO: Response.}
+
+\change{TODO: Change description.}
+
+\vspace{6pt}
+\noindent\rule{\textwidth}{0.4pt}
+
+% ============================================================
+% REVIEWER 2
+% ============================================================
+\reviewer{Reviewer 2}
+
+\comment{TODO: Paste reviewer comment 1 here.}
+
+\response{TODO: Response.}
+
+\change{TODO: Change description.}
+
+% ---
+
+\comment{TODO: Paste reviewer comment 2 here.}
+
+\response{TODO: Response.}
+
+\change{TODO: Change description.}
+
+\vspace{6pt}
+\noindent\rule{\textwidth}{0.4pt}
+
+% ============================================================
+% REVIEWER 3
+% ============================================================
+\reviewer{Reviewer 3}
+
+\comment{TODO: Paste reviewer comment 1 here.}
+
+\response{TODO: Response.}
+
+\change{TODO: Change description.}
+
+\vspace{12pt}
+\noindent\rule{\textwidth}{0.4pt}
+
+% ============================================================
+% OPTIONAL: EDITOR COMMENTS
+% ============================================================
+% \reviewer{Editor / Associate Editor}
+%
+% \comment{TODO: Editor comment.}
+%
+% \response{TODO: Response.}
+%
+% \change{TODO: Change description.}
+
+\vspace{12pt}
+\noindent We believe the revised manuscript addresses all reviewer concerns. We are grateful for the reviewers' time and expertise, which have substantially improved the quality of this work.
+
+\vspace{12pt}
+\noindent Sincerely,\\
+TODO:AUTHORS
+
+\end{document}

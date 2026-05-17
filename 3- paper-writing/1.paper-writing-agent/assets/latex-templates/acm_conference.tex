@@ -1,0 +1,142 @@
+% ACM Conference/Journal Template
+% Usage: Replace placeholders with your content
+% Requires: acmart.cls (standard in TeX Live / MiKTeX)
+
+\documentclass[sigconf,review,anonymous]{acmart}
+% Options: sigconf (conference), acmtog (journal), acmlarge, acmsmall
+% Add 'anonymous' for double-blind, 'review' for review mode
+
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+
+% Remove ACM-specific metadata for draft
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{TODO: Paper Title}
+
+\author{TODO: First Author}
+\authornote{TODO: Note if needed}
+\email{todo@university.edu}
+\orcid{TODO: 0000-0000-0000-0000}
+\affiliation{%
+  \institution{TODO: University}
+  \streetaddress{TODO: Address}
+  \city{TODO: City}
+  \country{TODO: Country}
+}
+
+\author{TODO: Second Author}
+\email{todo@university.edu}
+\affiliation{%
+  \institution{TODO: University}
+  \city{TODO: City}
+  \country{TODO: Country}
+}
+
+\begin{abstract}
+TODO: Write abstract (150-250 words).
+Structure: Problem -- Gap -- Method -- Key Result -- Implication.
+\end{abstract}
+
+% ACM Computing Classification System
+\begin{CCSXML}
+<ccs2012>
+  <concept>
+    <concept_id>TODO: CCS concept ID</concept_id>
+    <concept_desc>TODO: CCS concept description</concept_desc>
+    <concept_significance>500</concept_significance>
+  </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{TODO: Computing methodologies~Machine learning}
+
+\keywords{TODO: keyword1, keyword2, keyword3}
+
+\maketitle
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+TODO: Motivation, gap, approach, main findings, contributions.
+
+Our contributions are:
+\begin{itemize}
+  \item TODO: Contribution 1 (specific, evidence-backed)
+  \item TODO: Contribution 2
+  \item TODO: Contribution 3
+\end{itemize}
+
+% ============================================================
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{TODO: Cluster 1}
+TODO: Thematic group with contrast to your work.
+
+\subsection{TODO: Cluster 2}
+TODO: Second thematic group.
+
+% ============================================================
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem Setup}
+TODO: Formal problem statement, notation.
+
+\subsection{Proposed Approach}
+TODO: Detailed method description.
+
+% ============================================================
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Setup}
+TODO: Datasets, baselines, metrics, implementation details.
+
+\subsection{Results}
+TODO: Main comparison results.
+
+\begin{table}[htbp]
+\caption{TODO: Main Results}
+\label{tab:main_results}
+\begin{tabular}{lccc}
+\toprule
+Method & Metric 1 & Metric 2 & Metric 3 \\
+\midrule
+Baseline 1 & TODO & TODO & TODO \\
+Baseline 2 & TODO & TODO & TODO \\
+\textbf{Ours} & \textbf{TODO} & \textbf{TODO} & \textbf{TODO} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ablation Study}
+TODO: Component analysis.
+
+% ============================================================
+\section{Discussion and Limitations}
+\label{sec:discussion}
+TODO: Interpret results, limitations, future work.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+TODO: Summary of contributions and key findings.
+
+\begin{acks}
+TODO: Acknowledgments, funding, compute resources.
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

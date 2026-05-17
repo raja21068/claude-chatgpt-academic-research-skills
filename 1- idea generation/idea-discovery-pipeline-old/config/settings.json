@@ -1,0 +1,49 @@
+{
+  "api": {
+    "model": "claude-sonnet-4-20250514",
+    "max_tokens": 8096,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 5
+  },
+  "pipeline": {
+    "input_dir": "input_papers",
+    "output_dir": "output",
+    "log_dir": "logs",
+    "batch_size": 5,
+    "max_ideas_per_gap": 2
+  },
+  "embeddings": {
+    "enabled": true,
+    "model": "all-MiniLM-L6-v2",
+    "preferred_model": "allenai/specter2",
+    "min_cluster_size": 3,
+    "umap_neighbors": 15,
+    "_comment": "Set enabled=false to skip (no ML deps needed)"
+  },
+  "knowledge_graph": {
+    "enabled": true,
+    "_comment": "Builds NetworkX graph of papers/methods/problems/datasets"
+  },
+  "quality_gates": {
+    "enabled": true,
+    "check_ingestion": true,
+    "check_clusters": true,
+    "simulate_reviewer": true,
+    "_comment": "Set enabled=false for faster runs without quality checks"
+  },
+  "multi_model": {
+    "enabled": false,
+    "models": ["claude"],
+    "_comment": "Set enabled=true and add OPENAI_API_KEY / GOOGLE_API_KEY env vars for multi-model"
+  },
+  "citation_expansion": {
+    "enabled": true,
+    "max_hops": 1,
+    "max_papers_per_hop": 8,
+    "_comment": "Expands novelty search via Semantic Scholar citation graph"
+  },
+  "dashboard": {
+    "enabled": true,
+    "_comment": "Generates interactive HTML dashboard in output/"
+  }
+}

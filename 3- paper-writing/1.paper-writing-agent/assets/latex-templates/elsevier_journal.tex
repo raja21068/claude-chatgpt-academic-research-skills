@@ -1,0 +1,147 @@
+% Elsevier Journal Template
+% Usage: Replace placeholders with your content
+% Requires: elsarticle.cls (standard in TeX Live / MiKTeX)
+
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{lineno}
+
+% Uncomment for line numbers (often required for review)
+% \linenumbers
+
+\journal{TODO: Journal Name}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{TODO: Paper Title}
+
+\author[addr1]{TODO: First Author\corref{cor1}}
+\ead{todo@university.edu}
+\author[addr2]{TODO: Second Author}
+\ead{todo@university.edu}
+
+\cortext[cor1]{Corresponding author}
+\address[addr1]{TODO: Department, University, City, Country}
+\address[addr2]{TODO: Department, University, City, Country}
+
+\begin{abstract}
+TODO: Write abstract (200-300 words for Elsevier journals).
+Structure: Context -- Problem -- Method -- Results -- Significance.
+\end{abstract}
+
+\begin{keyword}
+TODO: keyword1 \sep keyword2 \sep keyword3 \sep keyword4 \sep keyword5
+\end{keyword}
+
+\end{frontmatter}
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+TODO: Motivation, gap, approach, main findings, contributions.
+
+The main contributions of this work are as follows:
+\begin{enumerate}
+  \item TODO: Contribution 1
+  \item TODO: Contribution 2
+  \item TODO: Contribution 3
+\end{enumerate}
+
+The remainder of this paper is organized as follows. Section~\ref{sec:related_work} reviews related work. Section~\ref{sec:method} describes our proposed method. Section~\ref{sec:experiments} presents experimental results. Section~\ref{sec:discussion} discusses implications and limitations. Section~\ref{sec:conclusion} concludes the paper.
+
+% ============================================================
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{TODO: Theme 1}
+TODO: Review and contrast with your approach.
+
+\subsection{TODO: Theme 2}
+TODO: Review and contrast.
+
+% ============================================================
+\section{Proposed Method}
+\label{sec:method}
+
+\subsection{Problem Definition}
+TODO: Formal problem statement, notation.
+
+\subsection{Overview}
+TODO: High-level description of the approach.
+
+\subsection{Technical Details}
+TODO: Detailed method description, equations, design choices.
+
+% ============================================================
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Datasets}
+TODO: Dataset descriptions, preprocessing, splits.
+
+\subsection{Baselines}
+TODO: Baseline methods and their configurations.
+
+\subsection{Implementation Details}
+TODO: Hyperparameters, hardware, training details.
+
+\subsection{Results}
+TODO: Main results with tables and figures.
+
+\begin{table}[htbp]
+\caption{TODO: Main comparison results.}
+\label{tab:main_results}
+\centering
+\begin{tabular}{lccc}
+\toprule
+Method & Metric 1 & Metric 2 & Metric 3 \\
+\midrule
+Baseline 1 & TODO & TODO & TODO \\
+Baseline 2 & TODO & TODO & TODO \\
+\textbf{Proposed} & \textbf{TODO} & \textbf{TODO} & \textbf{TODO} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ablation Study}
+TODO: Component-wise analysis.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Analysis}
+TODO: Interpret results, unexpected findings.
+
+\subsection{Limitations}
+TODO: Scope, dataset, and generalization limitations.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+TODO: Summary of contributions and key findings. Future work directions.
+
+% ============================================================
+\section*{Declaration of Competing Interest}
+TODO: The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data Availability}
+TODO: Data availability statement.
+
+\section*{Acknowledgments}
+TODO: Funding sources, compute resources, collaborators.
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,129 @@
+% IEEE Journal Template
+% Usage: Replace placeholders with your content
+% Compile with: pdflatex -> bibtex -> pdflatex -> pdflatex
+
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\begin{document}
+
+\title{TODO: Paper Title}
+
+\author{
+  \IEEEauthorblockN{TODO: First Author\IEEEauthorrefmark{1},
+  TODO: Second Author\IEEEauthorrefmark{2}}
+  \IEEEauthorblockA{
+    \IEEEauthorrefmark{1}TODO: Department, University, Country\\
+    Email: todo@university.edu
+  }
+  \IEEEauthorblockA{
+    \IEEEauthorrefmark{2}TODO: Department, University, Country\\
+    Email: todo@university.edu
+  }
+}
+
+\maketitle
+
+\begin{abstract}
+TODO: Write abstract (150-250 words).
+Structure: Problem -- Gap -- Method -- Key Result -- Implication.
+\end{abstract}
+
+\begin{IEEEkeywords}
+TODO: keyword1, keyword2, keyword3, keyword4, keyword5
+\end{IEEEkeywords}
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+TODO: Motivation, gap, approach, main findings, contributions.
+
+\subsection{Contributions}
+The main contributions of this paper are:
+\begin{itemize}
+  \item TODO: Contribution 1 (specific, evidence-backed)
+  \item TODO: Contribution 2
+  \item TODO: Contribution 3
+\end{itemize}
+
+% ============================================================
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{TODO: Cluster 1}
+TODO: Group related papers by theme, end with contrast to your work.
+
+\subsection{TODO: Cluster 2}
+TODO: Second thematic group.
+
+% ============================================================
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem Formulation}
+TODO: Problem setup, notation, assumptions.
+
+\subsection{Proposed Approach}
+TODO: Model/algorithm description, design choices, training procedure.
+
+% ============================================================
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+TODO: Datasets, baselines, metrics, implementation details.
+
+\subsection{Main Results}
+TODO: Results table, comparison with baselines.
+
+\begin{table}[htbp]
+\caption{TODO: Main Results}
+\label{tab:main_results}
+\centering
+\begin{tabular}{lccc}
+\toprule
+Method & Metric 1 & Metric 2 & Params \\
+\midrule
+Baseline 1 & TODO & TODO & TODO \\
+Baseline 2 & TODO & TODO & TODO \\
+\textbf{Ours} & \textbf{TODO} & \textbf{TODO} & TODO \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ablation Studies}
+TODO: Ablation results showing each component's contribution.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+TODO: Interpret results, discuss implications, compare with expectations.
+
+% ============================================================
+\section{Limitations}
+\label{sec:limitations}
+TODO: Scope limits, dataset limits, compute limits, generalization risks.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+TODO: Restate contribution and strongest evidence. No new claims.
+
+% ============================================================
+\section*{Acknowledgments}
+TODO: Funding, support, compute resources.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
