@@ -5,7 +5,7 @@ Academic Research Skills for Claude and Chatgpt ( No API KEY)
 
 
 
-!\[Workflow Diagram](./main\_image.png)
+!\[Workflow Diagram](./main_image)
 
 
 
