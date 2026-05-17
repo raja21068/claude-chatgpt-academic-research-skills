@@ -1,6 +1,5 @@
 # academic-research-skills-offline
 
-## ARIS Research Workflow
 
 ![Workflow Diagram](./main_image.png)
 
