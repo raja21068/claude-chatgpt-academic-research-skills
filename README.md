@@ -1,7 +1,7 @@
 # academic-research-skills-offline
 
 
-![Workflow Diagram](./main_image.png)
+![Workflow Diagram](./main_image3)
 
 ## 🚀 One Prompt → Complete Research Output
 
@@ -15,7 +15,7 @@ From idea to impact — AI-powered research workflow:
 
 ### AI Agent
 
-![AI Processing](./main_image2.png)  
+![AI Processing](./main_image.png)  
 
 **ChatGPT AI Research Agent**  
 - Read → Think → Process → Generate
