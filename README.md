@@ -1,7 +1,7 @@
 # academic-research-skills-offline
 
 
-![Workflow Diagram](./main_image3)
+![Workflow Diagram](./main_image3.png)
 
 ## 🚀 One Prompt → Complete Research Output
 
