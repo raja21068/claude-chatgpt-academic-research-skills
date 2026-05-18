@@ -1,4 +1,4 @@
-# academic-research-skills-offline
+# Claude + ChatGPT Academic Research Skills: One Prompt to Papers, PPTs, PDFs, Code, and Figures
 
 
 ![Workflow Diagram](./main_image3.png)
