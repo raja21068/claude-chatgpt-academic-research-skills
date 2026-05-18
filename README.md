@@ -21,7 +21,7 @@ From idea to impact — AI-powered research workflow:
 - **For Code**: Agent + Idea + Method + Sample Paper  
 
 ### AI Agent
-
+![AI Processing](./main_image.png)  
 **ChatGPT AI Research Agent**  
 - Read → Think → Process → Generate
 
