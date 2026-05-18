@@ -9,7 +9,6 @@ Learn how to use Claude Skills and ChatGPT to generate complete research outputs
 👉 **Watch on YouTube:** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg)
 
 
-![Workflow Diagram](./main_image3.png)
 
 ## 🚀 One Prompt → Complete Research Output
 
@@ -22,8 +21,6 @@ From idea to impact — AI-powered research workflow:
 - **For Code**: Agent + Idea + Method + Sample Paper  
 
 ### AI Agent
-
-![AI Processing](./main_image.png)  
 
 **ChatGPT AI Research Agent**  
 - Read → Think → Process → Generate
