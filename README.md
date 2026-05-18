@@ -1,5 +1,13 @@
 # Claude + ChatGPT Academic Research Skills: One Prompt to Papers, PPTs, PDFs, Code, and Figures
 
+## 🎥 Watch the Demo Video
+
+Learn how to use Claude Skills and ChatGPT to generate complete research outputs from one structured prompt.
+
+[![Watch the video](https://img.youtube.com/vi/vhvtOVsnYLg/maxresdefault.jpg)](https://youtu.be/vhvtOVsnYLg)
+
+👉 **Watch on YouTube:** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg)
+
 
 ![Workflow Diagram](./main_image3.png)
 
