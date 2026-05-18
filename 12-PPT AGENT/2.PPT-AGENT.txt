@@ -1,0 +1,5 @@
+Use the uploaded presentation agent. First choose the best slide template and design style, then create the slide outline.
+As well generate some images then use this skill to create ppt 
+
+Example: Prepare Content and find images  for a lecture of one hour on the topic of Research and Methodologies based on 2026 recent tends.
+Use my agent to create ppt
