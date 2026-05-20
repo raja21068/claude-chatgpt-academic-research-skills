@@ -1,0 +1,12 @@
+Use the one-shot-resume skill.
+
+Target output: full application package.
+Keep the resume ATS-friendly and evidence-based.
+Do not invent metrics. Use TODO placeholders for missing numbers.
+Create resume, cover letter, recruiter email, LinkedIn update, interview prep, evidence matrix, ATS scorecard, and final checklist.
+
+Candidate evidence:
+[paste resume or profile]
+
+Job description:
+[paste job description]

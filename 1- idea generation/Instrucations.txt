@@ -1,0 +1,3 @@
+Drop 50 PDFs → ./run.sh → get SESSION.md
+Upload SKILL.md + SESSION.md to any LLM
+Start asking

@@ -1,0 +1,27 @@
+Use the one-shot-elite-cv-agent skill.
+
+Target output: full application package.
+Country convention: US.
+Length target: 1 page unless evidence requires 2 pages.
+Tone: polished, direct, human, ATS-safe.
+Truth rule: do not invent metrics, titles, employers, dates, tools, or certifications. Use TODO markers for missing proof.
+
+Create:
+1. Job analysis
+2. Evidence matrix
+3. Elite positioning strategy
+4. Tailored ATS resume/CV
+5. Cover letter
+6. Recruiter email
+7. LinkedIn headline and About rewrite
+8. Interview prep
+9. Portfolio/proof plan
+10. Readiness scorecard
+11. Editing report
+12. Final checklist
+
+Candidate evidence:
+[paste CV/resume/profile/projects]
+
+Job description:
+[paste job description]
