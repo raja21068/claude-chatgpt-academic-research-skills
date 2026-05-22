@@ -1,0 +1,15 @@
+I've uploaded saas-product-factory.zip
+
+This is a complete system for building SaaS applications from idea to production.
+
+It contains:
+- 5 agent files (discovery → PRD → design system → tasks → implementation)
+- Examples and reference documentation
+- Testing philosophy and best practices
+
+Please:
+1. Extract and examine the contents of this zip file
+2. Confirm you can see all the agent files in the agents/ directory
+3. Then we'll begin building a new SaaS product using this system
+
+Start by listing the files you can see.
