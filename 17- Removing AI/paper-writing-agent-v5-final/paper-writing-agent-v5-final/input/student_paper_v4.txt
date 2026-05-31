@@ -1,0 +1,901 @@
+ANN-based multi-objective optimization of a SPEEK/MXene nanocomposite 
+membrane microbial fuel cell for simultaneous improvement of power 
+density, COD removal, coulombic efficiency, and internal resistance 
+aYangtze Delta Region Institute (Huzhou), UESTC, Huzhou 313001, China 
+ b Chemical Engineering Section, Sohar University, Sohar 311, Oman 
+Keywords: Microbial fuel cell; SPEEK; MXene; Artificial neural network; Multi-objective optimization; 
+COD removal; Power density; Coulombic efficiency; Internal resistance; Proton exchange membrane; 
+Biofouling; Grotthuss mechanism 
+Abstract 
+The performance of microbial fuel cells (MFCs) is strongly affected by membrane composition and operating 
+conditions. Therefore, identifying the best values of MXene loading, initial chemical oxygen demand (COD), 
+and anode pH is essential for improving power generation and wastewater treatment performance. This study 
+proposes an artificial neural network (ANN)-based framework for modelling and multi-objective optimization 
+of a sulfonated polyether ether ketone (SPEEK)/MXene nanocomposite proton exchange membrane (PEM) in 
+a two-chamber MFC. Three input variables were considered: MXene loading (0-7 wt%), initial COD of the 
+anode medium (1000-3000 mg L⁻¹), and anode electrolyte pH (5.5-8.5). Four output responses were evaluated: 
+power density (PD), COD removal efficiency (CODr), coulombic efficiency (CE), and internal resistance (RI). 
+A feed-forward multilayer perceptron trained using the Levenberg-Marquardt backpropagation algorithm 
+achieved an overall coefficient of determination (R²) of 0.96, confirming its ability to simulate the nonlinear 
+interaction among the investigated variables. The trained ANN response surface was then used for multi-
+objective optimization. The best operating condition was identified at MXene = 4.2 wt%, COD = 2300 mg L⁻¹, 
+and pH = 7.1, with predicted values of PD = 612 mW m⁻², CODr = 66%, CE = 16.2%, and RI = 63 Ω. 
+Experimental validation in triplicate produced PD = 617.6 mW m⁻², CODr = 67.4%, CE = 17.2%, and RI = 
+64.5 Ω. The overall prediction accuracy was 97.1%, with a mean absolute error of 2.4% across the four 
+outputs. SEM analysis confirmed that 4.2 wt% MXene suppressed biofouling and EPS deposition, whereas 
+excessive loading caused nanosheet agglomeration and surface defects. The proposed ANN-based framework 
+provides a reliable data-driven approach for SPEEK/MXene MFC design and can be extended to other 
+nanocomposite membrane systems for wastewater treatment and bioelectricity recovery. 
+1. Introduction 
+The global demand for decentralized wastewater treatment technologies capable of recovering energy from 
+organic wastes has intensified interest in bioelectrochemical systems. Among these systems, the two-chamber 
+microbial fuel cell (MFC), separated by a proton exchange membrane (PEM), is considered a promising 
+configuration because it can treat wastewater and generate electricity simultaneously. 
+In an MFC, exoelectrogenic microorganisms oxidize biodegradable substrates in the anode chamber and 
+release electrons and protons through their metabolic activity. The electrons are transferred through an external 
+circuit to the cathode, while the protons migrate through the PEM and participate in oxygen reduction at the 
+cathode. Accordingly, the measured current is directly linked to substrate degradation and can be used as an 
+indicator of both bioelectricity generation and wastewater treatment efficiency [1,2]. Although many attempts 
+have been made to improve and commercialize MFCs, practical large-scale application is still restricted by low 
+volumetric power output, ohmic and mass-transfer losses, membrane cost, and biofouling at the membrane-
+electrolyte interface. These limitations indicate that membrane composition and operating conditions should be 
+optimized together, because their effects on microbial activity, proton transport, and electrochemical 
+performance are strongly coupled. 
+The PEM is the central functional element of a two-chamber MFC. It conducts protons from the anode to the 
+cathode, separates the anolyte and catholyte, limits substrate crossover and oxygen back-diffusion, and 
+maintains stable electrochemical operation. Nafion 117 has widely been used as a benchmark PEM because of 
+its high proton conductivity and chemical stability. However, its high cost, oxygen permeability, biofouling 
+Page 3 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 3 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+tendency under high organic loading, and non-selective cation transport limit its practical application in 
+wastewater-based MFCs [3,4]. Therefore, the development of low-cost, mechanically stable, and biofouling-
+resistant PEM alternatives remains necessary. 
+Sulfonated polyether ether ketone (SPEEK) has emerged as one of the most suitable alternative PEM materials 
+for MFC applications. SPEEK is obtained by sulfonating polyether ether ketone (PEEK), and its degree of 
+sulfonation can be adjusted by controlling reaction temperature and time. Increasing the sulfonation degree 
+generally enhances proton conductivity through the formation of hydrophilic sulfonic acid domains. However, 
+excessive sulfonation can increase water uptake and swelling, weaken the membrane mechanically, and reduce 
+proton selectivity [5]. Thus, bare SPEEK alone cannot fully overcome the trade-off between conductivity, 
+dimensional stability, and selectivity. Incorporating inorganic nanofillers into the SPEEK matrix is an effective 
+approach for improving proton transport while preserving membrane integrity and reducing crossover. 
+Among the available nanofillers, Ti₃C₂Tₓ MXene is particularly attractive because of its two-dimensional 
+layered structure, intrinsic hydrophilicity, high electrical conductivity, and abundant surface functional groups, 
+including -OH, -F, and =O. When incorporated into the SPEEK matrix, MXene nanosheets can provide 
+hydrogen-bonded proton transport pathways, reinforce the polymer network, and reduce bacterial adhesion 
+through hydrophilic surface repulsion [6,7]. These characteristics make SPEEK/MXene membranes promising 
+for improving MFC performance. Nevertheless, the MXene content must be carefully optimized, because 
+excessive loading can lead to nanosheet agglomeration, pore blockage, increased tortuosity, and reduced ion 
+transport [8,9]. 
+Optimizing this coupled membrane-bioelectrochemical system by conventional one-factor-at-a-time 
+experimentation is inadequate, since this approach neglects the interaction effects among membrane 
+composition, substrate concentration, and electrolyte pH. Response surface methodology can provide useful 
+regression-based information, but polynomial models may not fully describe the nonlinear response surfaces 
+produced by microbial kinetics, electrochemical transport, and polymer morphology. Artificial neural networks 
+(ANNs) can overcome this limitation by learning the mapping between inputs and outputs directly from 
+experimental data without imposing a predefined response-surface form. ANN models have shown strong 
+predictive capability for MFC power density and COD removal [10,11]. However, the simultaneous use of 
+membrane composition and operating conditions in a single multi-output optimization framework has not been 
+sufficiently explored for SPEEK/MXene MFC systems. 
+This work addresses this gap by developing an integrated ANN-based modelling and multi-objective 
+optimization framework for a SPEEK/MXene nanocomposite PEM MFC. The main contributions are as 
+follows. First, MXene loading is treated as a decision variable together with initial COD and anode pH using a 
+dataset of 50 experimental observations. Second, the ANN simultaneously predicts four coupled responses, 
+namely PD, CODr, CE, and RI, enabling multi-criteria evaluation of MFC performance. Third, the ANN-
+predicted optimum is experimentally validated in triplicate to confirm the predictive reliability of the model. 
+The generated response surfaces also provide insight into the interaction between membrane composition, 
+substrate concentration, pH, and bioelectrochemical performance. 
+2. Materials and Methods 
+2.1. Membrane Fabrication 
+SPEEK/MXene membranes containing 0, 1, 3, 5, and 7 wt% Ti₃C₂Tₓ MXene were fabricated by wet phase 
+inversion. Ti₃C₂Tₓ MXene (purity 99 wt%, Suzhou Beike Nanotechnology Co., Ltd., China; flake lateral size 
+1-5 μm; interlayer spacing 0.98 nm) was first dispersed in anhydrous N,N-dimethylformamide (DMF; purity 
+≥99.8%, Sigma Aldrich) by probe ultrasonication at 500 W and 20 kHz for 5 min. The ultrasonication step was 
+performed at 25 °C using ice-bath cooling to avoid solvent heating. The resulting dispersion was visually 
+inspected for colloidal stability, and no visible sedimentation was observed over 24 h. SPEEK (degree of 
+sulfonation 65%, molecular weight 40,000 g mol⁻¹, Sigma Aldrich) was dissolved separately in DMF at 45 °C 
+under magnetic stirring at 300 rpm for 4 h. The MXene dispersion was then added to the SPEEK solution and 
+stirred at 45 °C for 5 h. The dope solution was degassed under vacuum at 45 °C for 30 min, cast on a clean 
+glass substrate using a doctor blade with a nominal gap of 250 μm, exposed to ambient air for 15 s, and 
+Page 4 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 4 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+immediately immersed in a deionized water coagulation bath at 25 °C. Membrane formation was completed 
+within 2 h. The resulting membranes were washed three to five times with deionized water to remove residual 
+DMF and stored in deionized water before characterization and MFC assembly. Membrane thickness was 
+measured at five positions using a digital micrometer, and the average thickness was within 100-120 μm [16]. 
+2.2. MFC Configuration and Media 
+A two-chamber MFC was fabricated using transparent plexiglass chambers with a working volume of 300 mL 
+for each chamber. The anode and cathode chambers were separated by the SPEEK/MXene nanocomposite 
+membrane and sealed with silicone gaskets to prevent leakage. The effective membrane area exposed to the 
+electrolyte was 20 cm². Untreated carbon paper (4 cm × 5 cm, Toray TGP-H-060) was used as the anode, while 
+the cathode was prepared from carbon paper coated with Pt at 0.35 mg cm⁻² using a brush-painting method and 
+5% Nafion ionomer as binder. The anode electrolyte contained glucose as the main carbon source and yeast 
+extract as a nitrogen and cofactor source in phosphate buffer saline (PBS; 50 mM; adjusted pH). Initial COD 
+was adjusted by changing the glucose concentration within 1000-3000 mg L⁻¹ and was confirmed by UV-Vis 
+spectrophotometry before each experiment. Anode pH was adjusted using 0.1 M HCl or 0.1 M NaOH. Before 
+inoculation, the anode chamber was sparged with 99.99% nitrogen gas for 15 min and maintained under 
+anaerobic conditions. Domestic wastewater sludge collected from a municipal wastewater treatment plant in 
+Riyadh was used as the inoculum at 10% v/v. The cathode electrolyte (50 mM PBS, pH 7.0) was continuously 
+aerated using an aquarium pump at 50 mL min⁻¹. All MFC experiments were conducted at 25 ± 1 °C. 
+2.3. Performance Measurements 
+The cell voltage across a fixed external resistance of 1000 Ω was recorded at 10 min intervals using a Keithley 
+2700 data acquisition system (Tektronix). Power density (PD, mW m⁻²) and current density were calculated as 
+PD = V × I / A and J = I / A, respectively, where A is the effective membrane area (20 cm²). COD was 
+measured every 24 h by UV-Vis spectrophotometry (HACH DR3900) after 1:10 dilution and closed reflux 
+digestion at 150 °C for 2 h using HACH TNT plus vials. COD removal efficiency (CODr, %) was calculated 
+as CODr = (COD_in - COD_out) / COD_in × 100. Coulombic efficiency (CE, %) was calculated from the 
+measured current profile using CE = M ∫ I dt / (F b V_an ΔCOD), where M is the molecular weight of oxygen 
+(32 g mol⁻¹), F is Faraday's constant (96,485 C mol⁻¹), b is the number of electrons transferred per mole of 
+oxygen equivalent (4), and V_an is the anode volume. Electrochemical impedance spectroscopy (EIS) was 
+performed at open-circuit voltage using an Autolab PGSTAT302N potentiostat/galvanostat with a 10 mV 
+sinusoidal perturbation over the frequency range from 100 kHz to 10 mHz. Internal resistance (RI) was 
+obtained from equivalent-circuit fitting using a modified Randles circuit containing solution resistance (R_s), 
+charge-transfer resistance (R_ct), a constant phase element, and a Warburg diffusion element. The reported RI 
+is the sum of R_s and R_ct. All experiments were conducted in biological triplicate, and the results are 
+reported as mean ± standard deviation. 
+2.4. Membrane Characterization: SEM 
+The surface and cross-sectional morphologies of the membranes were examined using scanning electron 
+microscopy (SEM; JEOL JSM-7610F, Tokyo, Japan) at an accelerating voltage of 10 kV and a working 
+distance of 6.4 mm. Before imaging, membrane samples were sputter-coated with a 10 nm gold layer to 
+prevent charging. Cross-sectional specimens were prepared by freeze-fracturing in liquid nitrogen. Surface 
+images were collected at 10,000× magnification to examine MXene distribution, pore structure, and EPS 
+deposition. After 30 days of MFC operation, used membranes were carefully removed, rinsed three times with 
+PBS to remove loosely attached biomass, fixed in 2.5% glutaraldehyde in PBS for 2 h at 4 °C, dehydrated 
+through a graded ethanol series (50, 70, 90, and 100% v/v), and dried by critical point drying to preserve the 
+biofilm morphology. 
+2.5. Experimental Design 
+Three independent variables were varied systematically within their defined ranges: MXene loading (0, 1, 3, 5, 
+and 7 wt%), initial COD (1000-3000 mg L⁻¹ in increments of 500 mg L⁻¹), and anode electrolyte pH (5.5-8.5 
+in increments of 0.5 pH units). A full combinatorial design across these levels would require 125 experiments. 
+Therefore, 50 experimental observations were selected by retaining all extreme conditions and sampling the 
+Page 5 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 5 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+intermediate levels to provide sufficient coverage of the nonlinear response surface. Each operating condition 
+was performed in biological triplicate, and the mean value was used as the observation for ANN training and 
+validation. Table 1 presents a representative subset of 16 runs from the full 50-point dataset, including the 
+predicted optimum. 
+ 
+Table 1. Representative experimental dataset used for ANN training and validation (n = 16 of 50 
+total runs shown; — = optimum prediction point). 
+MX (wt%) 
+COD (mg L⁻¹) 
+pH 
+PD (mW m⁻²) 
+CODr (%) 
+CE (%) 
+RI (Ω) 
+0 
+1000 
+5.5 
+210 
+22 
+3.0 
+145 
+0 
+2000 
+7.5 
+370 
+38 
+10.8 
+122 
+0 
+3000 
+7.0 
+420 
+42 
+12.8 
+114 
+1 
+1000 
+7.5 
+340 
+38 
+12.6 
+117 
+1 
+2000 
+6.5 
+420 
+45 
+13.5 
+102 
+1 
+3000 
+7.5 
+460 
+49 
+13.4 
+92 
+3 
+1000 
+7.5 
+500 
+55 
+17.8 
+84 
+3 
+2000 
+7.0 
+648 
+65 
+5.9 
+66 
+3 
+3000 
+7.5 
+630 
+68 
+16.8 
+56 
+4.2 
+2300 
+7.1 
+- 
+- 
+- 
+- 
+5 
+1000 
+6.5 
+520 
+58 
+15.9 
+81 
+5 
+2000 
+7.5 
+608 
+72 
+18.5 
+54 
+5 
+3000 
+6.0 
+640 
+69 
+23.0 
+60 
+7 
+1000 
+8.5 
+500 
+55 
+9.7 
+79 
+7 
+2000 
+7.0 
+620 
+68 
+10.9 
+64.5 
+7 
+3000 
+8.5 
+410 
+67 
+8.9 
+62 
+ 
+2.6. ANN Model Development 
+A feed-forward multilayer perceptron (MLP) was implemented in MATLAB R2023a using the Neural 
+Network Toolbox. The network architecture was determined by systematically comparing architectures with 1-
+4 hidden layers and 5-50 neurons per layer using 10-fold cross-validation. The final 3-25-20-10-5-4 
+architecture, containing four hidden layers with 25, 20, 10, and 5 neurons, was selected because it produced the 
+minimum validation mean squared error (MSE) without evidence of overfitting. Hyperbolic tangent sigmoid 
+activation functions were used in the hidden layers, and a linear activation function was applied at the output 
+layer to allow unconstrained output prediction. All input and output variables were normalized to the range [-1, 
+1] using min-max normalization. The 50-point dataset was randomly divided into training (70%, n = 35), 
+validation (15%, n = 7), and test (15%, n = 8) subsets. The Levenberg-Marquardt backpropagation algorithm 
+was used for weight optimization because of its fast convergence for medium-sized neural networks. Training 
+was terminated when the validation MSE did not decrease for six consecutive epochs. The network was trained 
+20 times from random initial weights, and the run with the lowest validation MSE was retained. Table 2 
+summarizes the ANN architecture and training parameters. 
+Page 6 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 6 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+ 
+Table 2. ANN architecture and training parameters. 
+Parameter 
+Value 
+Network type 
+Feed-forward MLP 
+Inputs 
+3: MXene loading (wt%), initial COD (mg L⁻¹), anode pH 
+Outputs 
+4: PD (mW m⁻²), CODr (%), CE (%), RI (Ω) 
+Hidden layers / neurons 
+Four hidden layers: 25-20-10-5 neurons 
+Activation function (hidden) 
+Hyperbolic tangent sigmoid (tanh) 
+Activation function (output) 
+Linear 
+Training algorithm 
+Levenberg-Marquardt backpropagation 
+Training / Validation / Test split 
+70% / 15% / 15% 
+Normalization range 
+[−1, 1] min-max 
+Early stopping patience 
+6 epochs 
+Number of training runs (best kept) 
+20 
+Performance metric 
+MSE and R² 
+Total experimental observations 
+50 runs (triplicate mean each) 
+ 
+2.7. Multi-Objective Optimization 
+Following training, the validated ANN was used as a surrogate model to generate predictions across the full 
+input domain. The grid resolution was set to 0.1 wt% for MXene loading, 50 mg L⁻¹ for initial COD, and 0.05 
+pH units for anode pH, producing 172,629 candidate operating conditions. For each candidate, the ANN 
+predicted PD, CODr, CE, and RI. A dimensionless composite performance score was calculated by 
+normalizing each output to the range [0, 1] and aggregating the objectives as Score = PD_n + CODr_n + CE_n 
++ (1 - RI_n), where the subscript n denotes normalized values and the term (1 - RI_n) represents the 
+minimization of internal resistance. Equal weighting was applied to the four objectives. To test the robustness 
+of the identified condition, the optimization was repeated using weights of 0.4:0.3:0.2:0.1 for 
+PD:CODr:CE:RI. The same optimum was obtained within the grid resolution, confirming that the selected 
+operating point was not sensitive to moderate changes in objective weighting. 
+2.8. Experimental Validation 
+The ANN-predicted optimum (MXene = 4.2 wt%, initial COD = 2300 mg L⁻¹, and anode pH = 7.1) was 
+validated experimentally using three independent MFC assemblies. Each assembly was prepared with a freshly 
+fabricated 4.2 wt% SPEEK/MXene membrane and operated for 10 days under continuous monitoring. Steady-
+state performance was calculated from the average values recorded between days 7 and 10. The ANN-
+predicted values were compared with the experimental values using absolute error, relative error, and overall 
+prediction accuracy, defined as 100 minus the mean absolute percentage error across the four outputs. 
+3. Results and Discussion 
+3.1. Membrane Morphology and Biofouling Characterization 
+Page 7 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 7 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Complementary physicochemical characterization was performed to support the SEM observations. Ion-
+exchange capacity was measured by back-titration with NaOH after protonation in 1 M HCl. Water uptake was 
+calculated by gravimetric comparison of wet and dry membrane masses after 24 h immersion in deionized 
+water at 25 °C. The swelling ratio was determined from dimensional measurements before and after hydration. 
+Proton conductivity was measured by EIS using a four-probe conductivity cell at 25 °C. Contact angle was 
+determined by the sessile-drop method to evaluate surface hydrophilicity. Tensile strength and elongation at 
+break were measured by uniaxial tensile testing. These characterization results were consistent with the SEM 
+morphology and ANN performance trends, confirming that 4.2 wt% MXene provides the best balance of 
+proton conductivity, mechanical integrity, low swelling, and hydrophilicity among the investigated 
+membranes. 
+Fig. 1 presents the SEM surface morphology of SPEEK/MXene membranes at MXene loadings of 0, 1, 3, 4.2, 
+5, and 7 wt%, together with the cross-sectional image of the optimized 4.2 wt% membrane. The gradual 
+change in surface morphology with MXene content shows a coherent trend and explains the observed 
+electrochemical performance. 
+At 0 wt% MXene, the bare SPEEK membrane surface is extensively covered with dense extracellular 
+polymeric substance (EPS) deposits and bacterial rods, confirming severe biofouling during MFC operation. 
+The absence of MXene leaves the membrane surface insufficiently hydrophilic to resist microbial adhesion 
+under high-organic-load anolyte conditions. At 1 and 3 wt% MXene, the biofilm coverage decreases 
+progressively, which is attributed to the increased surface hydrophilicity provided by the -OH and =O groups 
+on the MXene nanosheets. This hydrophilic surface reduces bacterial attachment by creating an anti-adhesive 
+hydration layer. 
+At 4.2 wt% MXene, the membrane surface is uniform, with clear circular pore openings, homogeneously 
+distributed MXene nanosheets, and negligible EPS or bacterial attachment. This loading represents the 
+structural optimum because the nanosheets are well dispersed and do not form continuous agglomerates. Under 
+this condition, the membrane maintains pore connectivity for proton transport while providing sufficient 
+hydrophilic surface area for antifouling. At 5 wt%, the surface remains relatively clean but shows early platelet 
+crowding near the pore edges. At 7 wt%, agglomeration becomes pronounced, pore regularity is disrupted, 
+surface cracks appear, and biofouling re-emerges at defect sites [18,19]. 
+The cross-sectional image of the 4.2 wt% membrane (Fig. 1g) shows the asymmetric morphology produced by 
+phase inversion. The structure consists of a thin dense selective skin layer, a middle region with finger-like 
+macrovoids, and a spongy microporous sublayer containing embedded MXene platelets. This morphology is 
+favourable for MFC operation because the dense skin layer supports proton selectivity and substrate rejection, 
+while the macrovoid and spongy sublayers reduce mass-transfer resistance. The embedded MXene platelets 
+also provide localized hydrogen-bonded pathways that enhance proton migration without requiring a 
+continuous conductive phase across the membrane thickness. 
+ 
+Page 8 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 8 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+ 
+Fig. 1. SEM surface morphology of SPEEK/MXene nanocomposite membranes at MXene loadings of (a) 0 wt%, (b) 
+1 wt%, (c) 3 wt%, (d) 4.2 wt% (optimal), (e) 5 wt%, and (f) 7 wt%, and (g) cross-section of the 4.2 wt% membrane. 
+Scale bars: 2 μm (panels a–f); 5 μm (panel g). Accelerating voltage: 10 kV; working distance: 6.4 mm. 
+3.2. ANN Training Performance 
+Fig. 2 shows the MSE loss curve during Levenberg-Marquardt training. The error decreases rapidly during the 
+first 10-15 epochs, reflecting the efficient second-order weight updates of the LM algorithm. The training and 
+validation curves remain close throughout the training process, indicating adequate generalization and the 
+absence of obvious overfitting. Training converged at epoch 28, while the best validation performance was 
+obtained at epoch 22. Table 3 summarizes the performance statistics of the trained ANN for each output 
+response. 
+The ANN achieved test-set R² values of 0.961 for PD, 0.948 for CODr, 0.831 for CE, and 0.953 for RI. PD and 
+RI were predicted with the highest accuracy, which is consistent with their strong dependence on membrane 
+Page 9 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 9 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+physical properties controlled by MXene loading. CE showed higher scatter because it is more sensitive to 
+microbial community dynamics, pH microenvironments near the biofilm-electrode interface, and current losses 
+that are difficult to reproduce across biological replicates. Nevertheless, the CE test RMSE of 1.9% remained 
+acceptable for optimization purposes. The overall test-set R² of 0.923 confirms that the ANN generalized 
+adequately beyond the training data. 
+ 
+ 
+Fig. 2. ANN training performance: MSE versus training epoch for the Levenberg-Marquardt backpropagation 
+algorithm. Solid and dashed lines represent training and validation MSE, respectively. The vertical dashed line 
+indicates the best epoch (epoch 22). 
+ 
+Table 3. ANN model performance statistics (R², RMSE, and MAE) for all four outputs across training and test 
+subsets. 
+Output 
+R² (Train) 
+R² (Test) 
+RMSE (Train) 
+RMSE (Test) 
+MAE (Test) 
+PD (mW m⁻²) 
+0.980 
+0.961 
+18.4 
+31.2 
+24.8 
+CODr (%) 
+0.972 
+0.948 
+1.8 
+2.6 
+2.1 
+CE (%) 
+0.884 
+0.831 
+1.2 
+1.9 
+1.5 
+RI (Ω) 
+0.975 
+0.953 
+4.3 
+6.1 
+4.9 
+Overall (mean) 
+0.953 
+0.923 
+- 
+- 
+- 
+ 
+3.3. Regression Analysis: Predicted vs. Actual 
+Fig. 3 shows the regression plots of ANN-predicted versus experimental values for PD, CODr, CE, and RI 
+using the combined training, validation, and test datasets. For PD, CODr, and RI, the data points cluster close 
+to the 1:1 identity line with R² values above 0.95, indicating that the ANN learned these response functions 
+with low bias. The CE regression shows greater scatter, particularly at intermediate MXene loadings where 
+replicate-to-replicate biological variation was higher. The scattered points are distributed on both sides of the 
+identity line, showing that the model does not systematically overpredict or underpredict CE. The overall R² of 
+Page 10 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 10 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+0.96 and the absence of structured residuals confirm that the trained ANN is suitable as a surrogate model for 
+subsequent optimization. 
+ 
+ 
+Fig. 3. ANN regression plots: predicted vs. actual values for (a) power density (PD), (b) COD removal 
+efficiency (CODr), (c) coulombic efficiency (CE), and (d) internal resistance (RI). R² values are annotated for 
+each output. Dashed lines show the 1:1 identity reference. 
+3.4. Effect of MXene Loading on MFC Performance 
+Fig. 4 shows the effect of MXene loading on the four performance outputs at the reference condition of COD = 
+2300 mg L⁻¹ and pH = 7.1. Experimental mean values are superimposed on the ANN predictions. All outputs 
+show a unimodal dependence on MXene loading, with the optimum located near 4.2 wt%. This behaviour 
+reflects the percolation-type effect of MXene nanosheets within the SPEEK matrix. 
+Power density increased from 210 mW m⁻² at 0 wt% to a predicted maximum of 612 mW m⁻² at 4.2 wt%, and 
+then decreased to 500 mW m⁻² at 7 wt%. At low and intermediate loading, well-dispersed nanosheets form 
+hydrogen-bonded proton transport channels that reduce the activation energy for proton migration through the 
+Grotthuss mechanism. This decreases the ohmic component of RI and improves PD. At excessive loading, 
+platelet agglomeration disrupts these pathways, increases pore tortuosity, creates dead-end transport routes, 
+and reduces PD [6,21]. 
+CODr and CE followed the same unimodal trend, indicating that membrane composition affects both proton 
+transfer and electrochemical utilization of the organic substrate. The link between these outputs is internal 
+resistance: lower RI enables higher current generation, accelerates anodic glucose oxidation, and improves 
+both COD consumption and coulombic conversion. The minimum RI of 63 Ω at 4.2 wt% agrees with the 
+Page 11 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 11 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+maximum PD and is consistent with the MFC power relationship PD = OCV² / (4 R_int A), where OCV is the 
+open-circuit voltage. The convergence of the four optima at the same loading confirms that 4.2 wt% is a multi-
+objective optimum for the investigated system. 
+ 
+ 
+Fig. 4. ANN-predicted effect of MXene loading on (a) power density (PD), (b) COD removal efficiency (CODr), (c) 
+coulombic efficiency (CE), and (d) internal resistance (RI) at COD = 2300 mg L⁻¹, pH = 7.1. Symbols represent 
+experimental mean values (± SD, n = 3). Open circle marks the multi-objective optimum at 4.2 wt%. 
+3.5. Three-Dimensional Response Surfaces 
+Figs. 5 and 6 show the ANN-generated three-dimensional response surfaces for the coupled effects of the 
+process variables. Fig. 5 presents PD and CODr as functions of MXene loading and initial COD at fixed pH = 
+7.1. Both surfaces show a high-performance ridge at MXene ≈ 4.2 wt% and COD ≈ 2000-2500 mg L⁻¹. Below 
+1500 mg L⁻¹ COD, substrate limitation reduces microbial activity and electron flux, lowering both PD and 
+CODr. Above 2500 mg L⁻¹ COD, substrate inhibition reduces current output despite the greater carbon 
+availability. This behaviour is consistent with Monod-type kinetics at high substrate concentrations, where 
+excess glucose or fermentation by-products can inhibit electron-transfer pathways [8]. The gold star in each 
+panel marks the global optimum. 
+ 
+Page 12 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 12 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+ 
+Fig. 5. ANN-predicted three-dimensional response surfaces at fixed pH = 7.1: (a) power density (mW m⁻²) and (b) 
+COD removal efficiency (%) as functions of MXene loading (wt%) and initial COD (mg L⁻¹). Gold star marks the 
+multi-objective optimum at MX = 4.2 wt%, COD = 2300 mg L⁻¹. 
+ 
+Fig. 6 shows CE and RI as functions of MXene loading and anode pH at fixed COD = 2300 mg L⁻¹. CE 
+reaches its maximum at near-neutral pH (6.8-7.2) and 4.2 wt% MXene. This optimum reflects the combined 
+effect of improved proton transport through MXene-assisted hydrogen-bonded networks and favourable 
+microbial metabolism at near-neutral pH. Exoelectrogenic microorganisms, including Geobacter and 
+Shewanella species, commonly show maximum current output around pH 6.8-7.5 [8,9]. At pH below 6.5, 
+proton accumulation in the anode biofilm suppresses microbial activity and electron transfer. At pH above 7.5, 
+competing cation transport lowers proton selectivity and reduces CE. RI shows the inverse trend and reaches 
+its minimum at the same pH and MXene loading, confirming that MXene-assisted proton transport is most 
+effective under near-neutral conditions [22]. 
+ 
+ 
+Fig. 6. ANN-predicted three-dimensional response surfaces at fixed COD = 2300 mg L⁻¹: (a) coulombic efficiency 
+(%) and (b) internal resistance (Ω) as functions of MXene loading (wt%) and anode pH. Gold star marks the multi-
+objective optimum at MX = 4.2 wt%, pH = 7.1. 
+ 
+3.6. Sensitivity Analysis 
+Page 13 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 13 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Fig. 7 presents the relative importance of each input variable for the four output responses, calculated by 
+systematic perturbation of the trained ANN. Each input was varied across its investigated range while the other 
+two inputs were fixed at the optimal condition. The normalized output change was used as the input-
+importance value. MXene loading was the dominant factor for PD (42%) and RI (48%), confirming that 
+membrane composition is the main driver of electrochemical performance in this system. Therefore, precise 
+control of MXene loading during membrane fabrication is essential for achieving stable MFC performance. 
+Initial COD exerted the strongest influence on CODr (51%), reflecting the direct dependence of microbial 
+oxidation rate on substrate availability. Its effect on PD was smaller (31%), indicating that the ANN captured 
+substrate saturation effects at higher organic loading. Anode pH was the most influential variable for CE (44%) 
+because it regulates microbial metabolism and proton availability at the biofilm-electrode interface. These 
+results demonstrate that the three inputs are non-redundant and have distinct primary effects, supporting the 
+experimental strategy of varying all variables independently. 
+ 
+ 
+Fig. 7. ANN sensitivity analysis: relative importance (%) of MXene loading, initial COD concentration, and anode 
+pH on each of the four MFC performance outputs (PD, CODr, CE, RI). Importance values are normalized to sum to 
+100% within each output. 
+3.7. Multi-Objective Optimization 
+Fig. 8 presents the ANN-predicted optimization contour for CODr as a function of MXene loading and anode 
+pH at COD = 2300 mg L⁻¹. The region with CODr ≥66% is concentrated within MXene = 3.8-4.6 wt% and pH 
+= 6.8-7.3, showing a narrow but clearly identifiable optimum. The composite-score analysis over 172,629 
+candidate conditions identified MXene = 4.2 wt%, COD = 2300 mg L⁻¹, and pH = 7.1 as the global multi-
+objective optimum, with a score of 3.62 out of 4.0. The second-best condition (MXene = 4.0 wt%, COD = 
+2250 mg L⁻¹, and pH = 7.05) scored 3.59. The small difference between these scores indicates that the 
+optimum region is robust and that minor deviations from the setpoint are unlikely to cause abrupt performance 
+losses. Tables 4 and 5 present the recommended operating condition and the corresponding ANN-predicted 
+output values. 
+ 
+Page 14 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 14 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+ 
+Fig. 8. ANN-predicted optimization contour of COD removal efficiency (%) as a function of MXene loading 
+(wt%) and anode pH at fixed COD = 2300 mg L⁻¹. The star denotes the multi-objective optimum (MXene = 
+4.2 wt%, pH = 7.1). Contour lines are spaced at 5% CODr intervals. 
+ 
+Table 4. ANN-recommended optimal operating conditions and practical tolerances. 
+Parameter 
+Optimal Setpoint 
+Practical Tolerance 
+MXene loading (wt%) 
+4.2 
+±0.2 wt% 
+Initial COD (mg L⁻¹) 
+2300 
+±50 mg L⁻¹ 
+Anode pH 
+7.1 
+±0.1 pH units 
+ 
+Table 5. ANN-predicted output values at the optimal operating condition. 
+Performance Output 
+ANN-Predicted Value 
+Power Density (PD) 
+612 mW m⁻² 
+COD Removal Efficiency (CODr) 
+66% 
+Coulombic Efficiency (CE) 
+16.2% 
+Internal Resistance (RI) 
+63 Ω 
+ 
+3.8. Experimental Validation 
+Page 15 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 15 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Fig. 9 compares the ANN-predicted and experimentally measured outputs at the optimized condition. The 
+ANN predicted PD = 612 mW m⁻², CODr = 66%, CE = 16.2%, and RI = 63 Ω. Triplicate experimental 
+validation produced PD = 617.6 ± 8.2 mW m⁻², CODr = 67.4 ± 1.1%, CE = 17.2 ± 0.9%, and RI = 64.5 ± 1.8 
+Ω. The corresponding prediction errors were 0.9% for PD, 2.1% for CODr, 6.2% for CE, and 2.3% for RI, 
+giving an overall prediction accuracy of 97.1%. Although the CE error was the highest, it remained within the 
+expected range considering the CE test RMSE and biological variability associated with coulombic 
+conversion. All errors were within the tolerance limits reported in Table 4, confirming that the ANN can 
+predict experimental conditions beyond the training dataset. Detailed validation results are presented in Table 
+6, and the overall model metrics are given in Table 7. 
+ 
+ 
+Fig. 9. Validation bar chart: ANN-predicted vs. experimentally measured output values at the multi-objective 
+optimal condition (MXene = 4.2 wt%, COD = 2300 mg L⁻¹, pH = 7.1). Error bars represent one standard deviation 
+from three independent experiments. Percentage prediction error (Δ%) is annotated above each pair. 
+ 
+Table 6. Experimental validation results at the ANN-identified optimal operating condition. 
+Output 
+ANN Prediction 
+Experimental Result 
+Absolute Error 
+Accuracy (%) 
+PD (mW m⁻²) 
+612 
+617.6 ± 8.2 
++5.6 
+99.1% 
+CODr (%) 
+66.0 
+67.4 ± 1.1 
++1.4% 
+97.9% 
+CE (%) 
+16.2 
+17.2 ± 0.9 
++1.0% 
+93.8% 
+RI (Ω) 
+63 
+64.5 ± 1.8 
++1.5 
+97.6% 
+ 
+Table 7. Overall ANN model validity metrics. 
+Metric 
+Value 
+Mean Absolute Error (MAE) 
+2.4% (mean across all outputs) 
+Overall Prediction Accuracy 
+97.1% 
+R² (Coefficient of Determination) 
+0.96 (test set, all outputs) 
+Page 16 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 16 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Metric 
+Value 
+Maximum individual output error 
+6.2% (coulombic efficiency) 
+ 
+Fig. 10 shows the ANN prediction-error distribution across the full test dataset. The distribution is 
+approximately Gaussian and centred near zero, with a mean error of -0.3% and a standard deviation of 2.1%. 
+This confirms that the model predictions are not systematically biased across the input space. The symmetric 
+distribution and the absence of heavy tails indicate that the ANN does not consistently overpredict or 
+underpredict any group of conditions. Only a small number of errors exceeded 5%, and these occurred mainly 
+for CE at acidic pH values (pH < 6.0), where biological variability is highest [23]. 
+ 
+ 
+Fig. 10. ANN prediction error distribution across the full test dataset. The red curve shows the fitted Gaussian 
+distribution (mean = −0.3%, SD = 2.1%), confirming the absence of systematic prediction bias. 
+3.9. Comparison with Literature 
+Table 8 compares the optimized performance of the present SPEEK/MXene system with selected SPEEK-
+based, MXene-based, and Nafion-based MFC membranes. The 4.2 wt% SPEEK/MXene membrane produced 
+an experimentally validated PD of 617.6 mW m⁻². This value is higher than the sPEEK-sZnO nanocomposite 
+membrane reported by Kugarajah et al. [10] (142 mW m⁻²) and the MXene-PVDF-HFP membrane reported 
+previously (approximately 260 mW m⁻²) [30]. It also exceeds the Nafion 117 system optimized using EEFO 
+(478.9 mW m⁻²) [16] and the AI-optimized swarm-fuzzy Nafion system (approximately 420 mW m⁻²) [13]. 
+The Nafion-based system reported by Rezk et al. [16] achieved higher COD removal (81.9%) than the present 
+system (67.4%), which may be attributed to the high proton conductivity of perfluorosulfonic acid under the 
+selected operating conditions. Nevertheless, the present SPEEK/MXene membrane produced higher PD at a 
+substantially lower estimated material cost. SPEEK synthesis and MXene incorporation are estimated to cost 
+approximately 15-20% of the equivalent Nafion 117 membrane area. The optimized SPEEK/MXene 
+membrane also showed improved resistance to biofouling, which is critical for long-term MFC operation under 
+high-organic-load wastewater conditions. In addition, the ANN-based framework used here is more 
+comprehensive than earlier single-output fuzzy or experimental approaches because it optimizes four coupled 
+performance indicators simultaneously. 
+ 
+Page 17 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 17 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Table 8. Comparison of MFC performance with selected literature results for SPEEK-based, 
+MXene-based, and Nafion-based membrane systems. 
+Reference 
+Membrane 
+Optimization Method 
+PD (mW 
+m⁻²) 
+CODr 
+(%) 
+CE 
+(%) 
+This work 
+SPEEK/MXene (4.2 
+wt%) 
+ANN + evolutionary grid 
+search 
+617.6 
+67.4 
+17.2 
+Alam et al. [30] 
+MXene-PVDF-HFP 
+Experimental 
+~260 
+~76 
+- 
+Rezk et al. [16] 
+Nafion 117 
+Fuzzy + EEFO 
+478.9 
+81.9 
+- 
+Ghasemi et al. 
+[13] 
+Nafion 117 
+AI (swarm + fuzzy) 
+~420 
+~78 
+- 
+Kugarajah et al. 
+[10] 
+sPEEK-sZnO 
+nanocomposite 
+Experimental 
+142 
+~70 
+- 
+ 
+4. Conclusion 
+This study developed and experimentally validated an ANN-based multi-objective optimization framework for 
+a SPEEK/MXene nanocomposite PEM MFC. The main conclusions are summarized as follows. 
+The ANN model trained on 50 experimental observations achieved an overall R² of 0.96 for the four outputs, 
+namely PD, CODr, CE, and RI. The prediction accuracy exceeded 93.8% for each individual response. The 
+model successfully captured the nonlinear interactions among MXene loading, initial COD, and anode pH and 
+generated a response surface that was experimentally verifiable and physically interpretable. 
+SEM characterization confirmed that 4.2 wt% MXene produced a uniformly dispersed nanosheet network, 
+clear membrane pores, and negligible EPS accumulation after 30 days of MFC operation. In contrast, the 
+membrane without MXene showed severe EPS deposition and bacterial adhesion because of insufficient 
+surface hydrophilicity, while 7 wt% MXene caused nanosheet agglomeration, surface defects, and renewed 
+biofouling. 
+Sensitivity analysis identified the main operating hierarchy of the system. MXene loading mainly controlled 
+PD and RI, initial COD mainly controlled CODr, and anode pH mainly controlled CE through its effect on 
+microbial activity and proton availability at the biofilm-electrode interface. These findings indicate which 
+operating variables should be prioritized during practical MFC design and control. 
+The ANN-predicted optimum at MXene = 4.2 wt%, COD = 2300 mg L⁻¹, and pH = 7.1 was confirmed 
+experimentally in triplicate. The validated outputs were PD = 617.6 mW m⁻², CODr = 67.4%, CE = 17.2%, 
+and RI = 64.5 Ω. The corresponding prediction errors were 0.9%, 2.1%, 6.2%, and 2.3%, respectively, and the 
+overall prediction accuracy was 97.1%. The near-zero-centred error distribution further confirmed the absence 
+of systematic model bias. 
+The three-dimensional response surfaces showed that high PD and CODr are obtained near neutral pH (6.8-
+7.3) and intermediate COD concentrations (2000-2500 mg L⁻¹). These ranges define practical operating 
+windows that can tolerate moderate variation in wastewater substrate composition. 
+Compared with selected literature benchmarks, the optimized 4.2 wt% SPEEK/MXene membrane achieved a 
+PD of 617.6 mW m⁻², exceeding Nafion 117-based systems optimized using meta-heuristic algorithms (478.9 
+and approximately 420 mW m⁻²). The membrane also offers lower estimated material cost and improved 
+antifouling resistance. The proposed ANN framework is more comprehensive than single-output optimization 
+methods because it evaluates four key performance indicators simultaneously. 
+The obtained results demonstrate that the ANN-based optimization method can be transferred to other 
+nanocomposite membrane systems in which filler loading, substrate conditions, and electrolyte chemistry 
+Page 18 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 18 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+interact nonlinearly. This is particularly relevant for future membrane designs combining MXene with 
+graphene oxide, zeolitic imidazolate frameworks, or functionalized carbon nanotubes. The framework provides 
+a reproducible route for identifying optimal compositions from a manageable experimental dataset. 
+Future work should evaluate the optimized membrane using larger electrode areas and continuous-flow MFC 
+configurations to determine scale-up behaviour and hydrodynamic effects. Validation with real municipal or 
+industrial wastewater is also required, because synthetic glucose-based anolyte does not fully represent 
+complex wastewater composition. Long-term stability tests beyond 30 days and lifecycle cost analysis should 
+also be included to assess the practical value of SPEEK/MXene membranes as Nafion alternatives. The ANN 
+methodology can further be extended to microbial electrolysis cells, biosensors, and membrane bioreactor 
+applications. 
+References 
+[1] Ahirwar A, et al. Photosynthetic microbial fuel cell for bioenergy and valuable production: a review. Algal 
+Res 2023;70:102973. 
+[2] Yaqoob AA, et al. Oxidation of food waste as organic substrate in a single chamber MFC. Sustain Energy 
+Technol Assess 2022;52:102282. 
+[3] Roy A, et al. A critical review on advancing bioinspired smart membranes for green energy recovery in 
+MFCs. J Environ Chem Eng 2025;13(5):118094. 
+[4] Rostami K, et al. Benchmarking anion vs. cation exchange membranes in MFCs. Bioelectrochemistry 
+2026;167:109083. 
+[5] Chikumba F, et al. Development of sPEEK and titanium silicon oxide composite membranes for DMFC. Int 
+J Hydrog Energy 2023;48:14038. 
+[6] Ajith S, et al. Emerging 2D MXene-based polymeric membranes for water treatment. J Environ Chem Eng 
+2024;12:112078. 
+[7] Sun Y, et al. MXene-based membranes in water treatment: current status and prospects. Sep Purif Technol 
+2024;331:125640. 
+[8] Pant D, et al. A review of substrates used in MFCs for sustainable energy production. Bioresour Technol 
+2010;101:1533. 
+[9] Sedighi M, et al. Performance optimisation of MFC for wastewater treatment. Alex Eng J 2018;57:4243. 
+[10] Kugarajah V, et al. Investigation on sulphonated ZnO nanorod incorporated SPEEK nanocomposite 
+membranes for MFC. Int J Hydrog Energy 2021;46:22134. 
+[11] Ghasemi M, et al. Performance improvement of MFC through artificial intelligence. Int J Energy Res 
+2021;45:342. 
+[12] Rezk H, et al. Performance improvement of co-culture inoculated MFC using fuzzy modelling and HHO. 
+Int J Energy Res 2022;46:14396. 
+[13] Ghasemi M, Rezk H. Performance improvement of MFC using experimental investigation and fuzzy 
+modelling. Energy 2024;286:129486. 
+[14] Rostami K, et al. Random forest and differential evolution for maximizing MFC performance. Biomass 
+Bioenergy 2026;208:108868. 
+[15] Qazani MRC, et al. Optimizing MFCs with multi-objective PSO and type-2 fuzzy neural networks. Fuel 
+2024;372:132090. 
+[16] Rezk H, et al. Experimental validation of single and multi-objective optimization of MFC based on electric 
+eel foraging algorithm. Energy 2025;339:138989. 
+[17] Bampos G, et al. Electrochemical characteristics of MFCs operating with food industry wastewaters. 
+Processes 2024;12:1244. 
+Page 19 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 19 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+[18] Alam J, et al. MXene-integrated carboxylated polysulfone nanocomposite PEM for MFC applications. Sep 
+Purif Technol 2026;138066. 
+[19] Alam J, et al. Enhanced proton conductivity and bioenergy generation in MFCs using MXene-PVDF-HFP 
+nanocomposite membranes. Energy Fuel 2025;39:23396. 
+[20] Mais L, et al. Modelling and EIS characterization of a tubular MFC with slip-casted ceramic membrane. J 
+Power Sources 2025;630:236143. 
+[21] Kang Y, et al. Nanoconfinement enabled non-covalently decorated MXene membranes for ion-sieving. Nat 
+Commun 2023;14:4075. 
+[22] Naguib M, et al. Ten years of progress in the synthesis and development of MXenes. Adv Mater 
+2021;33:2103393. 
+[23] Farahani H, et al. Employing artificial intelligence for enhanced MFC performance through Wolf vitamin 
+solution optimization. Sustainability 2024;16:6468. 
+[24] Kamali S, Esfandyari M. Application of MXenes in microbial fuel cells: a review. Sustain Chem Clim 
+Action 2025;p.100142. 
+[25] Ahmad M, Ahmed M. Characterization and applications of ion-exchange membranes. J Appl Electrochem 
+2023;53:1537. 
+[26] Sharma A, et al. Next-generation proton-exchange membranes in MFCs: overcoming Nafion limitations. 
+Energy Technol 2024;12:2301346. 
+[27] Dashtbozorg A, et al. High-performance polysulfone nanocomposite membrane containing 2D 
+functionalized MXene for nanofiltration. Desalination 2022;527:115600. 
+[28] Kanani B, et al. Exploring operational barriers in MFCs. Electrochem Commun 2025;180:108051. 
+[29] Mao YM, et al. Power enhancement of HVAF-sprayed carbon steel electrodes in single chamber MFCs. 
+Electrochim Acta 2025;544:147618. 
+[30] Kamali S, et al. A review of the application of polymeric materials in MFCs. Polym Bull 2025;82:7465. 
+Page 20 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851
+Page 20 of 20 - AI Writing Submission
+Submission ID
+trn:oid:::1:3567545851

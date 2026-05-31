@@ -1,0 +1,17 @@
+DROP 2-3 TOP PAPERS FROM YOUR TARGET FIELD HERE
+=================================================
+
+Put recent highly-cited papers from the field/venue you are
+targeting (PDF format) in this folder.
+
+Examples:
+  best_paper_acl_2024.pdf
+  nature_ml_2023.pdf
+
+These are used to extract current field vocabulary so your
+draft uses the right technical terminology.
+
+After adding papers, run:
+  python run.py style
+
+This writes references/domain_vocabulary.md with field-current terms.

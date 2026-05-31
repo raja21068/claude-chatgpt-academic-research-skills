@@ -1,0 +1,63 @@
+# slop_config.yaml
+# Edit thresholds and weights per venue or field.
+# All scripts load this file at startup; changes take effect immediately.
+
+version: "5.0"
+
+# ── Pass/fail threshold ───────────────────────────────────────────────────────
+threshold: 70          # score below this = fail (0-100)
+
+# ── Detection thresholds ──────────────────────────────────────────────────────
+thresholds:
+  rhythm_stdev:        7.0    # sentence-length StdDev below this → flagged
+  hedge_density:       3      # hedges per sentence ≥ this → flagged
+  paragraph_shape_cv:  0.25   # paragraph sentence-count CV below this → uniform
+  echo_overlap:        0.50   # Jaccard overlap first/last sentence → echo flag
+  min_para_sentences:  3      # minimum sentences to check paragraph shape
+  starter_entropy:     2.0    # bits of entropy for sentence starters
+  passive_ratio_warn:  0.25   # passive ratio above this → elevated warning
+  passive_ratio_flag:  0.40   # passive ratio above this → high flag
+  passive_ratio_error: 0.55   # passive ratio above this → AI-written flag
+  methods_verbs_warn:  10     # AI methods verb count above this → warning
+  methods_verbs_flag:  20     # AI methods verb count above this → error
+
+# ── Scoring weights (must sum to 100) ────────────────────────────────────────
+weights:
+  directness:    20
+  rhythm:        20
+  trust:         20
+  authenticity:  20
+  density:       20
+
+# ── Field profiles ────────────────────────────────────────────────────────────
+# Override thresholds per field. Select with: slop check paper.txt --field biomedical
+fields:
+  cs_ai:
+    thresholds:
+      hedge_density: 2          # CS papers should hedge less than biomedical
+      passive_ratio_warn: 0.20
+
+  biomedical:
+    thresholds:
+      hedge_density: 4          # Biomedical conventions allow more hedging
+      passive_ratio_warn: 0.40  # Methods sections in bio are often passive
+      passive_ratio_flag: 0.60
+
+  social_science:
+    thresholds:
+      hedge_density: 4
+      passive_ratio_warn: 0.35
+
+# ── Venue overrides ───────────────────────────────────────────────────────────
+# Select with: slop check paper.txt --venue acl
+venues:
+  acl:
+    threshold: 75              # ACL reviewers are strict
+    thresholds:
+      hedge_density: 2
+
+  neurips:
+    threshold: 72
+
+  arxiv:
+    threshold: 60              # More lenient for preprints

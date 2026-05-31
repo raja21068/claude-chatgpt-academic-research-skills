@@ -1,0 +1,1 @@
+Drop your .txt or .tex paper files here. Then run run.bat (Windows) or run.sh (Mac/Linux).

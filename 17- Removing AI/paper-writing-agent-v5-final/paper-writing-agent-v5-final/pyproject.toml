@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "paper-writing-agent"
+version         = "5.0.0"
+description     = "Anti-AI slop checker for academic prose"
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = {text = "MIT"}
+
+dependencies = [
+    "colorama>=0.4",
+    "nltk>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov"]
+
+[project.scripts]
+slop = "scripts.slop:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["slop_lib*", "scripts*"]
+
+[tool.setuptools.package-data]
+"*" = ["references/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

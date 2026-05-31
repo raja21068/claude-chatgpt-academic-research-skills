@@ -1,0 +1,25 @@
+DROP YOUR PUBLISHED PAPERS HERE
+================================
+
+Put your own published papers (PDF format) in this folder.
+These are used to learn YOUR personal writing style.
+
+Examples of what to put here:
+  my_paper_2023.pdf
+  journal_article_2022.pdf
+  conference_paper_2024.pdf
+
+The more papers you add, the better the style profile.
+3-10 papers is ideal.
+
+After adding papers, run:
+  python run.py style
+
+This will:
+  1. Extract text from your PDFs
+  2. Analyse your sentence patterns, transitions, and vocabulary
+  3. Write your personal style profile to:
+     references/my_writing_style.md
+
+That profile is then used when checking your drafts — feedback
+will say "different from YOUR writing" not "different from generic norms".

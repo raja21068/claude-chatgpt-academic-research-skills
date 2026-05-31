@@ -1,0 +1,51 @@
+SLOP CHECK REPORT
+============================================================
+Paper  : student_paper_v4.txt
+Score  : 52/100  (FAIL at threshold 70)
+============================================================
+
+
+══ Slop Score Report ══
+  Overall: 52/100  (borderline)
+
+Dimension scores (20 = perfect):
+  directness     16/20  ████████████████░░░░
+  rhythm         20/20  ████████████████████
+  trust          20/20  ████████████████████
+  authenticity   16/20  ████████████████░░░░
+  density        18/20  ██████████████████░░
+
+Issues found:
+  [GENERIC PHRASES] 1 hit(s):
+    • "avoid"
+  [ACADEMIC PHRASES] 1 hit(s):
+    • "extensive"
+  [ZOMBIE NOUNS]: "optimization", "determination"
+  [PASSIVE VOICE] [regex fallback] 77 passive sentence(s):
+    • "Three input variables were considered: MXene loading (0-7 wt%), initial COD of the 
+anode medium (10…" (were considered)
+    • "Four output responses were evaluated: 
+power density (PD), COD removal efficiency (CODr), coulombic …" (were evaluated)
+    • "The best operating condition was identified at MXene = 4.2 wt%, COD = 2300 mg L⁻¹, 
+and pH = 7.1, wi…" (was identified)
+  [TENSE] [regex fallback] 38 tense inconsistency(ies):
+    • [past ≠ expected present] "Four output responses were evaluated: 
+power density (PD), COD removal efficiency (CODr), coulombic …"
+    • [past ≠ expected present] "A feed-forward multilayer perceptron trained using the Levenberg-Marquardt backpropagation algorithm…"
+    • [past ≠ expected present] "The trained ANN response surface was then used for multi-
+objective optimization."
+  [TIP] Install spaCy for 95% accurate passive/tense detection: pip install spacy && python -m spacy download en_core_web_sm
+  [PASSIVE RATIO] elevated — worst section 28% passive (overall 22%). AI writes methods in passive. Rewrite: 'We measured X' not 'X was measured'.
+  [AI METHODS VERBS] 48 passive procedure verbs: "were evaluated", "were fabricated", "was observed", "was dissolved", "were washed" +43 more
+  [AI CONNECTORS] 3 hit(s): "accordingly,", "in addition,", "in contrast,"
+  [AI EVALUATION] 6 hit(s): "is strongly affected", "is essential for", "is considered a promising", "is directly linked"
+
+  Verdict: FAIL (threshold 70)
+
+============================================================
+Score breakdown:
+  directness     16/20  ████████████████░░░░
+  rhythm         20/20  ████████████████████
+  trust          20/20  ████████████████████
+  authenticity   16/20  ████████████████░░░░
+  density        18/20  ██████████████████░░

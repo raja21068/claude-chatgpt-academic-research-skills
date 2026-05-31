@@ -1,0 +1,59 @@
+SLOP CHECK REPORT
+============================================================
+Paper  : mid_llm_paper.txt
+Score  : 11/100  (FAIL at threshold 70)
+============================================================
+
+
+══ Slop Score Report ══
+  Overall: 11/100  (AI-like)
+
+Dimension scores (20 = perfect):
+  directness      3/20  ███░░░░░░░░░░░░░░░░░
+  rhythm         20/20  ████████████████████
+  trust          20/20  ████████████████████
+  authenticity    6/20  ██████░░░░░░░░░░░░░░
+  density        13/20  █████████████░░░░░░░
+
+Issues found:
+  [GENERIC PHRASES] 2 hit(s):
+    • "inherently"
+    • "avoid"
+  [ACADEMIC PHRASES] 5 hit(s):
+    • "extensive"
+    • "state-of-the-art"
+    • "superior performance"
+    • "demonstrating"
+    • "notably,"
+  [ZOMBIE NOUNS]: "optimization", "evaluation", "computation"
+  [CONTEXT-FREE COMPARE]: 4 comparison(s) without named metric/baseline
+  [SYNONYM DRIFT]: "our approach", "our framework", "our method" — pick one name for your system
+  [PASSIVE VOICE] [regex fallback] 54 passive sentence(s):
+    • "This work was supported in part by the Collaborative
+Innovation Center Project for Medical, Industri…" (was supported)
+    • "Personal use is permitted, but republication/redistribution requires IEEE permission." (is permitted)
+    • "2) Aggregation Weight Scheme: A novel aggregation weight
+scheme is introduced to guarantee that the …" (is introduced)
+  [TENSE] [regex fallback] 12 tense inconsistency(ies):
+    • [past ≠ expected present] "[2] demonstrated blockchain-based FL for brain
+tumor segmentation, ensuring patient conﬁdentiality."
+    • [past ≠ expected present] "In this article, we present MID-LLM,
+a blockchain-based framework designed to enhance FL for
+medical…"
+    • [past ≠ expected present] "Workers Research Centers:
+1) Parameter Aggregation: Research centers retrieve hashes
+from IPFS to ac…"
+  [TIP] Install spaCy for 95% accurate passive/tense detection: pip install spacy && python -m spacy download en_core_web_sm
+  [PASSIVE RATIO] elevated — worst section 26% passive (overall 11%). AI writes methods in passive. Rewrite: 'We measured X' not 'X was measured'.
+  [AI CONNECTORS] 7 hit(s): "moreover,", "in particular,", "in this context,", "furthermore,"
+  [AI EVALUATION] 3 hit(s): "ensures the", "provides a comprehensive"
+
+  Verdict: FAIL (threshold 70)
+
+============================================================
+Score breakdown:
+  directness      3/20  ███░░░░░░░░░░░░░░░░░
+  rhythm         20/20  ████████████████████
+  trust          20/20  ████████████████████
+  authenticity    6/20  ██████░░░░░░░░░░░░░░
+  density        13/20  █████████████░░░░░░░

@@ -1,0 +1,7 @@
+Transformer models trained on large corpora have transformed natural language processing, yet they fail on systematic compositional tasks: a model that learns "blue circle" and "red square" rarely generalises to "red circle" without explicit training. We identify this as a data-coverage problem, not a model-capacity problem.
+
+We introduce Compositional Augmentation (CompAug), a data synthesis method that generates compositional examples from atomic phrase embeddings during fine-tuning. On the SCAN benchmark, CompAug raises exact-match accuracy from 61.4% to 89.3% with no change to model architecture. On COGS, it closes 78% of the compositional generalisation gap.
+
+Three findings stand out. First, the gain is largest on length-generalisation splits (17.2 points), smaller on structural splits (8.4 points), and smallest on lexical splits (3.1 points). Second, augmentation during fine-tuning outperforms augmentation during pretraining by 6.1 points, suggesting that task-specific composition patterns are learned late. Third, CompAug degrades by 2.3 points when the atomic phrase vocabulary exceeds 50k tokens; we trace this to embedding-space crowding and propose a nearest-neighbour filtering step that recovers 1.9 of those points.
+
+These results suggest that systematic generalisation failures in large language models are partly addressable through targeted training data rather than architectural changes—a cheaper intervention with broad practical implications.

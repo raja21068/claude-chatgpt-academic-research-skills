@@ -1,0 +1,1889 @@
+37160
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+MID-LLM: Enhancing Medical Image Diagnostics
+With LLMs in a Blockchain AI Framework
+Rajesh Kumar
+, Yunbo Rao
+, Jay Kumar
+, Member, IEEE, Cobbinah B. Mawuli, Member, IEEE,
+Waqar Ali
+, and Shaoning Zeng
+, Member, IEEE
+Abstract—The rapid growth of medical imaging data presents
+signiﬁcant challenges in diagnostic accuracy, data privacy, and
+computational efﬁciency. Traditional centralized AI models strug-
+gle with scalability and pose risks to patient conﬁdentiality due to
+data aggregation. Moreover, heterogeneous medical data across
+institutions complicates the development of robust diagnostic
+tools. To address these issues, we propose MID-large language
+model (LLM), a novel framework that integrates LLMs with
+a blockchain-based federated learning (FL) system for medical
+image analysis. It also ensures the security and privacy of sensi-
+tive medical data across decentralized networks. MID-LLM uses
+veriﬁcation mechanisms to ensure the global model’s integrity. It
+also employs aggregation techniques to reduce bias and improve
+training efﬁciency. Experiments on the BraTS 2020 dataset show
+that MID-LLM outperforms traditional FL, achieving higher
+Dice scores with improved computational efﬁciency. These results
+highlight MID-LLM’s potential to enhance diagnostic accuracy
+while offering a scalable, secure solution for AI in healthcare.
+Index Terms—Blockchain, decentralized AI, interplanetary ﬁle
+system (IPFS), large language model (LLM), medical image
+data.
+Received 9 March 2025; revised 29 April 2025 and 19 May 2025; accepted
+16 June 2025. Date of publication 27 June 2025; date of current version
+8 September 2025. This work was supported in part by the Collaborative
+Innovation Center Project for Medical, Industrial and Information with
+Huzhou Central Hospital under Grant U0723003; in part by the Science
+and Technology Program of Huzhou under Grant 2024GZ09; in part by
+the Zhejiang Provincial Natural Science Foundation of China under Grant
+LY23F020025; in part by the Science and Technology Project of Sichuan
+under Grant 2024ZHCG0170; in part by the National Key Research and
+Development Program of China under Grant 2023YFB4502903; and in part
+by the Yangtze Delta Region Institute (Huzhou) Guidance Fund of University
+of Electronic Science and Technology of China under Grant U03210049 and
+Grant U03210054. (Corresponding authors: Yunbo Rao; Shaoning Zeng.)
+Rajesh Kumar and Shaoning Zeng are with the Yangtze Delta Region
+Institute (Huzhou), University of Electronic Science and Technology of
+China, Huzhou 313001, China, and also with the Department of Nuclear
+Medicine, Huzhou Central Hospital, Fifth School of Clinical Medicine,
+Zhejiang Chinese Medical University, Huzhou 313001, China (e-mail:
+rajakumarlohano@gmail.com; zeng@csj.uestc.edu.cn).
+Yunbo Rao is with the School of Information and Software Engineering,
+University of Electronic Science and Technology of China, Chengdu 611731,
+China (e-mail: raoyb@uestc.edu.cn).
+Jay Kumar is with the Faculty of Computer Science, Dalhousie University,
+Halifax, NS B3H 4R2, Canada (e-mail: jay_tharwani1992@yahoo.com).
+Cobbinah B. Mawuli is with the Anesthesiology, Perioperative and Pain
+Medicine, Stanford University, Stanford, CA 94305 USA (e-mail: cobbinah-
+bernard@ieee.org).
+Waqar Ali is with the Department of Computer Science, College of Science,
+Mathematics and Technology, Wenzhou–Kean University, Wenzhou 325060,
+China.
+Digital Object Identiﬁer 10.1109/JIOT.2025.3583408
+I. INTRODUCTION
+L
+ARGE Language Models (LLMs) have demonstrated
+exceptional capabilities across various domains, particu-
+larly in natural language processing, by enabling machines to
+understand and generate human-like text [1]. Their success has
+inspired their application in many ﬁelds, including healthcare,
+where accurate interpretation of complex data is crucial for
+patient care. Integrating LLMs for healthcare care (speciﬁcally
+in the context of medical imaging) can potentially improve the
+interpretation of complex visual data, leading to more accurate
+diagnostics and patient outcomes.
+Medical imaging plays a vital role in diagnostics, providing
+detailed visual information that aids in the detection and treat-
+ment of diseases. The growing volume of medical image data
+challenges centralized systems that struggle to process data
+efﬁciently while considering data privacy and security [2], [3].
+In particular, the centralized nature of these systems raises
+concerns about single points of failure and vulnerability
+to data breaches [4]. Therefore, handling a large volume
+of medical data raises privacy, accuracy, and scalability
+issues.
+Privacy: Medical data is inherently sensitive and conﬁden-
+tial, making privacy a critical concern. Centralized systems
+often aggregate large volumes of such data, thereby increas-
+ing the risk of security breaches and unauthorized access.
+These risks can lead to violations of privacy regulations
+and erosion of patient trust. Federated learning (FL) has
+emerged as a promising paradigm to address these chal-
+lenges, offering a decentralized approach that ensures data
+privacy and reduces communication costs by allowing multiple
+devices to collaboratively train a machine learning model
+without sharing raw data [5]. Unlike traditional distributed
+learning methods, FL enables sharing of locally trained
+model parameters instead of raw data. This approach sig-
+niﬁcantly mitigates privacy risks and aligns with regulatory
+requirements [6].
+While FL has been extensively studied in deep learning
+contexts, its application within reinforcement learning (RL)
+remains relatively underexplored. Recent frameworks, such as
+federated deep RL (FDRL), mark early efforts to integrate FL
+principles into RL tasks, with the goal of enhancing data and
+model privacy [7]. However, these frameworks face signiﬁcant
+limitations, including vulnerability to single-point failures
+caused by centralized aggregators, which can be exploited
+through adversarial techniques, such as model poisoning and
+bias attacks [4].
+2327-4662 c⃝2025 IEEE. All rights reserved, including rights for text and data mining, and training of artiﬁcial intelligence
+and similar technologies. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37161
+Robustness and Accuracy: A major challenge in developing
+reliable diagnostic tools is the diversity of medical data
+resulting from heterogeneous sources. Variations in equipment,
+clinical protocols, and patient demographics can introduce
+biases that negatively impact the accuracy of AI models.
+LLM-based models is among the popular approach in the
+past few years. LLMs are capable to interpret the medical
+images by merging visual attributes with relevant clinical data.
+LLMs generate textual explanations of anomalies (e.g., tumor
+morphology) and can correlate them with medical literature.
+For example, an LLM can identify a tumor in an MRI scan and
+contextualize its size/location with potential diagnoses (e.g.,
+glioblastoma versus metastasis), bridging the gap between raw
+image data and clinical decision-making [8], [9].
+Scalability: The increasing amount of medical imaging data
+calls for scalable and efﬁcient solutions. Centralized systems
+often face challenges with computing power and storage,
+making it hard to manage large datasets effectively.
+LLMs provide helpful context and text-based explanations
+that support the visual analysis done by specialized vision
+models [10]. This combination helps healthcare providers
+make more accurate diagnoses while protecting patient pri-
+vacy and data integrity [11]. This approach enhances AI
+capabilities while enabling collaboration across healthcare
+institutions, allowing them to share insights without com-
+promising data integrity. Such collaboration leads to more
+robust models that improve AI performance across diverse
+clinical settings [12], [13]. Recent advancements in FL show
+promise for improving privacy and scalability in healthcare.
+Kumar et al. [2] demonstrated blockchain-based FL for brain
+tumor segmentation, ensuring patient conﬁdentiality. Similarly,
+BAFFLE [4] and federated batch normalization (FedBN) [14]
+have strengthened defenses against adversarial attacks and
+data heterogeneity. However, these frameworks often lack
+integration with advanced AI models for interpretative tasks.
+The application of LLMs in medical imaging is gaining
+attention of researchers due to their ability to bridge visual
+data with clinical context. Wang et al. [15] proposed a
+multimodal federated ensemble framework using vision LLMs
+for one-shot learning, achieving state-of-the-art performance.
+However, this approach does not address local LLM train-
+ing costs or blockchain-based security. Other studies, such
+as [8], [10], integrated LLMs with vision transformers for
+generating descriptive reports but rely on centralized data
+aggregation, posing privacy risks. To fully realize the potential
+of this integrated approach, it is essential to address key
+research questions that will guide its effective implementation
+and adoption.
+1) RQ1: How does the integration of LLMs improve the
+performance of FL for medical image analysis?
+2) RQ2: What mechanisms can be implemented to enhance
+security and ensure data integrity in a decentralized
+medical image analysis framework?
+3) RQ3: How can blockchain and interplanetary ﬁle system
+(IPFS) technologies be utilized to address privacy and
+scalability challenges in FL for medical imaging?
+To overcome these limitations, integrating blockchain with
+FL offers a powerful solution. Combining FL, blockchain,
+and LLMs tackles key issues like scalability, security, and
+Fig. 1.
+Overview of the MID-LLM framework with blockchain and FL
+framework. Hospitals train local models and share parameters via IPFS,
+while research centers aggregate updates to improve the global model. The
+blockchain ensures secure and transparent coordination.
+accuracy in medical image analysis. Integrating LLMs into
+decentralized medical image analysis can improve diagnostic
+accuracy and efﬁciency. In this article, we present MID-LLM,
+a blockchain-based framework designed to enhance FL for
+medical image diagnostics by integrating LLMs. Our proposed
+framework leverages blockchain technology to ensure secure
+and decentralized coordination among multiple hospital nodes
+and research centers, enabling them to collaboratively train a
+global model using locally processed data. Unlike traditional
+centralized systems, MID-LLM employs FL to preserve data
+privacy by allowing each client to retain its medical image data
+locally while sharing only model parameters via IPFS, with
+hash-links stored on the blockchain for veriﬁcation and trans-
+parency. To boost security and maintain model integrity, the
+proposed work implements a new veriﬁcation mechanism to
+combat adversarial attacks, along with a weighted aggregation
+approach to mitigate bias in the global model. The integration
+of LLMs within this framework provides enhanced interpretive
+capabilities, generating context-aware prompts from medical
+images that improve diagnostic accuracy and decision-making.
+This innovative approach addresses the scalability, privacy,
+and accuracy challenges of medical image analysis, offering a
+robust and efﬁcient solution for modern healthcare.
+Contributions:
+1) Advanced Veriﬁcation Algorithm: MID-LLM incorpo-
+rates a robust veriﬁcation mechanism to detect and
+prevent malicious participants from compromising the
+learning process.
+2) Aggregation Weight Scheme: A novel aggregation weight
+scheme is introduced to guarantee that the global model
+remains unbiased toward any single client, promoting
+fairness and accuracy.
+3) Enhanced Federated Aggregation: A variant of the tra-
+ditional FedAverage algorithm is employed to accelerate
+the convergence of the global model, reducing training
+time.
+4) LLM Integration for Medical Imaging: The frame-
+work utilizes LLMs for sophisticated analysis and
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37162
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+interpretation of medical images, improving diagnostic
+accuracy and reducing false positives and negatives.
+5) Secure Parameter Sharing: Blockchain and IPFS tech-
+nologies are leveraged to facilitate secure and efﬁcient
+sharing of model parameters, ensuring data privacy and
+integrity across all participating nodes.
+II. BACKGROUND
+A. Large Language Models
+LLMs are transformer-based deep learning architectures
+trained on extensive text corpora to perform tasks like text
+generation, translation, and contextual understanding. Examples
+include BERT and GPT-3 [10], [16], [17]. BERT is a data
+representation model that excels in understanding context,
+while GPT-3 is a generative model capable of producing
+coherent text. In the context of medical imaging, LLMs can be
+integrated to enhance the interpretation and analysis of complex
+visual data. Recent studies have demonstrated the effectiveness
+of LLMs in medical image processing, such as generating
+radiology reports and enhancing diagnostic accuracy through
+textual descriptions [18], [19]. Although medical images are
+inherently visual, the combination of image processing models
+with LLMs enables the extraction of meaningful textual
+descriptions from images, bridging the gap between visual
+data and clinical language. This approach is supported by
+advancements in vision-language models like CLIP [20], which
+have been adapted for medical imaging tasks [21], [22], [23],
+[24], as well as multimodal LLMs that interpret 3-D medical
+images [25], [26], [27]. LLMs can process visual embeddings
+through soft prompts, integrating image data with clinical text to
+enhance diagnostic interpretation, addressing the limitations of
+vision models in providing interpretable outputs. This process
+is illustrated in Fig. 2, where medical images are encoded
+and processed alongside instructions by an LLM to generate
+a structured report.
+One approach involves using convolutional neural networks
+(CNNs) to extract features from medical images I. These
+visual features F capture the essential information within
+the image. Let  represent the parameters of the LLM, I
+denote the input medical image, T the corresponding textual
+description, F the visual features extracted from I, and D
+the training dataset consisting of image-text pairs (I, T). The
+optimization objective is given by
+∗= arg max
+
+
+(I,T) ∈D
+log P(T | F, )
+(1)
+where D is the training dataset consisting of medical image
+and text description pairs. The ﬂowchart in Fig. 2 illustrates
+this process. A medical image is input into a CNN, which
+extracts visual features. The integration of LLMs like BERT
+or GPT-3 into the medical image analysis pipeline represents
+a transformative approach to generating context-aware textual
+interpretations of medical images. This integration allows
+the model to produce context-aware descriptions that can
+signiﬁcantly enhance diagnosis and decision-making
+∗= arg max
+
+
+(w1,w2,...,wT)∈D
+log P(w1, w2, . . . , wT | ). (2)
+Fig. 2.
+Data ﬂow for LLM in medical reporting. An image encoder extracts
+visual features from medical images, which the LLM processes to generate
+textual descriptions.
+Fig. 3.
+This ﬁgure illustrates the FL process, where multiple clients (e.g.,
+hospitals) collaboratively train a global model without sharing raw data.
+B. Federated Learning
+FL enables collaborative model Each hospital, acting as a
+client i, trains a local model on its dataset Di (e.g., MRI scans
+from BraTS 2020) by minimizing the loss function Li(wi)
+Li(wi) =
+1
+|Di|
+
+j∈Di
+
+1 −2|Yj ∩ˆYj(wi)|
+|Yj| + | ˆYj(wi)|
+
+where wi are the local model parameters, Di is the local dataset
+of Clients (hospitals) i, Yj is the ground truth segmentation
+mask for sample j, and ˆYj(wi) is the predicted segmentation
+mask. The loss is the Dice loss, optimized for brain tumor seg-
+mentation, aligning with the evaluation metrics in Section V
+wi(t + 1) = wi(t) −η∇Li(wi(t))
+(3)
+where η is the learning rate. The server aggregates these
+updates using the FedAverage algorithm [7], [28]
+wg(t + 1) =
+
+i∈U
+ni
+n wi(t + 1)
+(4)
+where wi represents the local model parameters, Di is the
+local dataset of client i, and ℓj(wi) is the loss for sample j.
+The global model parameters are then aggregated using the
+FedAverage algorithm. Fig. 3 illustrates this process multiple
+local LLMs are trained on client-speciﬁc data and send their
+gradient updates to a central global LLM, which integrates the
+updates and informs downstream decision-making.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37163
+Fig. 4.
+Flow of blockchain and smart contracts. The deep learning model
+stores data in IPFS, while blockchain ensures secure, transparent transactions.
+The distributed ledger records updates, and smart contracts manage data
+sharing and model updates.
+C. Blockchain and Smart Contracts
+Blockchain technology provides a decentralized, secure
+ledger system that ensures transparency and immutability for
+transaction records across a peer-to-peer network. Each node
+maintains a copy of the blockchain, updated through consensus
+mechanisms like Proof of Work or Proof of Stake [29].
+Smart contracts, a key innovation of blockchain technology,
+are self-executing contracts with terms written directly into
+code. These contracts, running on platforms, such as Ethereum,
+execute automatically when predeﬁned conditions are met [30].
+Written in languages like Solidity, smart contracts eliminate the
+need for intermediaries by enforcing and verifying contractual
+agreements automatically. This enhances security and trust
+in FL systems by managing and verifying model updates,
+ensuring only valid contributions are integrated into the global
+model [28]. Fig. 4 illustrates this architecture, where deep
+learning models are stored via IPFS, validated through smart
+contracts, and coordinated on a distributed blockchain ledger.
+III. PROPOSED METHODOLOGY
+This section describes the MID-LLM framework (Fig. 1
+and Fig. 5), which integrates blockchain, smart contracts, and
+advanced machine learning to enable collaboration among hos-
+pitals (clients) and research centers (workers). The framework
+ensures data privacy and security while enhancing medical
+image diagnostics. Below, we outline its key components and
+processes.
+1) Data Collection and Local Training: Hospitals collect
+medical images (e.g., X-rays, MRIs, CT scans) and train
+local models using a three-step pipeline: a) an image
+encoder extracts features, converting pixel data into
+representations; b) a Q-Former processes query tokens
+for tasks like tumor detection; and 3) a projection layer
+generates soft prompts, enabling the LLM to analyze
+images.
+2) Parameter Sharing: After local training, hospitals locally
+store model parameters and upload them to IPFS as
+tamper-proof identiﬁers (hashes). IPFS enables decen-
+tralized, secure, and efﬁcient data access. These hashes
+are then shared with the blockchain network via the
+GlobalSC smart contract, with all transactions recorded on
+the blockchain to ensure transparency and immutability.
+3) Blockchain Interaction: The GlobalSC smart contract
+facilitates the sharing of hashes, enabling research centers
+to aggregate the model parameters. This process ensures
+transparency and immutability, as all transactions are
+permanently and securely recorded on the blockchain.
+Workers Research Centers:
+1) Parameter Aggregation: Research centers retrieve hashes
+from IPFS to access locally trained model parameters
+from hospitals. These parameters are aggregated to form
+a global model, leveraging FL to incorporate diverse
+datasets without exchanging raw data. This improves
+diagnostic model robustness across heterogeneous clin-
+ical environments.
+2) Model Update: The aggregated global model param-
+eters are updated and reuploaded to IPFS, with new
+hashes distributed across the blockchain network via the
+GlobalSC smart contract. This ensures all participants
+can securely and transparently access the latest model in
+real time, maintaining synchronization while preserving
+data integrity.
+Blockchain Integration (Smart Contracts):
+1) registerSC: Registers hospitals and research centers by
+issuing private and public keys to enable secure com-
+munication.
+2) globalSC: Manages parameter sharing via IPFS and
+maintains the global model’s baseline parameters.
+3) rewardSC: Distributes rewards based on participants’
+contributions to incentivize honest participation.
+IPFS Integration (Secure Storage and Retrieval): The
+IPFS enables secure, decentralized storage and retrieval of
+machine learning model parameters via cryptographic content
+addressing, ensuring data integrity through immutable hash
+identiﬁers. This framework allows healthcare institutions and
+research collaborators to efﬁciently share and access trained
+parameters using unique cryptographic hashes, avoiding the
+scalability bottlenecks and centralization risks of conventional
+cloud storage. By preserving privacy-critical data locality,
+IPFS supports federated medical imaging workﬂows while
+enhancing system-wide data availability.
+A. Bootstrapping
+The bootstrapping stage consists of the following two key
+steps.
+1) Registration of Participants: Participants enroll via
+the registerSC smart contract, depositing crypto-assets
+into the rewardSC to commit to the process. Each
+participant receives a key pair for secure blockchain
+communication.
+2) Global Model Initialization:
+A client initializes the
+global model with random parameters and sets hyperpa-
+rameters, such as learning rate and iteration count. These
+parameters are uploaded to IPFS, with the hash-link
+stored in the globalSC smart contract for accessibility.
+B. Collaborative Learning Framework
+The collaborative learning stage involves the cooperation of
+hospitals (acting as clients) and research centers (serving as
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37164
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+Fig. 5.
+Architecture of a decentralized AI system integrating blockchain and federrated learning, featuring local model training, blockchain smart contracts,
+IPFS for data storage, and a query processing pipeline with an image encoder and LLM for response generation.
+workers) collaborating via a blockchain network to enhance
+and reﬁne the global model by integrating locally trained
+parameters. The integration of a LLM enhances the analysis and
+interpretation of medical images. The collaborative learning
+process involves hospitals (clients) and research centers
+(workers), which use horizontal FL to train a global model
+on datasets with identical feature spaces but nonoverlapping
+samples.
+1) Retrieving Global Model Parameters: To start the col-
+laborative learning process, clients ﬁrst retrieve the global
+model parameters that are stored in IPFS. They do this by
+using the hash links, which are written in the smart contract
+called globalSC.
+2) Local Training: We integrate our medical image pro-
+cessing module within a FL environment, where multiple
+remote clients handle diverse medical image analysis tasks
+and collaboratively train the image processing model fθ.
+This approach, known as Federated medical image processing
+(FedMIP), is detailed in Algorithm 1. Initially, the server
+initializes the fθ parameters randomly as θ0. During each
+communication round, a randomly selected subset of remote
+clients Sr retrieves the latest fθ parameters for local training.
+Each client trains locally on medical image data. The
+process includes three steps: 1) an image encoder extracts
+features; 2) a query processor handles tokens; and 3) a
+projection layer generates soft prompts for the LLM. The LLM
+utilizes these prompts to enhance the interpretation of medical
+images, providing valuable insights that improve the detection
+and prediction accuracy. Speciﬁcally, the process includes.
+1) Medical Image Input: Clients receive medical images as
+input data.
+2) Feature Extraction: The image encoder extracts critical
+features from the images.
+3) Query
+Processing:
+The
+query
+processor
+interprets
+relevant query tokens related to the medical images.
+4) Soft Prompt Generation: The projection layer generates
+soft prompts based on the extracted features and queries.
+5) Enhanced Interpretation: The LLM interprets these soft
+prompts to provide detailed analysis, including detection
+of anomalies, predictions about medical conditions, and
+potential solutions or treatment options.
+6) Local Model Training: The insights from the LLM
+are
+used
+to
+update
+the
+local
+model
+parameters,
+enhancing
+its
+performance
+in
+interpreting
+medical
+images.
+3) Storing Parameters in IPFS: After local training in
+round t, clients generate updated parameters ˆθ and calculate
+the Mean Episodic Reward (MER) MER( ˆθ) to evaluate model
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37165
+Algorithm 1: MID-LLM Algorithm With LLM Integration
+for MRI Brain Tumor Analysis
+1: Input: Number of communication rounds Q, Number of local
+epochs K, Initialization parameters θ0, Privacy parameter ϵ
+2: Server Initialization:
+3: Initialize model fθ with parameters θ0
+4: Apply differential privacy settings using ϵ
+5: for each round r from 0 to Q do
+6:
+Select random subset of clients Sr based on data distribution
+similarity
+7:
+for each client i ∈Sr asynchronously do
+8:
+Send current parameters θr to client i
+9:
+Local Training at Client i:
+10:
+Retrieve θr and initialize local model with personalized
+adjustments
+11:
+for each epoch k from 0 to K do
+12:
+Process medical images using LLM-based feature
+extraction and update θi
+r+1 with adaptive learning rate
+13:
+Integrate textual annotations using LLM to enhance image
+feature vectors
+14:
+end for
+15:
+Securely upload compressed θi
+r+1 and validation metrics to
+IPFS using SMPC
+16:
+end for
+17:
+Veriﬁcation Process:
+18:
+Compute global mean episodic reward MER(Wr) using robust
+statistics
+19:
+for each client k in Sr do
+20:
+Retrieve the parameters θk
+r+1 and the corresponding mean
+episodic reward MER(wr
+k)
+21:
+Evaluate the veriﬁcation condition using anomaly detection:
+22:
+if MER(wr
+k) ≥σ × MER(Wr) then
+23:
+Mark V(wr
+k) = True
+24:
+Add θk
+r+1 to the set θveriﬁed
+r+1
+25:
+else
+26:
+Mark V(wr
+k) = False
+27:
+Discard the parameters θk
+r+1 and provide feedback for
+adjustment
+28:
+end if
+29:
+end for
+30:
+Aggregation Process:
+31:
+Initialize sum of veriﬁed weights SVWr = 0
+32:
+for each veriﬁed client k in θveriﬁed
+r+1
+do
+33:
+Verify and calculate the weight wr
+k for each client’s update
+using weighted aggregation based on data quality metrics
+34:
+Update SVWr by adding wr
+k
+35:
+end for
+36:
+Aggregate parameters using weighted sum based on SVWr
+37: end for
+38: Output: Optimized, veriﬁed, and privacy-preserving parameters θQ+1
+performance on a validation set from the BraTS 2020 dataset.
+The minimum effective reward (MER) is the average Dice
+score over N validation samples
+MER
+
+ˆθ
+
+= 1
+N
+N
+
+i=1
+Dicei
+
+ˆθ
+
+(5)
+where
+Dicei
+
+ˆθ
+
+=
+2|Yi ∩ˆYi
+
+ˆθ
+
+|
+|Yi| + | ˆYi
+
+ˆθ
+
+|
+Yi is the ground truth segmentation mask, and ˆYi( ˆθ) is the
+predicted mask for sample i. These parameters and MER
+scores are stored in IPFS for aggregation, with hash-links
+recorded on the blockchain.
+4) Parameters Selection: To ensure fairness and prevent
+bias, parameter selection for aggregation is randomized. Once
+all clients have uploaded their parameters’ hash-links or the
+waiting period expires, the globalSC smart contract ran-
+domly selects a set Ut of K clients’ parameters for aggregation.
+5) Phase 5 (Fetch and Verify Clients’ Model Parameters):
+After client selection in Phase 4 for round t, each worker
+downloads the global parameters Wt, the client-speciﬁc param-
+eters wt
+k, and the reward score CRSt
+k provided by each client
+k ∈Ut from IPFS. This retrieval is accomplished using the
+hash-links associated with these items, which are stored in the
+globalSC smart contract. The workers then verify wt
+k using
+the following condition:
+V
+
+wt
+k
+
+=
+	 True, if MER
+
+wt
+k
+
+≥σ × MER(Wt)
+False, otherwise.
+(6)
+Here, MER(wt
+k) represents the mean episodic reward for
+client k at round t, and σ is the veriﬁcation tradeoff factor.
+Algorithm 1
+retrieve
+the
+parameters
+θk
+r+1
+and
+the
+corresponding
+mean
+episodic
+reward
+MER(wr
+k)
+=
+(1/N) 
+N
+i=1 Dicei(wr
+k)., number of episodes N, threshold σ,
+client-uploaded parameters {θi
+q+1, MER(wt
+k)}|Sq|
+i=1, and global
+model parameters θq. The output is the set of veriﬁed
+parameters θveriﬁed
+q+1
+.
+6) Assign
+Weights
+and
+Perform
+Aggregation: These
+weights are then used to perform a weighted aggregation of the
+parameters across all clients, resulting in the updated global
+model parameters Wt+1. This aggregated model integrates the
+contributions from all clients, weighted according to their
+performance in round t.
+This phase concentrates on bolstering the global model’s
+robustness and eliminating biases. Workers then calculate an
+aggregation weight for each client at the tth global round after
+conﬁrming the clients’ parameters
+AW
+
+wt
+k
+
+= τ t
+k
+|Pt
+k| × CRSt
+k
+TCt−1
+k
+.
+(7)
+In this formulation, wt
+k symbolizes the parameters of the
+model corresponding to client k at round t. The variable τ t
+k
+quantiﬁes the participations of client k in the collaborative
+training sessions up to round t. The set Pt
+k = {i ∈[0, t −1] |
+k ∈Ui} encapsulates the rounds where client k was actively
+involved in the aggregation process. The term CRSt
+k calculates
+the average reward score attributed to client k at round t, while
+TCt−1
+k
+aggregates the total contributions from client k up until
+just before round t, computed as follows:
+TCt
+k = Ct
+k + TCt−1
+k
+(8)
+where Ct
+k denotes the contribution of client k at round t,
+calculated as follows:
+Ct
+k = AW
+
+wt
+k
+
+SAWt
+(9)
+where SAWt is the aggregate of all aggregation weights
+assigned to valid parameters at t, deﬁned as
+SAWt =
+
+k∈Dt
+AW
+
+wt
+k
+
+(10)
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37166
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+where Dt = {k ∈Ut | (V(wt
+k) == True) and (MER(wt
+k) ≥
+σ × CRSt
+k)} is the clients whose parameters are considered
+valid in round t.
+Using the calculated aggregation weight, the global model
+parameters Wt are updated through an adapted version of
+the FedAverage algorithm, which is optimized to improve
+convergence speed and increase the robustness of the global
+model:
+The global model update rule, which ensures unbiased
+aggregation, is given by
+Wt+1 = Wt +
+
+k∈Dt
+AW
+
+wt
+k
+
+SAWt
+×
+
+Wt −wt
+k
+
+.
+(11)
+7) Deploying Aggregated Model and Veriﬁcation Details:
+After determining the aggregated global model parameters
+Wt+1, the workers upload these parameters to the IPFS and
+record the corresponding hash-link on the blockchain by
+invoking the globalSC. Concurrently, the validation report
+Rt, computed in Phase 5 by rewardSC, is also integrated into
+the blockchain, ensuring transparency and traceability.
+8) Consensus-Based Global Model Update: In this phase,
+updating the global model through a robust consensus mech-
+anism plays a pivotal role in maintaining the integrity and
+accuracy of the model across distributed and FL frameworks.
+The blockchain network facilitates this process by updating
+the hash-link GHLt of the global model at round t, rewarding
+honest participants, and penalizing dishonest ones based on
+the consistency of the aggregated parameters
+GHLt+1 =
+	
+HL
+
+maxw∈Lt
+
+|Ht
+w|
+
+, if |Ht
+w| > 2
+3|Lt|
+GHLt,
+otherwise
+(12)
+where the function HL(w) generates the hash-link for the
+aggregated parameters submitted by worker w. In this context,
+Lt denotes the group of workers who have delivered their
+aggregation outcomes to globalSC for round t. Furthermore,
+Ht
+w = {l ∈Lt | SHA(Dlt) == SHA(Dwt)} identiﬁes those
+workers in Lt whose uploaded results show consistent aggre-
+gated parameters. Here, Dlt and Dwt represent the aggregation
+results uploaded by workers l and w, respectively, and SHA
+refers to the hashing function used to ensure consistency.
+C. Integration With LLM
+In
+the
+MID-LLM
+framework,
+LLMs
+are
+integrated
+to enhance medical image analysis by leveraging their
+multimodal reasoning capabilities, which combine visual fea-
+tures with clinical textual context. Unlike specialized vision
+models, such as CNNs or vision transformers, LLMs excel
+at generating context-aware textual interpretations from soft
+prompts-representations derived from frozen image encoder
+embeddings (e.g., ResNet-50) via cross-attention mechanisms.
+These prompts enable LLMs to correlate visual anoma-
+lies (e.g., tumor morphology in MRI scans) with clinical
+knowledge, improving diagnostic accuracy and interpretability.
+For instance, on the BraTS 2020 dataset, LLM integration
+increased the Dice score for enhanced tumor (ET) segmen-
+tation by 9.3% compared to vision-only models (Table III),
+reducing false positives through contextual reasoning. This
+capability to bridge visual and textual modalities justiﬁes the
+use of LLMs, offering a signiﬁcant advantage over traditional
+vision models in producing clinically relevant, interpretable
+outputs while maintaining high-segmentation accuracy.
+Step 1 (Soft Prompt Generation): During each round t,
+the LLM receives a set of visual features Vt
+k extracted by a
+frozen image encoder from the client’s medical images. These
+features Vt
+k serve as inputs for generating soft prompts Pt
+k,
+which enhance the contextual understanding of the medical
+data:
+Pt
+k = fLLM
+
+Vt
+k
+
+(13)
+where fLLM is the LLM’s internal function used to generate
+prompts based on the visual features.
+Step 2 (Interaction Through Attention Mechanisms): The
+LLM employs attention mechanisms to interpret these soft
+prompts. Let Qt represent a set of learnable query vectors. The
+LLM interacts with the textual instruction Tt (derived from
+clinical instructions) and the image embeddings Et
+k (frozen
+image embeddings) through self-attention and cross-attention
+layers
+Aself = Softmax
+
+Qt · TT
+t
+
+(14)
+Across = Softmax
+
+Qt · EtT
+k
+
+.
+(15)
+Here, Aself and Across represent the self-attention and cross-
+attention scores, respectively, which the LLM uses to process
+both textual instructions and visual embeddings.
+Step 3 (Weighted Contribution to the Global Model): The
+output from the LLM is integrated back into the FL process
+by modifying the global aggregation weight αt
+k, making the
+contribution of each client dependent not just on local model
+performance but also on LLM-enhanced interpretations. The
+new global model aggregation becomes
+Wt+1 =
+K
+
+k=1
+αt
+k · fglobal
+
+wt
+k, Pt
+k
+
+(16)
+where fglobal is the global aggregation function that combines
+the local model wt
+k with the LLM-generated soft prompts Pt
+k,
+and αt
+k is the updated weight based on the client’s contribution
+to both model accuracy and soft prompt quality.
+Cost-Efﬁcient Local LLM Training: To mitigate the com-
+putational burden of training LLMs locally, MID-LLM
+incorporates the following optimizations.
+1) Parameter-Efﬁcient Fine-Tuning: PEFT with low-rank
+adaptation (LoRA) [31] Freezes pretrained weights,
+injects low-rank matrices, cutting GPU memory by 70%.
+2) 8-bit QAT [32]: Compresses weights/activations, reduc-
+ing memory and accelerating compute.
+3) Dynamic Resource Sharing [33]: Ofﬂoads tasks to edge
+servers via SMPC for privacy-aware processing.
+4) Sparse Federated Updates [34]: Transmits top-k gradi-
+ents to slash communication costs.
+5) PreTrained Initialization [35]: Uses models like Med-
+PaLM to minimize training effort.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37167
+IV. SECURITY ANALYSIS
+This section provides a comprehensive security analysis
+of our proposed framework, highlighting the mechanisms
+employed to ensure the integrity, fairness, and efﬁciency of
+the collaborative learning process.
+A. Robust Veriﬁcation of Federated Learning Parameters
+To ensure the integrity and optimality of FL models, a veri-
+ﬁcation protocol based on reward mechanisms and consistency
+of model parameters is proposed. This protocol is detailed
+through various proofs and case studies illustrating scenarios
+of convergence and divergence with respect to global model
+parameters.
+Theorem
+1
+(Consistency
+of
+Aggregated
+Parameters):
+Statement: The aggregated parameters θq+1 computed by all
+nonmalicious workers at round t are consistent and contribute
+uniformly toward the global model’s optimality.
+Proof of Theorem 1: Consider the aggregated parameters
+θq+1, computed using the uniform aggregation formula
+θq+1 = θq +
+
+k∈Dt
+AWx
+
+wt
+k
+
+· Ct
+k × 
+t
+k
+= θq +
+
+k∈Dt
+AWy
+
+wt
+k
+
+· Ct
+k × 
+t
+k.
+(17)
+The aggregation weights applied by different workers x and
+y are represented by AWx and AWy, respectively, while Ct
+k
+denotes the contribution factor at round t, and 
+t
+k = θq −
+wt
+k represents the parameter difference between the global
+parameters and the worker’s parameters at round t.
+The uniformity of aggregation across nonmalicious hospitals
+or centers is demonstrated by the equivalent summation of
+rewards 
+k∈Dt
+AWx
+
+wt
+k
+
+=
+
+k∈Dt
+AWy
+
+wt
+k
+
+(18)
+
+k∈Dt
+τ t
+k
+|Pt
+k| × CRSt
+k,x ×
+1
+TCt−1
+k
+=
+
+k∈Dt
+τ t
+k
+|Pt
+k| × CRSt
+k,y ×
+1
+TCt−1
+k
+(19)
+
+k∈Dt
+CRSt
+k,x =
+
+k∈Dt
+CRSt
+k,y.
+(20)
+The time taken by each worker k at round t is represented
+by τ t
+k, and the Cumulative Reward Score, denoted as CRSk,t,
+remains consistent across nonmalicious workers due to secure
+storage mechanisms, ensuring equivalency in the aggregated
+parameters for all participants.
+Case
+Study
+1:
+Convergence
+to
+Global
+Model
+MER
+Scenario: When the aggregation protocol is adhered to without
+interference, the system converges to a state where the global
+model achieves the MER, optimizing the learning process.
+Case Study 2: Divergence from the Global Optimum
+Scenario: In the presence of malicious actors or faulty nodes,
+divergence from the global optimum can occur. This necessi-
+tates additional mechanisms, such as anomaly detection and
+stricter validation protocols to correct the trajectory of model
+training.
+B. Unbiased Aggregation Scheme
+In MID-LLM, the aggregation weight scheme is designed
+to prevent bias by keeping the contribution difference between
+clients within a threshold φ. This ensures that the global model
+converges uniformly, with all clients contributing equitably.
+We establish the convergence relationship for the global model
+Wt at iteration t
+dt+1 ≤
+
+1 −min
+i
+αt
+i
+
+dt + C max
+i,j
+αt
+i −αt
+j
+
+(21)
+where dt is the distance to the global optimum W∗, αt
+i are
+the aggregation weights, and C is a Lipschitz constant. This
+indicates that minimizing weight differences across clients
+promotes convergence, preventing any single client from
+dominating the global model.
+To achieve convergence near W∗, we control the weight
+difference φ
+dt+1 ≤
+
+1 −min
+i
+αt
+i
+
+dt + Cφ
+(22)
+showing geometric convergence if φ is kept minimal, ensuring
+stable and fair contributions from all clients.
+Lemma: The MID-LLM aggregation scheme guarantees that
+the global model Wt remains unbiased as it converges toward
+W∗.
+Proof: By maintaining φ, MID-LLM controls the max-
+imum difference in client contributions, leading to unbiased
+and stable convergence, validated by the Lyapunov function
+∥Wt−W∗∥2. This results in a robust global model that performs
+well across various scenarios.
+C. Achieving Fairness
+To enhance fairness in the reward distribution mechanism
+within reputation-based systems like MID-LLM, several strate-
+gies can be applied. First, normalizing reputation scores using
+a log or square root function can reduce disparities, ensuring
+that high performers do not overly dominate rewards.
+1) Normalization of Reputation Scores: To prevent high
+performers from overly dominating rewards, reputation scores
+are normalized. This is done using a logarithmic function
+to moderate extreme values. The normalized reward Vy for
+participant y is calculated as
+Vy =
+log
+
+1 + Ry
+
+
+i∈T log(1 + Ri) × V
+(23)
+where Vy is the normalized reward for participant y, Ry is their
+reputation score, and V is the total reward pool.
+2) Minimum Guaranteed Reward: To ensure that every
+participant with a positive reputation receives a meaningful
+reward, a minimum guaranteed reward is added. The reward
+for participant y is given by
+Vy = MinReward +
+Ry
+
+i∈T Ri
+× (V −MinReward × |T|) (24)
+where MinReward is the guaranteed base reward, and |T| is
+the number of participants.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37168
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+3) Weighted Contributions: Contributions are weighted to
+prioritize more critical tasks. The updated reputation score RSt
+x
+for participant x at time t is calculated as
+RSt
+x = RSt−1
+x
++ BR ×
+
+w1 × AgCt
+x + w2 × DataQualityt
+x
+
+−δt
+x
+(25)
+where BR is the base reward, w1, w2 are weights, AgC(xt) is
+the aggregation contribution, and δxt is a penalty.
+4) Fairness Quantiﬁcation: To correct for under-rewarding,
+a fairness adjustment factor FAy is applied. The adjusted
+fairness metric J for the participant group T is calculated as
+J =
+|T| 
+y∈T V2
+y
+
+y∈T Vy
+2 .
+(26)
+5) Adaptive Reputation Cap: To prevent any participant
+from dominating indeﬁnitely, an adaptive reputation cap is
+used. The adjusted reputation score RSt
+x is
+RSt
+x = Min
+
+RSt−1
+x
++ BR × AgCt
+x −δt
+x, ReputationCapx
+
+(27)
+where ReputationCapx is the maximum allowed reputation.
+V. RESULTS
+A. Prototype Implementation
+Our MID-LLM framework is built using a blend of
+advanced technologies and programming libraries tailored
+for robust performance in decentralized environments. We
+use Python 3 for the primary development of Client and
+Worker nodes, leveraging the PyTorch library for constructing
+and training deep neural network models tailored to medical
+image processing. The OpenAI Gym library is employed
+to simulate environments, facilitating varied and extensive
+learning scenarios. The code is available at https://github.com/
+raja21068/MID-\gls{LLM}/.
+For efﬁcient communication between Client and Worker
+nodes, HTTP REST API calls are orchestrated via an
+API Gateway Server implemented in Node.js. This server
+employs an event-driven, nonblocking I/O model that enhances
+throughput and scalability in server-side applications. Rapid
+data exchange is facilitated by a Redis cache, optimizing the
+retrieval and storage of parameter updates.
+Blockchain functionality is supported by Hyperledger Fabric
+v1.4, which provides a robust and secure platform for manag-
+ing decentralized transactions. Smart contracts crucial to the
+operation of MID-LLM are crafted using the Go programming
+language. The framework employs LLaMA-13B [36], a 13-
+billion-parameter decoder-only transformer model, ﬁne-tuned
+for medical image analysis. The model is initialized with
+weights from a pretrained medical vision-language model,
+RadFM [37], which integrates contrastive learning on paired
+radiology images and reports. Fine-tuning is performed using
+LoRA [31] on the BraTS 2020 dataset, with rank r = 8
+and scaling factor α = 16, reducing trainable parameters by
+90%. The LLM processes soft prompts generated from frozen
+ResNet-50 image embeddings (extracted from MRI sequences)
+via cross-attention layers. Training utilizes mixed-precision
+(FP16) on NVIDIA A100 GPUs (40GB VRAM), with each
+client requiring 18GB VRAM per training epoch.
+To manage the ﬂow of data efﬁciently between the API
+Gateway Server and the blockchain, we incorporate a Message
+Broker designed on Node.js, utilizing Redis for message
+queuing services.
+B. Experimental Setup
+The
+MID-LLM
+framework
+integrates
+LLaMA-13B,
+a
+medical-adapted LLM pretrained on radiology reports and
+ﬁne-tuned via LoRA on BraTS 2020. During local training,
+the LLM processes soft prompts derived from MRI features
+to generate diagnostic annotations. extual annotations for
+BraTS 2020 MRI sequences (T1, T1ce, T2, FLAIR) were
+generated by radiologists, describing tumor location, size,
+and morphology. These annotations were paired with image
+embeddings to ﬁne-tune the LLM using a contrastive loss
+where β is a batch of negative text-image pairs. Within this
+combined framework, the preprocessed images are fed into
+a visual encoder that extracts and encodes detailed features.
+Concurrently, associated clinical data and parameters are
+processed by a text encoder. This multimodal input is then
+utilized to train the model across the distributed network of
+clients, maintaining data privacy and leveraging decentralized
+computational resources. The outcome of this training is a
+series of comprehensive diagnostic reports generated by the
+LLM, which integrates insights from both the visual and text
+encoders.
+Baseline Methods: In our evaluation of the blockchain-
+enhanced FL framework, we benchmarked against six FL
+algorithms and a traditional centralized training approach, all
+tailored for brain tumor segmentation. Models were ﬁne-tuned
+with consistent hyper-parameters to ensure fair comparison.
+Below is an overview of the baseline methodologies:
+1) FedBN [14], [38]: Utilizes local batch normalization to
+address feature shifts across distributed models before
+aggregation, stabilizing training on heterogeneous data.
+2) federated averaging (FedAvg) [38]: The foundational
+FedAvg algorithm, widely recognized for its conver-
+gence properties in decentralized settings.
+3) FedOPT [39]: An adaptive federated optimizer employ-
+ing Adam for medical image segmentation, improving
+optimization dynamics.
+4) FedNova [40]: Normalizes client updates to reduce the
+impact of data heterogeneity during global aggregation.
+5) FedADG [41]: Incorporates adversarial domain general-
+ization to handle multi-institutional MRI data variations
+effectively.
+6) Federated
+Swin-UNETR
+[42]:
+A
+transformer-based
+federated model optimized for 3-D medical imag-
+ing,
+adapted
+from
+the
+centralized
+Swin-UNETR
+architecture [43].
+7) Centralized Training: Traditional training on aggregated
+data, serving as an upper-bound performance baseline.
+C. Performance Analysis
+1) Model Convergence: The performance of the MID-
+LLM framework was evaluated using Dice scores and loss
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37169
+Fig. 6.
+Comparison of Dice scores across FL strategies (FedBN, Proposed
+Method, FedAvg) and centralized training over training and validation itera-
+tions. The Proposed Method (MID-LLM) achieves superior performance in
+both phases, indicating enhanced segmentation accuracy for medical imaging.
+metrics across various training and validation phases. Our
+analysis indicates that the MID-LLM achieves competitive
+Dice scores, suggesting a robust capacity for learning from
+distributed medical image datasets. Speciﬁcally, the framework
+consistently matches or exceeds the convergence metrics of
+centralized benchmarks during the training phases, with Dice
+scores demonstrating a superior retention of learning efﬁcacy
+in validation scenarios. Loss metrics exhibit a monotonically
+decreasing trend, afﬁrming the stability and effectiveness of
+the learning algorithms employed.
+2) System Efﬁciency: Fig. 6 illustrates the Dice scores for
+different FL approaches over iterations, both in training and
+validation phases. It features four methodologies: FedBN,
+Proposed, FedAvg, and Centralized. Execution time metrics
+are key for understanding the computational efﬁciency of
+models. They show a direct, scalable relationship with the
+number of training epochs. This is especially important in
+medical imaging, where more data means more computational
+demands. Even with more clients potentially slowing things
+down, the system keeps its execution times stable over dif-
+ferent rounds. This consistency emphasizes the effectiveness
+of the underlying distributed computing architecture, aligning
+with the Dice score trends observed in the FL models.
+Fig. 7 compares Dice Loss values across 400 iterations
+for four different FL approaches during both training and
+validation phases. The methods evaluated are FedBN, a
+Proposed method, FedAvg, and a Centralized approach. In
+the training phase, the Centralized method demonstrates the
+most effective learning, maintaining the lowest Dice Loss
+values. The Proposed method performs better than FedBN
+and FedAvg, indicating more efﬁcient optimization or data
+handling. During validation, the Centralized method continues
+to exhibit superior generalization, with the lowest loss values,
+closely followed by the Proposed method. The Centralized
+approach demonstrates superior robustness. However, the
+Proposed method remains a viable alternative for FL.
+3) Communication Overhead: Network performance, char-
+acterized by throughput and latency of blockchain transactions,
+was systematically analyzed to ascertain communication efﬁ-
+ciency. Fig. 8(a) presents an analysis of execution time
+dynamics across three parameters clients, epochs, and rounds
+in an FL system, and examines throughput and latency in
+blockchain transactions. With increasing numbers of clients,
+execution time rises, highlighting the computational load and
+Fig. 7.
+Dice scores and loss values for FL strategies (FedBN, Proposed
+Method, FedAvg) and centralized training across 400 iterations during training
+and validation phases. The Proposed Method (MID-LLM) shows competitive
+Dice scores and lower loss, closely following centralized training, demonstrat-
+ing robust performance in brain tumor segmentation.
+TABLE I
+GPU MEMORY AND TRAINING TIME FOR DIFFERENT METHODS
+synchronization challenges in scalable federated architectures.
+Meanwhile, the MID-LLM blockchain demonstrates sustained
+high throughput and minimal latency under increased network
+load, reﬂecting a robust infrastructure capable of efﬁciently
+managing data synchronization across decentralized nodes.
+This analysis reveals the system’s ability to effectively handle
+scalability and maintain network performance, ensuring stable
+execution times and efﬁcient data handling.
+Fig. 8(c) shows that as the send rate increases, throughput
+(Transactions Per Second, TPS) increases linearly, indicating
+efﬁcient handling of higher transaction volumes. However, the
+average latency in seconds also rises, suggesting a proportional
+delay as the system processes more transactions. This tradeoff
+highlights the system’s capacity limits and the impact of higher
+loads on response times.
+In Fig. 8(b), the throughput for read transactions also
+increases linearly with the send rate, showcasing an efﬁ-
+cient retrieval mechanism. The average latency, expressed as
+a percentage, exhibits a slight upward trend, but remains
+remarkably low, indicating that the system maintains high
+responsiveness despite increased demands. This suggests opti-
+mized read operations, potentially through effective caching
+or parallel processing techniques.
+Table I compares resource usage for local LLM training
+with and without optimizations. MID-LLM PEFT and quanti-
+zation reduce GPU memory consumption by 75% and training
+time by 40%, demonstrating practical feasibility.
+4) Operational Scalability: The scalability of the system’s
+smart contracts (registerSC, globalSC, rewardSC)
+was evaluated against increasing client numbers. Smart con-
+tract performance metrics, such as execution time and data
+throughput, scale linearly with client increments, thereby
+demonstrating the framework’s capability to handle larger
+decentralized networks efﬁciently.
+Fig. 9 illustrates the execution time for each smart con-
+tract. The registerSC remains consistently low in execution
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37170
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+Fig. 8.
+Performance metrics of the MID-LLM framework, evaluating execution time, throughput, and latency across FL and blockchain operations. Subﬁgures
+(a)–(c) illustrate scalability and efﬁciency under increasing client and transaction loads. (a) Scalability of FL: Execution Time Across Varying Clients, Epochs,
+and Rounds. (b) Throughput and Latency of Read Transactions with Increasing Send Rates. (c) Throughput and Latency of Write Transactions with Increasing
+Send Rates
+Fig. 9.
+Comprehensive Metrics Analysis of Smart Contract Performance Across Multiple Clients. (a) Data Processed per Round versus Clients. (b) Execution
+Time versus Clients. (c) Calls per Round versus Clients.
+time, barely increasing as the number of clients grows. In
+contrast, globalSC and rewardsSC exhibit a linear increase
+in execution time with more clients, indicating that these
+contracts are more computationally intensive or affected by
+scaling.
+Fig. 9 tracks the amount of data processed per round
+by each contract. Here, globalSC processes a signiﬁcantly
+higher volume of data compared to registerSC and rewardsSC,
+with its data processing requirements increasing sharply with
+more clients. Both registerSC and rewardsSC show moderate
+increases.
+Fig. 9 shows the number of calls per round to each contract.
+The registerSC sees a signiﬁcant decline in the number
+of calls as the number of clients increases, possibly due
+to batching or optimized call management. The globalSC
+maintains a steady number of calls across client numbers,
+while rewardsSC shows a notable increase, suggesting its func-
+tionality becomes more critical or utilized as more clients are
+active.
+5) Reward Distribution Analysis: The framework’s incen-
+tive mechanism was scrutinized by analyzing the reward
+distribution across various epochs. The analysis highlights
+the framework’s adaptability to network behavior ﬂuctuations
+and differential client contributions, facilitating fair and moti-
+vational incentive distribution. This adaptability is pivotal
+in promoting sustained cooperative participation across the
+network, thereby enhancing overall system robustness and
+performance.
+TABLE II
+VALIDATION OF REWARD SYSTEM MECHANISMS.GINI COEFFICIENT
+(GC), HIGHER JAIN’S FAIRNESS INDEX (JFI), MALICIOUS DETECTIONS
+(MD), AND REDUCED DICE SCORE VARIANCE (DCV),
+INDICATING FAIR AND ROBUST REWARD DISTRIBUTION
+D. Reward System Validation
+We simulated 50 hospitals (10 high-quality, 30 medium, 10
+low-quality datasets) with 5 malicious clients over 100 rounds
+on the BraTS 2020 dataset to validate the reward system. The
+Gini coefﬁcient measures reward inequality (lower is better), and
+Jain’s Fairness Index (28) quantiﬁes equity (higher is better). As
+shown in Table II, the full system achieves a Gini coefﬁcient of
+0.25, a Jain’s Fairness Index of 0.92, 95% malicious detection
+accuracy, and low Dice score variance (0.015), consistent with
+the high Dice scores observed in Fig. 6.
+E. Ablation Studies
+To evaluate the contribution of each component in MID-
+LLM, we conducted comprehensive ablation experiments on
+the BraTS 2020 validation set using the full framework
+as baseline. As detailed in Table III removing blockchain
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37171
+TABLE III
+ABLATION STUDY RESULTS (DICE SCORES)
+and IPFS infrastructure in favor of centralized parameter
+aggregation resulted in signiﬁcant performance degradation.
+The dice score dropping 12.7% and increased vulnerability to
+model poisoning attacks (3 successful breaches/100 rounds).
+The LLM integration proved crucial for contextual analysis,
+as its removal caused a 9.3% decrease in ET Dice score
+accompanied by 15% higher false positive rates. Our fairness-
+aware aggregation scheme demonstrated clear advantages over
+uniform weighting, reducing Dice variance across clients
+by 22% while maintaining segmentation consistency. The
+adversarial veriﬁcation mechanism emerged as essential for
+robustness, with its disablement allowing malicious clients
+to degrade global model accuracy by 18.5%. Finally, our
+optimized FedAverage variant showed superior efﬁciency com-
+pared to standard FedAvg, reducing convergence time by 2.1×
+through intelligent parameter aggregation.
+F. Comparison With Other Methods
+The performance evaluation of various segmentation meth-
+ods on the BraTS2020 dataset, both on the validation
+set Table IV and test set Table V, highlights the efﬁcacy of
+different approaches in terms of Dice scores and Hausdorff
+distances for tumor regions, including ET, whole tumor (WT),
+and tumor core (TC). The proposed method consistently
+outperforms others, achieving the highest Dice scores and
+lowest Hausdorff distances, indicating superior segmentation
+accuracy and boundary precision. On the validation set, the
+proposed method attained a Dice score of 0.854 for ET and
+0.908 for WT, with a Hausdorff distance of 4.36 mm for
+WT (Table I). Similarly, on the test set, it maintained its lead
+with a Dice score of 0.818 for ET and a Hausdorff distance
+of 10.48 mm for ET (Table II), underscoring its robustness.
+FedBN shows competitive performance, though slightly infe-
+rior to the proposed method, while FedAvg delivers moderate
+results. The centralized approach consistently lags, demon-
+strating lower accuracy and precision, which underscores the
+beneﬁts of federated methods in medical image segmentation.
+MID-LLM outperforms recent FL frameworks like FedOPT
+and FedADG by 2.3%–4.1% in Dice scores for ET seg-
+mentation. The integration of LLMs provides contextual
+reasoning that compensates for data heterogeneity, a chal-
+lenge where FedNova and Swin-UNETR show limitations.
+Notably, MID-LLM achieves near-centralized performance
+while preserving privacy, demonstrating its practical viability
+in Table V. To further validate the MID-LLM framework’s
+performance, Table VI reports sensitivity, speciﬁcity, and
+convergence time across semi-supervised scenarios with 5%,
+TABLE IV
+DICE AND HAUSDORFF OF DIFFERENT METHODS ON THE VALIDATION
+SET OF BRATS2020. ET = ENHANCING TUMOR; WT = WHOLE
+TUMOR; TC = TUMOR CORE
+TABLE V
+DICE AND HAUSDORFF OF DIFFERENT METHODS ON THE TEST SET OF
+BRATS2020. ET = ENHANCING TUMOR; WT = WHOLE
+TUMOR; TC = TUMOR CORE
+10%, and 20% labeled data on the BraTS-2019 dataset, high-
+lighting its superior segmentation accuracy and computational
+efﬁciency over FedNova and UNETR.
+The integration of LLMs into segmentation frameworks has
+demonstrated signiﬁcant performance improvements, partic-
+ularly in scenarios with limited labeled data. In both data
+setups (10% and 20% labeled), our method shows marked
+enhancements over traditional methods, as evidenced by the
+highest Dice scores and lowest Hausdorff distances. In the
+ﬁrst section of the table, where only 10% of the data is
+labeled, our method achieves a Dice score of 78.7% for the
+Enhancing Tumor (ET) region, which is a 0.9% improvement
+over the second-best method (MLRPL). Similarly, signiﬁcant
+improvements are observed in the WT and TC regions, with
+Dice scores of 85.4% and 82.1%, respectively. These results
+highlight the model’s performance to effectively leverage
+unlabeled data through LLM. It is difﬁcult to maintain seg-
+mentation accuracy in low-data settings. Moreover, examining
+the second part of the table, where 20% of the data is labeled,
+conﬁrms the robustness of the proposed method. The Dice
+score for the ET region increases to 79.9%, while the WT and
+TC regions see signiﬁcant improvements 86.7% and 83.5%,
+respectively. This clear trend of enhanced performance with
+increasing labeled data but also emphasizes its scalability and
+adaptability across varying data conditions.
+Hausdorff distance, a critical metric for assessing the bound-
+ary delineation accuracy, is signiﬁcantly reduced across all
+regions in our approach. Speciﬁcally, in the 10% labeled sce-
+nario, the Hausdorff distance for the ET region is signiﬁcantly
+decreased to 8.6 mm, compared to 9.1 mm in the MLRPL
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37172
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+TABLE VI
+EVALUATION OF ADVANCED SEMI-SUPERVISED SEGMENTATION
+TECHNIQUES UTILIZING LLMS ON THE BRATS-2019 DATASET. ET =
+ENHANCING TUMOR; WT = WHOLE TUMOR; TC = TUMOR CORE
+TABLE VII
+EVALUATION OF BLOCKCHAIN-BASED DECENTRALIZED LEARNING
+FRAMEWORKS FOR MEDICAL IMAGE ANALYSIS. THIS TABLE PRESENTS
+A COMPARISON OF VARIOUS PROPOSALS BASED ON THEIR SUPPORT FOR
+DECENTRALIZED LEARNING, BLOCKCHAIN PLATFORM INTEGRATION,
+MODEL VERIFICATION, AGGREGATION METHODS, AND
+STORAGE SOLUTIONS
+method. This reduction is even more pronounced in the 20%
+labeled setup, with a distance of 8.2 mm, illustrating the
+model’s superior precision in boundary detection.
+Table VII compares several blockchain-based decentralized
+learning frameworks for medical image analysis, focusing on
+decentralized learning support, blockchain integration, model
+veriﬁcation, and off-chain methods. DeepChain and Biscotti
+support decentralized learning and off-chain aggregation but
+lack blockchain integration and model veriﬁcation, impact-
+ing security. FDRL lacks both decentralized learning and
+blockchain use, limiting scalability. BAFFLE supports decen-
+tralized learning with blockchain but lacks model veriﬁcation.
+BASE-PlOT combines decentralized learning and blockchain
+with off-chain aggregation, enhancing scalability but missing
+veriﬁcation. The proposed FedRLChain excels in all aspects,
+offering a comprehensive solution for secure, scalable medical
+image analysis.
+VI. CONCLUSION
+In this Huzhou, we introduced MID-LLM, a novel frame-
+work that integrates LLMs into a decentralized FL system
+for medical image diagnostics. By leveraging blockchain and
+IPFS technologies, our framework ensures secure and efﬁcient
+parameter sharing while maintaining data privacy. The security
+analysis highlights the robustness of our veriﬁcation and
+aggregation schemes, ensuring the integrity and fairness of
+the collaborative learning process. Our approach not only
+enhances the accuracy of medical image diagnostics but also
+ensures the privacy and security of sensitive medical data,
+making it a viable solution for collaborative AI in healthcare.
+REFERENCES
+[1] C. Qiu et al., “Federated text-driven prompt generation for vision-
+language models,” in Proc. 12th Int. Conf. Learn. Represent., 2024.
+[Online]. Available: https://openreview.net/forum?id=NW31gAylIm
+[2] R. Kumar et al., “Privacy-preserving blockchain-based federated learn-
+ing for brain tumor segmentation,” Comput. Biol. Med., vol. 177, Jul.
+2024, Art. no. 108646.
+[3] R. Kumar et al., “Blockchain and homomorphic encryption based
+privacy-preserving model aggregation for medical images,” Comput.
+Med. Imag. Graph., vol. 102, Dec. 2022, Art. no. 102139.
+[4] E. Moore, A. Imteaj, S. Rezapour, and M. H. Amini, “A survey on secure
+and private federated learning using blockchain: Theory and application
+in resource-constrained computing,” IEEE Internet Things J., vol. 10,
+no. 24, pp. 21942–21958, Dec. 2023.
+[5] R. Kumar et al., “Blockchain-federated-learning and deep learning
+models for Covid-19 detection using ct imaging,” IEEE Sensors J.,
+vol. 21, no. 14, pp. 16301–16314, Jul. 2021.
+[6] R. Kumar et al., “An integration of blockchain and AI for secure data
+sharing and detection of CT images for the hospitals,” Comput. Med.
+Imag. Graph., vol. 87, Jan. 2021, Art. no. 101812.
+[7] S. Chowdhury, A. Mukherjee, and R. Halder, “FedRLChain: Secure
+federated deep reinforcement learning with blockchain,” IEEE Trans.
+Services Comput., vol. 16, no. 6, pp. 3865–3878, Nov./Dec. 2023.
+[8] Y. K. Jang, D. Kim, Z. Meng, D. Huynh, and S.-N. Lim, “Visual
+delta generator with large multi-modal models for semi-supervised
+composed image retrieval,” in Proc. IEEE/CVF Conf. Comput. Vis.
+Pattern Recognit., 2024, pp. 16805–16814.
+[9] D. Zhu, J. Chen, X. Shen, X. Li, and M. Elhoseiny, “MiniGPT-4:
+Enhancing vision-language understanding with advanced large language
+models,” 2023, arXiv:2304.10592.
+[10] B. Min et al., “Recent advances in natural language processing via large
+pre-trained language models: A survey,” ACM Comput. Surveys, vol. 56,
+no. 2, pp. 1–40, 2023.
+[11] J. Liu, Y. Fan, R. Sun, L. Liu, C. Wu, and S. Mumtaz, “Blockchain-
+aided privacy-preserving medical data sharing scheme for e-healthcare
+system,” IEEE Internet Things J., vol. 10, no. 24, pp. 21377–21388,
+Dec. 2023.
+[12] Y. Wu et al., “Mutual consistency learning for semi-supervised med-
+ical image segmentation,” Med. Image Anal., vol. 81, Oct. 2022,
+Art. no. 102530.
+[13] N. Wang, Y. Deng, W. Feng, S. Fan, J. Yin, and S.-K. Ng, “One-
+shot sequential federated learning for non-iid data by enhancing local
+model diversity,” in Proc. 32nd ACM Int. Conf. Multimedia, 2024,
+pp. 5201–5210.
+[14] X. Li, M. Jiang, X. Zhang, M. Kamp, and Q. Dou, “FedBN: Federated
+learning on non-iid features via local batch normalization,” 2021,
+arXiv:2102.07623.
+[15] N. Wang, Y. Deng, S. Fan, J. Yin, and S.-K. Ng, “Multi-modal one-shot
+federated ensemble learning for medical data with vision large language
+model,” 2025, arXiv:2501.03292.
+[16] Y. Chang et al., “A survey on evaluation of large language models,”
+ACM Trans. Intell. Syst. Technol., vol. 15, no. 3, pp. 1–45, 2024.
+[17] Q. Wu et al., “AutoGEN: Enabling next-gen LLM applications via multi-
+agent conversation framework,” 2023, arXiv:2308.08155.
+[18] D. Tian, S. Jiang, L. Zhang, X. Lu, and Y. Xu, “The role of large
+language models in medical image processing: A narrative review,”
+Quant. Imag. Med. Surg., vol. 14, no. 1, pp. 1108–1121, 2023. [Online].
+Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC10784029/
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+KUMAR et al.: MID-LLM: ENHANCING MEDICAL IMAGE DIAGNOSTICS WITH LLMs IN A BLOCKCHAIN AI FRAMEWORK
+37173
+[19] T. Han, L. C. Adams, S. Nebelung, J. N. Kather, K. K. Bressem, and
+D. Truhn, “Multimodal large language models are generalist medical
+image interpreters,” medrxiv. 2023. [Online]. Available: https://www.
+medrxiv.org/content/10.1101/2023.12.21.23300146v2
+[20] Z. Zhao et al., “CLIP in medical imaging: A comprehensive survey,”
+2023, arXiv:2312.07353.
+[21] W. Kim, B. Son, and I. Kim, “ViLT: Vision-and-language transformer
+without convolution or region supervision,” in Proc. Int. Conf. Mach.
+Learn., 2021, pp. 5583–5594.
+[22] Z. Wang, Z. Wu, D. Agarwal, and J. Sun, “MedCLIP: Contrastive
+learning from unpaired medical images and text,” in Proc. Conf. Empir.
+Methods Nat. Lang. Process. Conf. Empir. Methods Nat. Lang. Process.,
+2022, p. 3876.
+[23] H. Wang et al., “ViLT-CLIP: Video and language tuning CLIP with
+multimodal prompt learning and scenario-guided optimization,” in Proc.
+AAAI Conf. Artif. Intell., vol. 38, 2024, pp. 5390–5400.
+[24] S. Yan, C. Wang, W. Chen, and J. Lyu, “Swin transformer-based GAN
+for multi-modal medical image translation,” Front. Oncol., vol. 12, Aug.
+2022, Art. no. 942511.
+[25] Y. Wang, Y. Zhang, Y. Zhang, Y. Wang, and Y. Zhang, “M3D: Advancing
+3D medical image analysis with multi-modal large language models,”
+2024, arXiv:2404.00578.
+[26] M.-H. Van, P. Verma, and X. Wu, “On large visual language models for
+medical imaging analysis: An empirical study,” 2024, arXiv:2402.14162.
+[27] R. Azad et al., “Advances in medical image analysis with vision
+transformers: A comprehensive review,” Med. Image Anal., vol. 91, Jan.
+2024, Art. no. 103000.
+[28] E. T. M. Beltrán et al., “Decentralized federated learning: Fundamentals,
+state of the art, frameworks, trends, and challenges,” IEEE Commun.
+Surveys Tuts., vol. 25, no. 4, pp. 2983–3013, 4th Quart., 2023.
+[29] J. Leng, M. Zhou, J. L. Zhao, Y. Huang, and Y. Bian, “Blockchain
+security: A survey of techniques and research directions,” IEEE Trans.
+Services Comput., vol. 15, no. 4, pp. 2490–2510, Jul./Aug. 2022.
+[30] Z. Zheng et al., “An overview on smart contracts: Challenges, advances
+and platforms,” Future Gener. Comput. Syst., vol. 105, pp. 475–491,
+Apr. 2020.
+[31] E. J. Hu et al., “LoRa: Low-rank adaptation of large language models,”
+in Proc. ICLR, vol. 1, 2022, p. 3.
+[32] T. Dettmers, M. Lewis, Y. Belkada, and L. Zettlemoyer, “Gpt3.int8(): 8-
+bit matrix multiplication for transformers at scale,” in Proc. Adv. Neural
+Inf. Process. Syst., vol. 35, 2022, pp. 30318–30332.
+[33] K. Sahinbas and F. O. Catak, “Secure multi-party computation-
+based privacy-preserving data analysis in healthcare IoT systems,”
+in Interpretable Cognitive Internet of Things for Healthcare. Cham,
+Switzerland: Springer, 2023, pp. 57–72.
+[34] J. Koneˇcn`y, H. B. McMahan, F. X. Yu, P. Richtárik, A. T. Suresh, and
+D. Bacon, “Federated learning: Strategies for improving communication
+efﬁciency,” 2016, arXiv:1610.05492.
+[35] K. Singhal et al., “Toward expert-level medical question answering with
+large language models,” Nat. Med., vol. 31, pp. 943–950, Jan. 2025.
+[36] H. Touvron et al., “LLaMA: Open and efﬁcient foundation language
+models,” 2023, arXiv:2302.13971.
+[37] C. Wu, X. Zhang, Y. Zhang, Y. Wang, and W. Xie, “Towards gener-
+alist foundation model for radiology by leveraging Web-scale 2D&3D
+medical data,” 2023, arXiv:2308.02463.
+[38] Z. Chen, M. Zhu, C. Yang, and Y. Yuan, “Personalized retrogress-
+resilient framework for real-world medical federated learning,” in Proc.
+24th Int. Conf. Med. Image Comput. Comput. Assist. Intervent., 2021,
+pp. 347–356.
+[39] R. Sashank et al., “Adaptive federated optimization,” in Proc. 9th Int.
+Conf. Learn. Represent., 2021, pp. 1–38.
+[40] J. Wang, Q. Liu, H. Liang, G. Joshi, and H. V. Poor, “Tackling the objec-
+tive inconsistency problem in heterogeneous federated optimization,” in
+Proc. Adv. Neural Inf. Process. Syst., vol. 33, 2020, pp. 7611–7623.
+[41] L. Zhang, X. Lei, Y. Shi, H. Huang, and C. Chen, “Federated learning
+for IoT devices with domain generalization,” IEEE Internet Things J.,
+vol. 10, no. 11, pp. 9622–9633, Jun. 2023.
+[42] A. Hatamizadeh, V. Nath, Y. Tang, D. Yang, H. R. Roth, and D. Xu,
+“Swin UNETR: Swin transformers for semantic segmentation of brain
+tumors in MRI images,” in Proc. Int. MICCAI Brainlesion Workshop,
+2021, pp. 272–284.
+[43] A. Hatamizadeh et al., “UNETR: Transformers for 3D medical image
+segmentation,” in Proc. IEEE/CVF winter Conf. Appl. Comput. Vis.,
+2022, pp. 574–584.
+[44] J. Su, Z. Luo, S. Lian, D. Lin, and S. Li, “Mutual learning with reliable
+pseudo label for semi-supervised medical image segmentation,” Med.
+Image Anal., vol. 94, May 2024, Art. no. 103111.
+[45] Z. Xu et al., “Ambiguity-selective consistency regularization for mean-
+teacher semi-supervised medical image segmentation,” Med. Image
+Anal., vol. 88, Aug. 2023, Art. no. 102880.
+[46] Z. Xu et al., “All-around real label supervision: Cyclic prototype
+consistency learning for semi-supervised medical image segmentation,”
+IEEE J. Biomed. Health Inform., vol. 26, no. 7, pp. 3174–3184, Jul.
+2022.
+[47] X. Luo et al., “Efﬁcient semi-supervised gross target volume of
+nasopharyngeal carcinoma segmentation via uncertainty rectiﬁed pyra-
+mid consistency,” in Proc. 24th Int. Conf. Med. Image Comput. Comput.
+Assist. Intervent., 2021, pp. 318–329.
+[48] Y. Zhang, L. Yang, J. Chen, M. Fredericksen, D. P. Hughes, and
+D. Z. Chen, “Deep adversarial networks for biomedical image segmenta-
+tion utilizing unannotated images,” in Proc. 20th Int. Conf. Med. Image
+Comput. Comput.-Assist. Intervent., 2017, pp. 408–416.
+[49] X. Chen, Y. Yuan, G. Zeng, and J. Wang, “Semi-supervised semantic
+segmentation with cross pseudo supervision,” in Proc. IEEE/CVF Conf.
+Comput. Vis. Pattern Recognit., 2021, pp. 2613–2622.
+[50] X. Luo, J. Chen, T. Song, and G. Wang, “Semi-supervised medical image
+segmentation through dual-task consistency,” in Proc. AAAI Conf. Artif.
+Intell., vol. 35, 2021, pp. 8801–8809.
+[51] Y. Ouali, C. Hudelot, and M. Tami, “Semi-supervised semantic seg-
+mentation with cross-consistency training,” in Proc. IEEE/CVF Conf.
+Comput. Vis. Pattern Recognit., 2020, pp. 12674–12684.
+[52] T.-H. Vu, H. Jain, M. Bucher, M. Cord, and P. Pérez, “Advent:
+Adversarial entropy minimization for domain adaptation in semantic
+segmentation,” in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit.,
+2019, pp. 2517–2526.
+[53] L. Yang et al., “DeepChain: Auditable and privacy-preserving deep
+learning with blockchain-based incentive,” in Proc. 28th Int. Joint Conf.
+Artif. Intell. (IJCAI), 2019, pp. 6077–6083.
+[54] N. C. L. Truong et al., “Biscotti: A blockchain system for private and
+secure federated learning,” IEEE Trans. Inf. Forensics Security, vol. 16,
+pp. 2047–2061, 2020.
+[55] Q. Qi et al., “Federated deep reinforcement learning: Techniques, appli-
+cations, and open challenges,” IEEE Commun. Surveys Tuts., vol. 23,
+no. 2, pp. 1160–1200, 2nd Quart., 2021.
+[56] P.
+Ramanan
+and
+K.
+Nakayama,
+“BAFFLE:
+Blockchain
+based
+aggregator
+free
+federated
+learning,”
+in
+Proc.
+IEEE
+Int.
+Conf.
+Blockchain
+(Blockchain),
+Rhodes,
+Greece,
+2020,
+pp.
+72–81,
+doi: 10.1109/Blockchain50366.2020.00017.
+[57] S. Zhang et al., “Blockchain and federated deep reinforcement
+learning based secure cloud-edge-end collaboration in power IoT,”
+IEEE Wireless Commun., vol. 29, no. 2, pp. 84–91, Apr. 2022,
+doi: 10.1109/MWC.010.2100491.
+Rajesh Kumar received the Ph.D. degree in com-
+puter science and engineering from the University
+of Electronic Science and Technology of China
+(UESTC), Chengdu, China, in 2019.
+He
+is
+currently
+working
+as
+an
+Associate
+Professor with the Yangtze Delta Region Institute
+(Huzhou), UESTC, Huzhou, China. In addition,
+he has published more than 70 articles in var-
+ious international journals and conferences. His
+research interests include cyber security, large-
+language model, Internet of Things, and blockchain
+technology.
+Yunbo Rao received the B.Sc. degree from Sichuan
+Normal University, Chengdu, China, in 2003, and
+the M.E. and Ph.D. degrees from the School
+of Computer Science and Engineering, University
+of Electronic Science and Technology of China,
+Chengdu, in 2006 and 2012, respectively.
+From 2009 to 2011, he was a Visiting Scholar
+of Electrical Engineering with the University of
+Washington, Seattle, WA, USA. Since 2012, he has
+been with the School of Information and Software
+Engineering, University of Electronic Science and
+Technology of China, where he is currently an Associate Professor. His
+research interests include image segmentation, 3-D reconstruction, video
+enhancement, and medical image processing.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
+37174
+IEEE INTERNET OF THINGS JOURNAL, VOL. 12, NO. 18, 15 SEPTEMBER 2025
+Jay Kumar (Member, IEEE) received the M.Phil.
+degree in computer science from Quaid-i-Azam
+University, Islamabad, Pakistan, in 2018, and the
+Ph.D. degree in computer science and technol-
+ogy from the School of Computer Science and
+Engineering, University of Electronics Science and
+Technology of China, Chengdu, China, in 2021.
+He is currently a Postdoctoral Fellow with
+Dalhousie University, Halifax, NS, Canada. His
+research
+interests
+include
+data
+stream
+mining,
+natural language processing, and spatiotemporal
+data mining.
+Cobbinah B. Mawuli (Member, IEEE) received
+the master’s degree in computer science from the
+University of Electronic Science and Technology
+of China, Chengdu, China, in 2019, where he is
+currently pursuing the Ph.D. degree in computer
+science.
+His research interests include federated learn-
+ing, data stream mining, transfer learning, and
+neuroimaging.
+Waqar Ali received the master’s degree in com-
+puter science from the University of Central Punjab,
+Lahore, Pakistan, in 2011, and the Ph.D. degree from
+the University of Electronic Science and Technology
+of China, Chengdu, China, in 2021.
+He is currently an Associate Professor with
+Wenzhou–Kean University, Wenzhou, China. He has
+been serving in academia since 2003. His research
+interests focus on responsible recommender systems,
+analyzing vulnerabilities, trust modeling, privacy
+protection, and context integration in recommender
+systems.
+Shaoning Zeng (Member, IEEE) received the B.S.
+and M.S. degrees from Beihang University, Beijing,
+China, in 2004 and 2007, respectively, and the Ph.D.
+degree in computer science from the University of
+Macau, Macau, China, in 2020.
+He is currently an Associate Professor with the
+Yangtze Delta Region Institute (Huzhou), University
+of Electronic Science and Technology of China,
+Huzhou,
+China.
+His
+research
+interests
+include
+computer vision and multimedia analysis.
+Authorized licensed use limited to: University of Electronic Science and Tech of China. Downloaded on October 29,2025 at 15:51:11 UTC from IEEE Xplore.  Restrictions apply. 
