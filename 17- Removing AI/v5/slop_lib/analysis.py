@@ -25,6 +25,7 @@ from .stats      import stdev, mean, coeff_of_variation, shannon_entropy
 from .text       import sent_tokenize, word_count, split_paragraphs, jaccard_overlap
 from .linguistic  import analyse_linguistic, LinguisticReport, spacy_available
 from .ai_patterns  import analyse_ai_patterns, AIPatternReport
+from .humanizer   import humanizer_report, HumanizerReport
 
 
 # ── data types ────────────────────────────────────────────────────────────────
@@ -69,6 +70,7 @@ class SlopReport:
     rhythm:      RhythmReport
     linguistic:  Optional["LinguisticReport"] = None
     ai_patterns: Optional["AIPatternReport"] = None
+    humanizer:   Optional["HumanizerReport"] = None
     passed:      bool = False
 
     def to_dict(self) -> dict:
@@ -84,6 +86,8 @@ class SlopReport:
             d["linguistic"] = self.linguistic.to_dict()
         if self.ai_patterns:
             d["ai_patterns"] = self.ai_patterns.to_dict()
+        if self.humanizer:
+            d["humanizer"] = self.humanizer.to_dict()
         return d
 
 
@@ -318,6 +322,10 @@ def analyse(
     ai_pat = analyse_ai_patterns(text)
     score  = max(0, score - ai_pat.ai_pattern_penalty)
 
+    # Humanizer analysis (AI vocabulary, formulaic phrases, em dashes)
+    h_rep  = humanizer_report(text)
+    score  = max(0, score - h_rep.humanizer_penalty)
+
     return SlopReport(
         score       = score,
         dimensions  = dims,
@@ -325,5 +333,6 @@ def analyse(
         rhythm      = rhythm,
         linguistic  = linguistic,
         ai_patterns = ai_pat,
+        humanizer   = h_rep,
         passed      = score >= threshold,
     )

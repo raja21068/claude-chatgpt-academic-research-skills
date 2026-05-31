@@ -10,6 +10,7 @@ Public API:
 from .analysis import analyse, SlopReport, RhythmReport
 from .loaders  import load_banned_phrases, load_exceptions
 from .config   import get_threshold, get_thresholds
+from .humanizer import humanize_text, humanizer_report, HumanizerReport
 
 __all__ = [
     "analyse",
@@ -19,6 +20,9 @@ __all__ = [
     "load_exceptions",
     "get_threshold",
     "get_thresholds",
+    "humanize_text",
+    "humanizer_report",
+    "HumanizerReport",
 ]
 
-__version__ = "5.0.0"
+__version__ = "6.0.0"

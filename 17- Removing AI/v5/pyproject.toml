@@ -4,7 +4,7 @@ build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name            = "paper-writing-agent"
-version         = "5.0.0"
+version         = "6.0.0"
 description     = "Anti-AI slop checker for academic prose"
 readme          = "README.md"
 requires-python = ">=3.10"

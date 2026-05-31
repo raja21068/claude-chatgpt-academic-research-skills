@@ -148,6 +148,11 @@ def render_report(report: "SlopReport", detailed: bool = False) -> str:
     if ai_any:
         any_issue = True
 
+    # Humanizer findings
+    hum_any = _render_humanizer(report, lines)
+    if hum_any:
+        any_issue = True
+
     if not any_issue:
         lines.append(f"  {GREEN}No issues detected.{RESET}")
 
@@ -207,5 +212,50 @@ def _render_ai_patterns(report, lines):
             label_str = label.replace("_", " ").upper()
             examples = ", ".join(f'"{e}"' for e in data["examples"][:4])
             lines.append(f"  {YELLOW}[{label_str}]{RESET} {data['count']} hit(s): {examples}")
+
+    return any_issue
+
+
+def _render_humanizer(report, lines) -> bool:
+    """Append humanizer findings to lines list."""
+    from .colors import RED, YELLOW, GREEN, RESET
+    if not report.humanizer:
+        return False
+    h = report.humanizer
+    any_issue = False
+
+    if h.ai_vocab_count > 3:
+        any_issue = True
+        colour = RED if h.ai_vocab_count > 15 else YELLOW
+        examples = ", ".join(f'"{w}"' for w in h.ai_vocab_examples[:6])
+        lines.append(
+            f"  {colour}[AI VOCABULARY]{RESET} {h.ai_vocab_count} hit(s): {examples}\n"
+            f"    → Replace with plainer alternatives (e.g. 'crucial'→'important', "
+            f"'showcase'→'show', 'leverage'→'use')."
+        )
+
+    if h.ai_phrase_count > 1:
+        any_issue = True
+        colour = RED if h.ai_phrase_count > 8 else YELLOW
+        examples = ", ".join(f'"{p}"' for p in h.ai_phrase_examples[:5])
+        lines.append(
+            f"  {colour}[AI PHRASES]{RESET} {h.ai_phrase_count} formulaic phrase(s): {examples}\n"
+            f"    → These are statistical AI fingerprints. Rewrite to be specific."
+        )
+
+    if h.em_dash_count > 2:
+        any_issue = True
+        lines.append(
+            f"  {YELLOW}[EM DASHES]{RESET} {h.em_dash_count} spaced em dashes — "
+            f"humans use commas/semicolons. Auto-fixed by rewriter."
+        )
+
+    if h.autofix_count > 0:
+        any_issue = True
+        lines.append(
+            f"  {YELLOW}[FILLER PATTERNS]{RESET} {h.autofix_count} removable filler phrase(s) found "
+            f"(e.g. 'It is important to note that', 'In order to'). "
+            f"Run rewriter to auto-fix."
+        )
 
     return any_issue

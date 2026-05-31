@@ -27,12 +27,22 @@ ALL COMMANDS
   setup          Install all dependencies
   style          Build personal writing style from your published papers
   check  <file>  Full slop score report
+  rewrite-ai <f> Rewrite with Claude API  (fixes passive voice + all 25 AI patterns)
   diff   <f1> <f2>  Compare two draft versions
   rhythm <file>  Rhythm-only check
   corpus <file>  Compare draft to your personal corpus baseline
   latex  <file>  LaTeX-aware check with section filters
   abstract <f>   Abstract structure and component check
   contrib  <f>   Contribution bullet analysis
+
+REWRITE-AI OPTIONS
+------------------
+  --section NAME    Rewrite one section (abstract|introduction|methods|results|discussion|conclusion)
+  --chunk-size N    Words per Claude API call (default 800)
+  --model NAME      Claude model (default: claude-sonnet-4-6)
+  --dry-run         Preview chunks without calling the API
+
+  Requires: pip install anthropic  +  ANTHROPIC_API_KEY env var
 
 OPTIONS (work with most commands)
 ----------------------------------
@@ -87,7 +97,7 @@ PDF_PACKAGES      = ["pdfminer.six"]   # for reading PDFs in style setup
 
 def cmd_setup(args=None):
     print(bold("╔══════════════════════════════════════════════╗"))
-    print(bold("║     Paper Writing Agent — Setup              ║"))
+    print(bold("║     Paper Writing Agent v6 — Setup              ║"))
     print(bold("╚══════════════════════════════════════════════╝"))
     print()
 
@@ -155,7 +165,7 @@ def cmd_setup(args=None):
 
 def cmd_style(args=None):
     print(bold("╔══════════════════════════════════════════════╗"))
-    print(bold("║     Paper Writing Agent — Style Setup        ║"))
+    print(bold("║     Paper Writing Agent v6 — Style Setup        ║"))
     print(bold("╚══════════════════════════════════════════════╝"))
     print()
 
@@ -388,6 +398,28 @@ def cmd_contrib(args):
     run_script("contribution_checker.py", args)
 
 
+# ── rewrite-ai ────────────────────────────────────────────────────────────────
+
+def cmd_rewrite_ai(args):
+    if not args:
+        print(red("Usage: python run.py rewrite-ai <paper.txt> [options]"))
+        print()
+        print("Options:")
+        print("  --section NAME    Rewrite one section only:")
+        print("                    abstract | introduction | methods | results | discussion | conclusion")
+        print("  --chunk-size N    Words per API chunk (default 800)")
+        print("  --model NAME      Claude model (default: claude-sonnet-4-6)")
+        print("  --dry-run         Show chunks without calling the API")
+        print("  --json            Print JSON summary")
+        print()
+        print("Requirements:")
+        print("  pip install anthropic")
+        print("  export ANTHROPIC_API_KEY=sk-ant-...   (or create .api_key file)")
+        sys.exit(1)
+    _require_file(args[0])
+    run_script("rewrite_ai.py", args)
+
+
 # ── help ──────────────────────────────────────────────────────────────────────
 
 def cmd_help(args=None):
@@ -400,6 +432,7 @@ COMMANDS = {
     "setup":        cmd_setup,
     "style":        cmd_style,
     "check":        cmd_check,
+    "rewrite-ai":   cmd_rewrite_ai,
     "diff":         cmd_diff,
     "rhythm":       cmd_rhythm,
     "corpus":       cmd_corpus,
