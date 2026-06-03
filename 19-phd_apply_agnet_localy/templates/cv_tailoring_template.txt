@@ -1,0 +1,23 @@
+Draft for review. This version only reorganizes and highlights information from the original CV. Verify before sending.
+
+TARGET PROFESSOR
+Name: {professor_name}
+University: {university}
+Department: {department}
+Profile: {profile_url}
+Research area: {research_area}
+
+TAILORED RESEARCH OBJECTIVE
+{tailored_objective}
+
+WHY THIS CV VERSION FITS
+{match_reason}
+
+RELEVANT BACKGROUND HIGHLIGHTS
+{relevant_highlights}
+
+SELECTED SKILLS TO HIGHLIGHT
+{selected_skills}
+
+ORIGINAL CV CONTENT / VERIFIED CONTENT
+{original_cv_content}

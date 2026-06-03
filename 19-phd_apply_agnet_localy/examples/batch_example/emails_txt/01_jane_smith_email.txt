@@ -1,0 +1,16 @@
+To: jane.smith@example.edu
+Subject: Prospective PhD applicant interested in privacy-preserving machine learning
+
+Dear Professor Smith,
+
+I hope you are doing well. My name is [Applicant Name], and I am interested in PhD opportunities related to AI security and privacy-preserving machine learning.
+
+I found your profile at Example University and was especially interested in your work on privacy-preserving machine learning and secure AI systems. This connects with my background in machine learning and cybersecurity, especially my projects involving Python-based ML experiments and security-focused data analysis.
+
+I would be grateful to know whether you are currently considering prospective students or research assistants whose interests align with your group. I have prepared a CV draft highlighting the most relevant parts of my background.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Applicant Name]
+[Applicant Email]

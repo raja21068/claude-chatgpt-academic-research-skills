@@ -1,0 +1,18 @@
+Draft for review. This version only reorganizes and highlights information from the original CV. Verify before sending.
+
+TARGET PROFESSOR
+Name: Jane Smith
+University: Example University
+Department: Computer Science
+Research area: AI security; privacy-preserving machine learning
+
+TAILORED RESEARCH OBJECTIVE
+I am interested in PhD research related to AI security, privacy-preserving machine learning, and applied cybersecurity.
+
+RELEVANT BACKGROUND HIGHLIGHTS
+- Machine learning project using Python and scikit-learn.
+- Cybersecurity log analysis project.
+- Data analysis and deep learning experiments.
+
+ORIGINAL CV CONTENT
+[Paste or preserve verified CV content here.]

@@ -1,0 +1,13 @@
+{
+  "name": "professor-outreach-agent-v2-code",
+  "version": "0.3.0",
+  "mode": "ChatGPT workflow package plus optional local helper scripts",
+  "requires_openai_api_key": false,
+  "requires_gmail_api": false,
+  "auto_sends_email": false,
+  "included_tools": [
+    "make_send_queue.py",
+    "validate_professors_csv.py",
+    "build_batch_zip.py"
+  ]
+}

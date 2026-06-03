@@ -1,0 +1,13 @@
+{
+  "topic": "node classification on heterophilic graphs",
+  "queries": [
+    "node classification heterophilic graphs",
+    "graph neural network heterophily",
+    "non-homophilous graph learning",
+    "heterophilic GNN message passing",
+    "graph attention heterophilic",
+    "label distribution graph neural network",
+    "spectral GNN heterophily"
+  ],
+  "_note": "Replace this with your own topic + queries. See SKILL.md Stage 1 for the recipe (1-2 literal, 2-3 synonyms, 2-3 methodological adjacents, 1-2 application/motivation)."
+}

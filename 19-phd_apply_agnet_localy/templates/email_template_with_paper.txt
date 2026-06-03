@@ -1,0 +1,16 @@
+To: {email}
+Subject: Prospective {target} applicant interested in {paper_or_area}
+
+Dear Professor {last_name},
+
+I hope you are doing well. My name is {applicant_name}, and I am interested in {target} opportunities in {field}.
+
+I came across your work on {verified_paper_or_project}. I was particularly interested in {specific_research_detail}. This connects with my background in {real_applicant_overlap}, including {real_project_or_skill}.
+
+I would be grateful to know whether you are open to hearing from prospective students or research assistants with this background. I have prepared a tailored CV draft and would be happy to share any additional information.
+
+Thank you for your time and consideration.
+
+Sincerely,
+{applicant_name}
+{applicant_email}
