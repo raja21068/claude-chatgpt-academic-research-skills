@@ -1,0 +1,14 @@
+{
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "gap_type": "VOID|CONFLICT|LIMITATION|REPRODUCIBILITY|EVALUATION|DATASET|THEORY",
+      "title": "short title",
+      "evidence_from_papers": ["paper_id: evidence summary"],
+      "why_it_matters": "scientific or practical importance",
+      "testability": "how the gap can be tested",
+      "priority_score": 1,
+      "risk": "LOW|MEDIUM|HIGH"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "paper_id": "firstauthor-year-slug",
+  "title": "full title",
+  "authors": ["author names"],
+  "year": 2026,
+  "venue": "journal/conference/arXiv/unknown",
+  "doi": null,
+  "arxiv_id": null,
+  "problem": {
+    "statement": "specific problem addressed",
+    "motivation": "why it matters",
+    "scope": "boundaries of the paper"
+  },
+  "method": {
+    "name": "method/framework name",
+    "category": "transformer|cnn|rnn|diffusion|rl|gnn|optimization|statistical|hybrid|benchmark|survey|other",
+    "mechanism": "how the method works technically",
+    "components": ["component 1", "component 2"],
+    "novelty_claim": "authors' novelty claim",
+    "dependencies": ["data", "compute", "pretrained models"]
+  },
+  "datasets": [
+    {"name": "dataset", "domain": "domain", "size": "size", "public": true}
+  ],
+  "metrics": [
+    {"name": "metric", "value": "reported value", "baseline_comparison": "comparison"}
+  ],
+  "claims": [
+    {
+      "claim": "specific claim",
+      "evidence_type": "empirical|theoretical|ablation|case_study",
+      "strength": "strong|moderate|weak",
+      "conditions": "conditions under which it holds"
+    }
+  ],
+  "limitations": {
+    "acknowledged": ["explicit limitations"],
+    "inferred": ["careful inferred limitations"]
+  },
+  "future_work": ["future direction"],
+  "reproducibility": {
+    "code_available": false,
+    "code_url": null,
+    "data_available": false,
+    "compute_requirements": "unknown"
+  },
+  "extraction_confidence": "high|medium|low"
+}

@@ -1,0 +1,27 @@
+{
+  "ideas": [
+    {
+      "idea_id": "IDEA-001",
+      "source_gap": "GAP-001",
+      "title": "one-sentence title",
+      "hypothesis": "testable hypothesis",
+      "null_hypothesis": "clear null",
+      "method_sketch": "short method plan",
+      "datasets": ["dataset names"],
+      "baselines": ["baseline names"],
+      "metrics": ["metric names"],
+      "minimum_viable_experiment": "smallest experiment that gives signal",
+      "negative_result_value": "what a null/negative result would teach",
+      "reviewer_objection": "strongest objection",
+      "fix": "how to address it",
+      "scores": {
+        "gap_importance": 1,
+        "scientific_rigor": 1,
+        "feasibility": 1,
+        "either_way_value": 1,
+        "novelty_potential": 1,
+        "weighted_score": 1.0
+      }
+    }
+  ]
+}

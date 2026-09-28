@@ -1,0 +1,81 @@
+{
+  "generated": "ISO timestamp",
+  "topic": "string",
+  "paper_records": [
+    {
+      "id": "P01",
+      "filename": "string",
+      "status": "ready | failed_text_extraction",
+      "title_guess": "string",
+      "year_guess": "string",
+      "char_count": 0,
+      "tags": ["string"],
+      "keywords": ["string"],
+      "abstract_compact": "string",
+      "method_compact": "string",
+      "evidence_compact": "string",
+      "claim_sentences": ["string"],
+      "dataset_sentences": ["string"],
+      "limitation_or_future_sentences": ["string"]
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_id": "C01",
+      "label": "string",
+      "papers": ["P01"],
+      "interpretation": "string"
+    }
+  ],
+  "similarity_matrix": [
+    {
+      "pair": "P01 x P02",
+      "score": 0.0,
+      "shared_signals": ["string"]
+    }
+  ],
+  "conflict_matrix": [
+    {
+      "pair": "P01 x P02",
+      "tension_type": "string",
+      "what_to_check": ["string"],
+      "why_it_matters": "string"
+    }
+  ],
+  "ranked_gaps": [
+    {
+      "gap_id": "GAP-001",
+      "type": "EVALUATION | CONFLICT | LIMITATION | REPRODUCIBILITY | DATASET | THEORY",
+      "title": "string",
+      "evidence_papers": ["P01"],
+      "why_it_matters": "string",
+      "how_to_test": "string",
+      "priority_1_to_10": 0,
+      "risk": "string"
+    }
+  ],
+  "idea_candidates": [
+    {
+      "idea_id": "IDEA-001",
+      "source_gap": "GAP-001",
+      "title": "string",
+      "testable_hypothesis": "string",
+      "null_hypothesis": "string",
+      "method_sketch": "string",
+      "minimum_viable_experiment": ["string"],
+      "negative_result_value": "string",
+      "strongest_reviewer_objection": "string",
+      "fix_for_objection": "string",
+      "novelty_angle_to_verify": "string",
+      "score_1_to_10": 0
+    }
+  ],
+  "novelty_checklist": [
+    {
+      "idea_id": "IDEA-001",
+      "corpus_only_status": "string",
+      "search_queries": ["string"],
+      "reject_or_reframe_if_found": ["string"]
+    }
+  ]
+}

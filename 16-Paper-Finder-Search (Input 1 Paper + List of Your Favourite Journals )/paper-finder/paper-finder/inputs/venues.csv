@@ -1,18 +1,96 @@
-Name
-NeurIPS
-ICML
-ICLR
-AAAI
-IJCAI
-CVPR
-ICCV
-ECCV
-ACL
-EMNLP
-NAACL
-TPAMI
-JMLR
-TMLR
-Nature Machine Intelligence
-Nature
-Science
+Abbreviation,"Full Name",Domain,Rank
+AAAI,"AAAI Conference on Artificial Intelligence",AI / ML / NLP / CV,A
+ACL,"Annual Meeting of the Association for Computational Linguistics",AI / ML / NLP / CV,A
+AI,"Artificial Intelligence",AI / ML / NLP / CV,A
+CVPR,"IEEE/CVF Computer Vision and Pattern Recognition Conference",AI / ML / NLP / CV,A
+ICCV,"International Conference on Computer Vision",AI / ML / NLP / CV,A
+ICLR,"International Conference on Learning Representations",AI / ML / NLP / CV,A
+ICML,"International Conference on Machine Learning",AI / ML / NLP / CV,A
+IJCV,"International Journal of Computer Vision",AI / ML / NLP / CV,A
+JMLR,"Journal of Machine Learning Research",AI / ML / NLP / CV,A
+NeurIPS,"Conference on Neural Information Processing Systems",AI / ML / NLP / CV,A
+TPAMI,"IEEE Transactions on Pattern Analysis and Machine Intelligence",AI / ML / NLP / CV,A
+ACM SIGOPS ATC,"ACM SIGOPS Annual Technical Conference",Architecture & Systems,A
+ASPLOS,"International Conference on Architectural Support for Programming Languages and Operating Systems",Architecture & Systems,A
+DAC,"Design Automation Conference",Architecture & Systems,A
+EuroSys,"European Conference on Computer Systems",Architecture & Systems,A
+FAST,"USENIX Conference on File and Storage Technologies",Architecture & Systems,A
+HPCA,"IEEE International Symposium on High Performance Computer Architecture",Architecture & Systems,A
+HPDC,"The International ACM Symposium on High-Performance Parallel and Distributed Computing",Architecture & Systems,A
+ISCA,"International Symposium on Computer Architecture",Architecture & Systems,A
+MICRO,"IEEE/ACM International Symposium on Microarchitecture",Architecture & Systems,A
+OSDI,"USENIX Symposium on Operating Systems Design and Implementation",Architecture & Systems,A
+PPoPP,"ACM SIGPLAN Symposium on Principles & Practice of Parallel Programming",Architecture & Systems,A
+RTSS,"IEEE Real-Time Systems Symposium",Architecture & Systems,A
+SC,"International Conference for High Performance Computing, Networking, Storage, and Analysis",Architecture & Systems,A
+SOSP,"ACM Symposium on Operating Systems Principles",Architecture & Systems,A
+TACO,"ACM Transactions on Architecture and Code Optimization",Architecture & Systems,A
+TC,"IEEE Transactions on Computers",Architecture & Systems,A
+TCAD,"IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",Architecture & Systems,A
+TOCS,"ACM Transactions on Computer Systems",Architecture & Systems,A
+TOS,"ACM Transactions on Storage",Architecture & Systems,A
+TPDS,"IEEE Transactions on Parallel and Distributed Systems",Architecture & Systems,A
+TSC,"IEEE Transactions on Services Computing",Architecture & Systems,A
+Bioinformatics,"Bioinformatics",Bioinformatics,A
+ICDE,"IEEE International Conference on Data Engineering",Databases & Data Mining,A
+SIGIR,"International ACM SIGIR Conference on Research and Development in Information Retrieval",Databases & Data Mining,A
+SIGKDD,"ACM SIGKDD Conference on Knowledge Discovery and Data Mining",Databases & Data Mining,A
+SIGMOD,"ACM SIGMOD Conference",Databases & Data Mining,A
+TKDE,"IEEE Transactions on Knowledge and Data Engineering",Databases & Data Mining,A
+TODS,"ACM Transactions on Database Systems",Databases & Data Mining,A
+TOIS,"ACM Transactions on Information Systems",Databases & Data Mining,A
+VLDB,"International Conference on Very Large Data Bases",Databases & Data Mining,A
+VLDBJ,"The VLDB Journal",Databases & Data Mining,A
+Proc. IEEE,"Proceedings of the IEEE",General & Multidisciplinary,A
+SCIS,"Science China Information Sciences",General & Multidisciplinary,A
+ACM MM,"ACM International Conference on Multimedia",Graphics & Multimedia,A
+IEEE VIS,"IEEE Visualization Conference",Graphics & Multimedia,A
+SIGGRAPH,"ACM Special Interest Group on Computer Graphics",Graphics & Multimedia,A
+TIP,"IEEE Transactions on Image Processing",Graphics & Multimedia,A
+TMM,"IEEE Transactions on Multimedia",Graphics & Multimedia,A
+TOG,"ACM Transactions on Graphics",Graphics & Multimedia,A
+TVCG,"IEEE Transactions on Visualization and Computer Graphics",Graphics & Multimedia,A
+VR,"IEEE Conference on Virtual Reality and 3D User Interfaces",Graphics & Multimedia,A
+CHI,"ACM Conference on Human Factors in Computing Systems",HCI & Ubiquitous,A
+CSCW,"ACM Conference on Computer Supported Cooperative Work and Social Computing",HCI & Ubiquitous,A
+IJHCS,"International Journal of Human-Computer Studies",HCI & Ubiquitous,A
+TOCHI,"ACM Transactions on Computer-Human Interaction",HCI & Ubiquitous,A
+UbiComp,"ACM International Joint Conference on Pervasive and Ubiquitous Computing",HCI & Ubiquitous,A
+UIST,"ACM Symposium on User Interface Software and Technology",HCI & Ubiquitous,A
+INFOCOM,"IEEE International Conference on Computer Communications",Networking & Communications,A
+JSAC,"IEEE Journal on Selected Areas in Communications",Networking & Communications,A
+MobiCom,"ACM International Conference on Mobile Computing and Networking",Networking & Communications,A
+NSDI,"Symposium on Network System Design and Implementation",Networking & Communications,A
+SIGCOMM,"ACM International Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication",Networking & Communications,A
+TMC,"IEEE Transactions on Mobile Computing",Networking & Communications,A
+TON,"IEEE Transactions on Networking",Networking & Communications,A
+ASE,"International Conference on Automated Software Engineering",Programming Languages & Software Engineering,A
+FM,"International Symposium on Formal Methods",Programming Languages & Software Engineering,A
+FSE,"ACM International Conference on the Foundations of Software Engineering",Programming Languages & Software Engineering,A
+ICSE,"International Conference on Software Engineering",Programming Languages & Software Engineering,A
+ISSTA,"International Symposium on Software Testing and Analysis",Programming Languages & Software Engineering,A
+OOPSLA,"Conference on Object-Oriented Programming Systems, Languages,and Applications",Programming Languages & Software Engineering,A
+PLDI,"ACM SIGPLAN Conference on Programming Language Design and Implementation",Programming Languages & Software Engineering,A
+POPL,"ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages",Programming Languages & Software Engineering,A
+TOPLAS,"ACM Transactions on Programming Languages and Systems",Programming Languages & Software Engineering,A
+TOSEM,"ACM Transactions on Software Engineering and Methodology",Programming Languages & Software Engineering,A
+TSE,"IEEE Transactions on Software Engineering",Programming Languages & Software Engineering,A
+CCS,"ACM Conference on Computer and Communications Security",Security & Cryptography,A
+CRYPTO,"International Cryptology Conference",Security & Cryptography,A
+EUROCRYPT,"International Conference on the Theory and Applications of Cryptographic Techniques",Security & Cryptography,A
+Journal of Cryptology,"Journal of Cryptology",Security & Cryptography,A
+NDSS,"Network and Distributed System Security Symposium",Security & Cryptography,A
+S&P,"IEEE Symposium on Security and Privacy",Security & Cryptography,A
+TDSC,"IEEE Transactions on Dependable and Secure Computing",Security & Cryptography,A
+TIFS,"IEEE Transactions on Information Forensics and Security",Security & Cryptography,A
+USENIX Security,"USENIX Security Symposium",Security & Cryptography,A
+CAV,"International Conference on Computer Aided Verification",Theory & Formal Methods,A
+FOCS,"IEEE Annual Symposium on Foundations of Computer Science",Theory & Formal Methods,A
+IANDC,"Information and Computation",Theory & Formal Methods,A
+JACM,"Journal of the ACM",Theory & Formal Methods,A
+LICS,"ACM/IEEE Symposium on Logic in Computer Science",Theory & Formal Methods,A
+SICOMP,"SIAM Journal on Computing",Theory & Formal Methods,A
+SODA,"ACM-SIAM Symposium on Discrete Algorithms",Theory & Formal Methods,A
+STOC,"ACM Symposium on the Theory of Computing",Theory & Formal Methods,A
+TIT,"IEEE Transactions on Information Theory",Theory & Formal Methods,A
+WWW,"The Web Conference",Web,A
