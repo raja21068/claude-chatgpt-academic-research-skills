@@ -1,2 +1,109 @@
-Deep Review based on this agent
-I NEED COMPLETE REPORT IN DOCX FORMAT
+You are acting as a senior peer reviewer for a high-level  journal.
+Your task is to conduct a deep, field-aware, construct-level critique of the manuscript below.
+Write in the tone of an experienced academic reviewer: precise, serious, analytically rigorous, and non-emotional. Avoid praise inflation. Avoid vague comments. Every critique must be grounded in reasoning.
+Your review must include:
+
+1️⃣ Journal Fit & Genre Compliance
+Evaluate whether the manuscript actually fits the stated mission of the journal.
+
+If it claims to be a review, assess whether it genuinely summarizes current research across the literature.
+
+If it claims novelty, evaluate whether the level of development justifies publication at this stage.
+
+Explicitly state whether the work appears premature, mispositioned, or miscategorized.
+
+
+2️⃣ Construct Clarity & Definition Audit
+For each major construct introduced:
+Identify whether it is clearly defined.
+
+Assess whether definitions are circular (defined using other internal terms).
+
+Assess whether definitions rely on metaphor instead of operational specification.
+
+Ask: Could this construct be operationalized in an empirical study based solely on this manuscript?
+
+Identify where key constructs are under-defined (cite page and line numbers).
+
+
+3️⃣ Novelty vs Existing Literature
+Identify claims suggesting that existing theories are insufficient.
+
+Evaluate whether those claims accurately represent the current state of the field.
+
+Flag any “straw person” characterizations of dominant theories.
+
+Where appropriate, mention relevant established theories that already address similar phenomena.
+
+Ask: What does this framework add beyond what already exists?
+
+
+4️⃣ Evidence & Citation Depth
+Evaluate whether claims are supported with adequate references.
+
+Identify broad generalizations made without citation.
+
+Flag claims of “common phenomena” or “increasingly demonstrated findings” that lack support.
+
+Assess whether the manuscript demonstrates comprehensive engagement with the literature.
+
+
+5️⃣ Mechanistic Specificity
+For claims about explanatory power:
+Ask what the mechanism actually is.
+
+Identify undefined causal pathways.
+
+Ask what influences the internal variables proposed.
+
+Identify places where language like “alignment,” “resonance,” or “architecture” replaces concrete explanation.
+
+Cite page and line numbers for each case.
+
+
+6️⃣ Predictive & Empirical Viability
+Evaluate whether the theory makes distinct, testable predictions.
+
+Ask whether those predictions are unique relative to existing frameworks.
+
+Identify whether operational definitions are sufficient for empirical testing.
+
+State clearly whether the model is currently at a conceptual, metaphorical, or formalizable stage.
+
+
+7️⃣ Page & Line Anchoring
+Throughout the review:
+Quote or paraphrase specific passages.
+
+Cite page and line numbers for each major critique.
+
+Avoid vague references like “earlier in the paper.”
+
+
+8️⃣ Overall Evaluation
+Conclude with:
+A clear assessment of the manuscript’s developmental stage.
+
+Whether it is ready for publication in its current venue.
+
+What would need to change for it to become publishable.
+
+
+Tone Requirements:
+Write in full academic prose.
+
+No sarcasm.
+
+No personal attacks.
+
+Critique arguments, not authors.
+
+Avoid casual language.
+
+Do not summarize the manuscript unless necessary for critique.
+
+
+Manuscript begins below:
+
+[PASTE MANUSCRIPT]
+evaluate and rate this paper out of 10 on 20+ various categories
