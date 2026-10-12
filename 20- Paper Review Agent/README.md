@@ -4,7 +4,7 @@
 
 ![Input: Prompt.txt + Agent.txt + Paper.pdf; ChatGPT in Temporary/Unpersonalized mode; structured review output](assets/input-chatgpt-output.png)
 
-> **Updated release — 12 October 2026.** The illustration uses the label *Lean v2* for the simplified review architecture. The packaged Python project's actual CLI calls it **`--pipeline core`** (default); the extended option is **`--pipeline full`**. The image is illustrative, not a screenshot of a completed Python-agent run. Sign-in and file upload availability depend on ChatGPT access.
+> **Updated release — 12 October 2026.** The illustration uses the label *Refree* for the simplified review architecture. The packaged Python project's actual CLI calls it **`--pipeline core`** (default); the extended option is **`--pipeline full`**. The image is illustrative, not a screenshot of a completed Python-agent run. Sign-in and file upload availability depend on ChatGPT access.
 
 ## 1. First: choose one of two ways to use it
 
@@ -117,13 +117,6 @@ The following is deliberately split into **published, measurable results** and *
 
 The reported [PeerReview Bench](https://github.com/prometheus-eval/cmu-paper-reviewer/tree/main/peerreview_bench) comparison covers **78 papers**. These results are reported by the CMU authors, not measured by this Referee release. CMU's configuration uses GPT-5.4 with an upper limit of 15 review items.
 
-| Dimension                                            | **Referee Lean v2*** | **[CMU Paper Reviewer](https://github.com/prometheus-eval/cmu-paper-reviewer)** | **[Stanford Agentic Reviewer](https://paperreview.ai/)** |
-|:---------------------------------------------------- |:--------------------:|:-------------------------------------------------------------------------------:|:--------------------------------------------------------:|
-| Public PeerReview Bench F1 ↑                         | **Not evaluated**    | 🥇 **58.64**                                                                    | 🥈 **51.65**                                             |
-| Public precision ↑                                   | **Not evaluated**    | 🥇 **95.46%**                                                                   | **59.84%**                                               |
-| Public recall ↑                                      | **Not evaluated**    | **42.32%**                                                                      | 🥇 **45.43%**                                            |
-| Scientific performance established on this benchmark | **No**               | **Yes, benchmark-specific**                                                     | **Yes, benchmark-specific**                              |
-
 **Source:** [CMU expert-study paper, platform comparison table](https://arxiv.org/html/2605.20668#A7.T51) and [public implementation](https://github.com/prometheus-eval/cmu-paper-reviewer). Precision is the share of review items judged valid under the benchmark evaluator; recall measures coverage of expert-validated issues. These figures do not independently certify every individual review and should not be treated as journal acceptance predictions.
 
 ### B. Architecture, feature depth, and workflow — illustrative expert assessment
@@ -153,7 +146,7 @@ The scores below reproduce a **previous design-oriented comparison requested for
 | Benchmark maturity                                 | 8.3             | 🥇 **10.0**            | 9.0                           |
 | Scientific review ceiling (qualitative hypothesis) | **Very high**   | **Very high**          | High                          |
 
-*The illustration uses **Referee Lean v2** as an architectural nickname. The packaged Python project is **Beihang Referee 0.1.0**; its supported CLI pipelines are `--pipeline core` (default, 7 stages) and `--pipeline full` (extended audit). These subjective ratings should be **recalibrated for the actual release** before being reused as quantitative marketing claims. The no-code `Prompt.txt` + `Agent.txt` workflow in ChatGPT does **not** execute the Python verification engine.*
+*The illustration uses **Referee ** as an architectural nickname. The packaged Python project is **Beihang Referee 0.1.0**; its supported CLI pipelines are `--pipeline core` (default, 7 stages) and `--pipeline full` (extended audit). These subjective ratings should be **recalibrated for the actual release** before being reused as quantitative marketing claims. The no-code `Prompt.txt` + `Agent.txt` workflow in ChatGPT does **not** execute the Python verification engine.*
 
 ### C. Concrete system differences — descriptions, not scores
 
