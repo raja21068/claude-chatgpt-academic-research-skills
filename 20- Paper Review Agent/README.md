@@ -4,18 +4,18 @@
 
 ![Input: Prompt.txt + Agent.txt + Paper.pdf; ChatGPT in Temporary/Unpersonalized mode; structured review output](assets/input-chatgpt-output.png)
 
-> **Updated release — 12 October 2026.** The illustration uses the label *Refree* for the simplified review architecture. The packaged Python project's actual CLI calls it **`--pipeline core`** (default); the extended option is **`--pipeline full`**. The image is illustrative, not a screenshot of a completed Python-agent run. Sign-in and file upload availability depend on ChatGPT access.
+> **Updated release — 12 October 2026.** The illustration uses the label *Referee* for the simplified review architecture. The packaged Python project's actual CLI calls it **`--pipeline core`** (default); the extended option is **`--pipeline full`**. The image is illustrative, not a screenshot of a completed Python-agent run. Sign-in and file upload availability depend on ChatGPT access.
 
 ## 1. First: choose one of two ways to use it
 
-|                        | No-code: ChatGPT                         | Full: Python Referee                                                   |
-| ---------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
-| Time to begin          | Upload three files                       | Install dependencies, then configure runtime                           |
-| Inputs                 | `Prompt.txt` + `Agent.txt` + `Paper.pdf` | Your paper, supplements, optional code/data                            |
-| Where it runs          | ChatGPT                                  | Local Python CLI and a configured LLM provider                         |
-| What verifies concerns | LLM reasoning and any available tools    | Deterministic evidence/anchor checks and independent-verifier workflow |
-| Need `Agent.zip`?      | **No**                                   | **Yes — extract it first**                                             |
-| Good for               | Fast, structured first-pass review       | Repeatability, provenance, validation, deeper audits                   |
+|                        | No-code: ChatGPT                                                     | Full: Python Referee                                                   |
+| ---------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Time to begin          | Upload three files                                                   | Install dependencies, then configure runtime                           |
+| Inputs                 | `Prompt.txt` + `Agent.zip` + `Paper.pdf` | Your paper, supplements, optional code/data                            |
+| Where it runs          | ChatGPT                                                              | Local Python CLI and a configured LLM provider                         |
+| What verifies concerns | LLM reasoning and any available tools                                | Deterministic evidence/anchor checks and independent-verifier workflow |
+| Need `Agent.zip`?      | **No**                                                               | **Yes — extract it first**                                             |
+| Good for               | Fast, structured first-pass review                                   | Repeatability, provenance, validation, deeper audits                   |
 
 ### A. Use with ChatGPT (no Python installation)
 
@@ -146,7 +146,7 @@ The scores below reproduce a **previous design-oriented comparison requested for
 | Benchmark maturity                                 | 8.3             | 🥇 **10.0**            | 9.0                           |
 | Scientific review ceiling (qualitative hypothesis) | **Very high**   | **Very high**          | High                          |
 
-*The illustration uses **Referee ** as an architectural nickname. The packaged Python project is **Beihang Referee 0.1.0**; its supported CLI pipelines are `--pipeline core` (default, 7 stages) and `--pipeline full` (extended audit). These subjective ratings should be **recalibrated for the actual release** before being reused as quantitative marketing claims. The no-code `Prompt.txt` + `Agent.txt` workflow in ChatGPT does **not** execute the Python verification engine.*
+*The illustration uses **Referee** as an architectural nickname. The packaged Python project is **Beihang Referee 0.1.0**; its supported CLI pipelines are `--pipeline core` (default, 7 stages) and `--pipeline full` (extended audit). These subjective ratings should be **recalibrated for the actual release** before being reused as quantitative marketing claims. The no-code `Prompt.txt` + `Agent.txt` workflow in ChatGPT does **not** execute the Python verification engine.*
 
 ### C. Concrete system differences — descriptions, not scores
 
