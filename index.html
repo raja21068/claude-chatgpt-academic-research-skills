@@ -7,13 +7,14 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=24">
+<link rel="stylesheet" href="flow.css?v=26">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
 <script src="level-prompts-data.js?v=12" defer></script>
 <script src="steps-actions.js?v=1" defer></script>
 <script src="answer-visual.js?v=11" defer></script>
 <script src="home.js?v=1" defer></script>
+<script src="hero-video.js?v=1" defer></script>
 <script src="app.js?v=5" defer></script>
 <script src="walkthrough.js?v=2" defer></script>
 <meta name="theme-color" content="#245441">
@@ -48,7 +49,24 @@
       <li><b>$0</b><span>free, no API key</span></li>
     </ul>
     <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
-    <aside class="hero-card" aria-label="Example of the score card you get">
+    <figure class="hero-video">
+      <button type="button" class="hv-play" aria-label="Play the video: How to Create a Full Research Paper with Claude Skills, starting at 2:00">
+        <img src="img/video-cover.jpg" width="1280" height="720" alt="Cover of the video: One Prompt, One Paper. A ChatGPT window turns one prompt into a finished research paper with PDF, LaTeX, tables and figures.">
+        <span class="hv-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        <span class="hv-cap">Watch how it works</span>
+      </button>
+      <figcaption><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=120s" target="_blank" rel="noopener noreferrer">Open on YouTube from 2:00 ↗</a> · Loads from YouTube only when you press play.</figcaption>
+    </figure>
+  </section>
+
+  <section id="get" class="card get-band" aria-labelledby="get-title">
+    <div class="get-text">
+      <p class="eyebrow">What you get</p>
+      <h2 id="get-title">A score, the weak spots, and what to fix first</h2>
+      <p>Run a prompt in ChatGPT or Claude, paste the answer into this site, and you get a card like this one. It is a made-up sample, shown to teach the format.</p>
+      <div class="prompt-actions"><a class="button primary" href="idea-prompts.html">Get the prompts →</a><a href="#sample">See the full sample ↓</a></div>
+    </div>
+    <aside class="hero-card hero-card--band" aria-label="Example of the score card you get">
       <div class="hc-top"><span class="hc-label">What you get</span><span class="hc-tag">Sample · made up</span></div>
       <div class="hc-score"><b>58</b><span>/ 100</span><em>Promising, needs work</em></div>
       <ul class="hc-bars" aria-label="Score by criterion">
@@ -155,13 +173,6 @@
   <section id="papers" class="card papers-card" aria-labelledby="papers-title">
     <h2 id="papers-title" class="visually-hidden">Papers</h2>
     <div data-gallery data-open="true"></div>
-  </section>
-
-  <section id="watch" class="card watch" aria-labelledby="watch-title">
-    <p class="eyebrow">Video</p>
-    <h2 id="watch-title">See the whole process in a few minutes</h2>
-    <div class="watch-frame"><iframe src="https://www.youtube.com/embed/vhvtOVsnYLg?start=120" title="How to Create a Full Research Paper with Claude Skills" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-    <p class="hint"><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=120s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 2:00 ↗</a></p>
   </section>
 
   <main id="main" class="layout">
