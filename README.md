@@ -1,13 +1,15 @@
 # Claude + ChatGPT Academic Research Skills: One Prompt to Papers, PPTs, PDFs, Code, and Figures
 
 [![Open the website](https://img.shields.io/badge/🌐_Website-Student_Research_Workflow-245441?style=for-the-badge)](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)
-[![Watch the video](https://img.shields.io/badge/▶_Video-Watch_on_YouTube-c4302b?style=for-the-badge)](https://youtu.be/vhvtOVsnYLg)
+[![Watch the video](https://img.shields.io/badge/▶_Video-Watch_on_YouTube-c4302b?style=for-the-badge)](https://youtu.be/vhvtOVsnYLg?t=120)
 
 ## 🎥 Watch the Demo Video
 
-[![Watch the video](https://img.youtube.com/vi/vhvtOVsnYLg/maxresdefault.jpg)](https://youtu.be/vhvtOVsnYLg)
+[![Watch the video](https://img.youtube.com/vi/vhvtOVsnYLg/maxresdefault.jpg)](https://youtu.be/vhvtOVsnYLg?t=120)
 
-👉 **Watch on YouTube:** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg)
+👉 **Watch on YouTube (starts at 2:00):** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg?t=120)
+
+💬 **See a real peer-review chat:** [Peer Review And Rating (ChatGPT share)](https://chatgpt.com/share/6afb2d9c-81c8-83ea-94f2-399016c33ed3)
 
 ## 🌐 Student Research Workflow Website
 
