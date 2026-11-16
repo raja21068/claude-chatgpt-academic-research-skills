@@ -19,7 +19,7 @@ Skill files and prompts for taking a research project from idea to reviewed pape
 | Figures | [8-Paper-Figure-Generation](8-Paper-Figure-Generation) | Method diagrams, plots and paper illustrations |
 | Proofs | [9-Proof-checker](9-Proof-checker) | Check and write mathematical proofs |
 | Poster | [5-paper-poster](5-paper-poster) | Turn a paper into a poster |
-| Slides | [6-paper-slides](6-paper-slides), [11-slides-polish](11-slides-polish), [12-PPT AGENT](<12-PPT AGENT>) | Conference talk slides and a set of PPT style skills |
+| Slides | [6-paper-slides](6-paper-slides), [11- slides-polish](<11- slides-polish>), [12-PPT AGENT](<12-PPT AGENT>) | Conference talk slides and a set of PPT style skills |
 | Grants | [7-grant-proposal](7-grant-proposal) | Draft a grant proposal |
 | Patent | [10- Patent](<10- Patent>) | Invention disclosure through claims, specification and filing format |
 | Full pipelines | [13_academic-pipeline-agent.zip](13_academic-pipeline-agent.zip), [14-deep-research-agnet.zip](14-deep-research-agnet.zip), [3_academic-paper_skills_agent_for_all_fileds.zip](3_academic-paper_skills_agent_for_all_fileds.zip) | End-to-end pipeline, deep research, and a general paper-writing skill |
