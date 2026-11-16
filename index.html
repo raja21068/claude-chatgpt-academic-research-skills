@@ -7,7 +7,7 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=19">
+<link rel="stylesheet" href="flow.css?v=22">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
 <script src="answer-visual.js?v=11" defer></script>
@@ -46,19 +46,19 @@
       <li><b>$0</b><span>free, no API key</span></li>
     </ul>
     <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
-  </section>
-
-  <section id="papers" class="card papers-card" aria-labelledby="papers-title">
-    <h2 id="papers-title" class="visually-hidden">Papers</h2>
-    <div data-gallery data-open="true"></div>
-  </section>
-
-  <section id="sample" class="card sample" aria-labelledby="sample-title">
-    <p class="eyebrow">What you get</p>
-    <h2 id="sample-title">This is what a scored answer looks like</h2>
-    <p class="sample-lead">You paste the AI's answer into the site and see its score, its weak spots and what to fix first. <strong>This one is a made-up sample</strong> (a library-visits project), shown to teach the format.</p>
-    <div id="sample-view" class="sample-view" aria-live="polite"><p class="sample-loading">Loading the sample…</p></div>
-    <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Try it with your own idea →</a><a href="demo/sample-idea-review.md">Read the full sample answer</a></div>
+    <aside class="hero-card" aria-label="Example of the score card you get">
+      <div class="hc-top"><span class="hc-label">What you get</span><span class="hc-tag">Sample · made up</span></div>
+      <div class="hc-score"><b>58</b><span>/ 100</span><em>Promising, needs work</em></div>
+      <ul class="hc-bars" aria-label="Score by criterion">
+        <li><span>Problem importance</span><i style="--w:67%"></i><b>10/15</b></li>
+        <li><span>Evidence the gap exists</span><i class="low" style="--w:40%"></i><b>6/15</b></li>
+        <li><span>Novelty</span><i class="low" style="--w:35%"></i><b>7/20</b></li>
+        <li><span>Scientific insight</span><i style="--w:53%"></i><b>8/15</b></li>
+        <li><span>Feasibility</span><i style="--w:90%"></i><b>9/10</b></li>
+      </ul>
+      <div class="hc-fix"><strong>Fix first</strong><ol><li>Narrow the question to calendar-driven failures</li><li>Report errors by day type</li><li>Add a second library or year</li></ol></div>
+      <p class="hc-foot">Paste the AI's answer into this site and you get a card like this.</p>
+    </aside>
   </section>
 
   <section id="how-it-works" class="flow card" aria-labelledby="flow-title">
@@ -133,6 +133,19 @@
     </div>
     <p class="skills-more">More skills (figures, slides, poster, grants, patent, proofs): <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills#-whats-included" target="_blank" rel="noopener noreferrer">full list on GitHub ↗</a></p>
 
+  </section>
+
+  <section id="sample" class="card sample" aria-labelledby="sample-title">
+    <p class="eyebrow">What you get</p>
+    <h2 id="sample-title">This is what a scored answer looks like</h2>
+    <p class="sample-lead">You paste the AI's answer into the site and see its score, its weak spots and what to fix first. <strong>This one is a made-up sample</strong> (a library-visits project), shown to teach the format.</p>
+    <div id="sample-view" class="sample-view" aria-live="polite"><p class="sample-loading">Loading the sample…</p></div>
+    <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Try it with your own idea →</a><a href="demo/sample-idea-review.md">Read the full sample answer</a></div>
+  </section>
+
+  <section id="papers" class="card papers-card" aria-labelledby="papers-title">
+    <h2 id="papers-title" class="visually-hidden">Papers</h2>
+    <div data-gallery data-open="true"></div>
   </section>
 
   <section id="watch" class="card watch" aria-labelledby="watch-title">
