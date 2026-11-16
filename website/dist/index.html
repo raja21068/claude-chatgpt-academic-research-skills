@@ -7,9 +7,12 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=7">
-<script src="workflows.js" defer></script>
-<script src="app.js?v=4" defer></script>
+<link rel="stylesheet" href="flow.css?v=9">
+<link rel="stylesheet" href="answer-visual.css?v=1">
+<script src="workflows.js?v=2" defer></script>
+<script src="answer-visual.js?v=11" defer></script>
+<script src="home.js?v=1" defer></script>
+<script src="app.js?v=5" defer></script>
 <script src="walkthrough.js?v=2" defer></script>
 </head>
 <body>
@@ -19,16 +22,31 @@
   <nav aria-label="Resources"><a href="#how-it-works">How it works</a><a href="idea-prompts.html">Prompts</a><a href="cases.html">Worked examples</a><a href="prompts.html">All prompts</a><a class="github" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
 </div></header>
 <div class="shell">
-  <section id="start-here" class="hero hero-with-demo" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <h1 id="hero-title">From research idea<br>to <em>reviewed paper.</em></h1>
-      <p>Skill files and ready prompts for ChatGPT and Claude. Free, no API key.</p>
-      <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
-    </div>
-    <figure class="hero-demo">
-      <iframe src="https://www.youtube.com/embed/vhvtOVsnYLg?start=27" title="How to Create a Full Research Paper with Claude Skills" width="560" height="315" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      <figcaption><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=27s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 0:27 ↗</a></figcaption>
-    </figure>
+  <section id="start-here" class="hero hero-claim" aria-labelledby="hero-title">
+    <h1 id="hero-title">From research idea<br>to <em>reviewed paper.</em></h1>
+    <p class="hero-sub">Six steps with ChatGPT or Claude. Every step is the same three moves:</p>
+    <ol class="moves" aria-label="The three moves">
+      <li><b>1</b>Copy a prompt</li><li class="mv-arrow" aria-hidden="true">→</li><li><b>2</b>Attach your files</li><li class="mv-arrow" aria-hidden="true">→</li><li><b>3</b>Check the answer</li>
+    </ol>
+    <ul class="facts" aria-label="What is on this site">
+      <li><b>6</b><span>research steps</span></li>
+      <li><b>3</b><span>levels: beginner, researcher, expert</span></li>
+      <li><b>54</b><span>ready prompts</span></li>
+      <li><b>$0</b><span>free, no API key</span></li>
+    </ul>
+    <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
+  </section>
+
+  <nav class="section-nav" aria-label="On this page">
+    <a href="#sample">Sample answer</a><a href="#how-it-works">How it works</a><a href="#watch">Video</a><a href="#main">Step guides</a><a href="#how-to">Practice</a><a href="idea-prompts.html">Prompts ↗</a>
+  </nav>
+
+  <section id="sample" class="card sample" aria-labelledby="sample-title">
+    <p class="eyebrow">What you get</p>
+    <h2 id="sample-title">This is what a scored answer looks like</h2>
+    <p class="sample-lead">You paste the AI's answer into the site and see its score, its weak spots and what to fix first. <strong>This one is a made-up sample</strong> (a library-visits project), shown to teach the format.</p>
+    <div id="sample-view" class="sample-view" aria-live="polite"><p class="sample-loading">Loading the sample…</p></div>
+    <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Try it with your own idea →</a><a href="demo/sample-idea-review.md">Read the full sample answer</a></div>
   </section>
 
   <section id="how-it-works" class="flow card" aria-labelledby="flow-title">
@@ -99,6 +117,13 @@
 
   </section>
 
+  <section id="watch" class="card watch" aria-labelledby="watch-title">
+    <p class="eyebrow">Video</p>
+    <h2 id="watch-title">See the whole process in a few minutes</h2>
+    <div class="watch-frame"><iframe src="https://www.youtube.com/embed/vhvtOVsnYLg?start=27" title="How to Create a Full Research Paper with Claude Skills" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    <p class="hint"><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=27s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 0:27 ↗</a></p>
+  </section>
+
   <main id="main" class="layout">
     <aside class="sidebar" aria-label="Workflow navigation">
       <div class="progress-head"><strong>Workflow stages</strong><span id="progress-text">0 / 6</span></div>
@@ -150,7 +175,7 @@
             <span class="wp-num">2</span>
             <div class="wp-box wp-chat">
               <div class="wp-chat-top">New chat</div>
-              <div class="wp-chips"><span>📄 prompt</span><span>📄 instructions</span><span>📕 manuscript</span></div>
+              <div class="wp-chips"><span class="wp-chip txt">TXT prompt</span><span class="wp-chip txt">TXT instructions</span><span class="wp-chip pdf">PDF manuscript</span></div>
               <div class="wp-input"><span class="wp-plus" title="Attach button">+</span><span class="wp-msg">Read referee-prompt.txt and…</span><span class="wp-send">Send ➤</span></div>
             </div>
             <figcaption><strong>Attach</strong> them with <b>+</b>, paste the message, press <b>Send</b>.</figcaption>
@@ -178,7 +203,7 @@
           </article>
           <article class="walk-step">
             <h3><span aria-hidden="true">2</span> Attach the files and send</h3>
-            <ol class="walk-mini"><li>Open a new chat in ChatGPT (or Claude).</li><li>Click the <strong>+</strong> or 📎 button and add the 3 files.</li><li>Copy the message below, paste it in the chat, and press send.</li></ol>
+            <ol class="walk-mini"><li>Open a new chat in ChatGPT (or Claude).</li><li>Click the <strong>+</strong> (attach) button and add the 3 files.</li><li>Copy the message below, paste it in the chat, and press send.</li></ol>
             <p class="hint">Tip: in ChatGPT you can choose <strong>Temporary chat</strong> so this practice is not saved.</p>
             <label class="visually-hidden" for="demo-message">Practice chat message</label>
             <textarea id="demo-message" readonly rows="3">Read referee-prompt.txt and referee-instructions.txt. Review practice-manuscript.pdf using those instructions. Give me the most important concern first and show where you found the evidence.</textarea>

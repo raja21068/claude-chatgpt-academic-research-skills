@@ -3,7 +3,7 @@ const github = (path, mode = "tree") => repo + "/" + mode + "/main/" + path.spli
 const release = (path) => ({label: "Download skill ZIP", url: github(path, "raw")});
 const stages = [
   {
-    id: "idea", title: "Generate a research idea", nav: "Research idea", intro: "Turn a broad interest into a question you can answer with the data, time, and tools you have.",
+    id: "idea", title: "Turn a broad interest into a question you can test", nav: "Research idea", intro: "Turn a broad interest into a question you can answer with the data, time, and tools you have.",
     skill: "Idea Discovery V5",
     links: [{label:"Follow the worked idea lesson",url:"cases.html#idea-case"},release("1- idea generation/idea-discovery-v5.zip"), {label: "Read the setup instructions", url: github("1- idea generation/Instrucations.txt","blob")}],
     inputs: ["A topic or practical problem", "Available data, time, and computing resources", "Optional seed papers or notes"],
@@ -17,7 +17,7 @@ const stages = [
     ]
   },
   {
-    id: "literature", title: "Search the literature using your idea", nav: "Literature search", intro: "Find the closest work, test your proposed contribution, and revise the question if the evidence calls for it.",
+    id: "literature", title: "Find out if anyone already did it", nav: "Literature search", intro: "Find the closest work, test your proposed contribution, and revise the question if the evidence calls for it.",
     skill: "Paper Finder",
     links: [{label:"Open the Paper Finder guide",url:github("16-Paper-Finder-Search (Input 1 Paper + List of Your Favourite Journals )/paper-finder/paper-finder/README.md","blob")},{label:"Browse Paper Finder files",url:github("16-Paper-Finder-Search (Input 1 Paper + List of Your Favourite Journals )/paper-finder/paper-finder")}],
     inputs: ["The idea brief from Stage 1", "Seed papers, DOIs, or preferred venues", "Access to a literature database or supplied PDFs"],
@@ -31,7 +31,7 @@ const stages = [
     ]
   },
   {
-    id: "draft", title: "Draft the manuscript before results", nav: "First manuscript draft", intro: "Write the research question and planned methods. Set up the tables and figures before you run the experiment.",
+    id: "draft", title: "Write the paper before you have results", nav: "First manuscript draft", intro: "Write the research question and planned methods. Set up the tables and figures before you run the experiment.",
     skill: "Paper Writing Agent V2",
     links: [release("3- paper-writing/1.paper-writing-agent-V2.zip"),{label:"Open the paper-writing folder",url:github("3- paper-writing")}],
     inputs: ["Revised idea and verified literature", "Planned dataset, baselines, split and metrics", "Optional venue template or writing sample"],
@@ -45,7 +45,7 @@ const stages = [
     ]
   },
   {
-    id: "code", title: "Write, test, and update the code", nav: "Code and experiments", intro: "Build the smallest runnable experiment, inspect its outputs, and improve the code with recorded changes.",
+    id: "code", title: "Get code that runs, then check it", nav: "Code and experiments", intro: "Build the smallest runnable experiment, inspect its outputs, and improve the code with recorded changes.",
     skill: "Research Code Agent V5",
     links: [release("2- code generation/research-code-agent-v5.zip"),{label:"Open the code generation folder",url:github("2- code generation")}],
     inputs: ["Dated experiment plan and data access details", "Existing code or an empty project folder", "For updates, the failing command, error, or run log"],
@@ -59,7 +59,7 @@ const stages = [
     ]
   },
   {
-    id: "results", title: "Fill the manuscript with verified results", nav: "Results and figures", intro: "Generate tables and figures from saved outputs, then update the manuscript so its claims match the experiment.",
+    id: "results", title: "Fill the paper with numbers you can trace", nav: "Results and figures", intro: "Generate tables and figures from saved outputs, then update the manuscript so its claims match the experiment.",
     skill: "Paper Writing Agent V2",
     links: [release("3- paper-writing/1.paper-writing-agent-V2.zip"),{label:"Browse figure-generation skills",url:github("8-Paper-Figure-Generation")}],
     inputs: ["The manuscript skeleton", "Metrics, predictions, and experiment logs", "Plotting scripts, configuration, and code version"],
@@ -73,7 +73,7 @@ const stages = [
     ]
   },
   {
-    id: "review", title: "Review and revise with Beihang Referee", nav: "Review and revision", intro: "Get an evidence-based critique, fix major issues, and check whether each revision resolves the original concern.",
+    id: "review", title: "Find the weak points before a reviewer does", nav: "Review and revision", intro: "Get an evidence-based critique, fix major issues, and check whether each revision resolves the original concern.",
     skill: "Beihang Referee",
     links: [{label:"Follow the worked review lesson",url:"cases.html#review-case"},{label:"Try the practice walkthrough",url:"#how-to"},{label:"Open the Beihang Referee guide",url:github("20- Paper Review Agent/README.md","blob")},release("20- Paper Review Agent/Beihang-Referee.zip"),{label:"Read the teaching example",url:github("20- Paper Review Agent/Example/Example_Review_Report.md","blob")}],
     inputs: ["Current manuscript PDF and relevant supplements", "Target venue or review focus", "For re-review, original report and revised manuscript"],

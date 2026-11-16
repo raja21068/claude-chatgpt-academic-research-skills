@@ -55,6 +55,7 @@ function renderLesson(stage) {
     <p class="eyebrow">Stage ${index + 1} of ${stages.length}</p>
     <h2 id="lesson-title">${stage.title}</h2>
     <p class="intro">${stage.intro}</p>
+    <p class="lesson-get"><strong>You'll get:</strong> ${stage.output}</p>
     <div class="skill"><strong>${stage.skill}</strong>${skillLinks}</div>
     <p class="level-link"><a class="button primary" href="idea-prompts.html#${stage.id}">Get ready prompts for this step →</a></p>
     <div class="lesson-columns">

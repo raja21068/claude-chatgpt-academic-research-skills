@@ -55,7 +55,7 @@ function renderBeginner() {
     card.innerHTML = `
       <div class="ip-step-head"><span class="chain-num">${i + 1}</span><div><p class="eyebrow">Prompt ${i + 1} of ${stage.steps.length}</p><h3>${s.title}</h3></div></div>
       <ol class="ip-howto">
-        <li><button type="button" class="button primary ip-bigcopy" data-copy="p${i}">📋 Copy prompt ${i + 1}</button><span class="hint" role="status"></span></li>
+        <li><button type="button" class="button primary ip-bigcopy" data-copy="p${i}">Copy prompt ${i + 1}</button><span class="hint" role="status"></span></li>
         <li>Paste it into <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a> or <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude ↗</a>${i ? " — in the <strong>same chat</strong> as before" : ""}.${s.attachB ? ` ${s.attachB}` : ""}</li>
         <li>Wait for the answer. You should get: ${s.get.beginner.join(" · ")}.</li>
       </ol>

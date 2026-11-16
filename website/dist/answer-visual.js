@@ -235,16 +235,17 @@
     return scoreOf(md, scoreT, ba);
   };
 
-  window.visualizeAnswer = function (md) {
+  window.visualizeAnswer = function (md, opts) {
+    opts = opts || {};
     const {scoreT, realScoreT, ba, pm} = analyze(md);
     const parts = [
       hero(md, scoreT, ba),
-      checkerCard(checks(md, realScoreT)),
+      opts.compact ? "" : checkerCard(checks(md, realScoreT)),
       scoreT && !(ba && scoreT.t === ba.t) ? criterionBars(scoreT) : "",
-      ba ? beforeAfter(ba.t, ba.a, ba.b, weightMap(scoreT)) : "",
+      ba && !opts.compact ? beforeAfter(ba.t, ba.a, ba.b, weightMap(scoreT)) : "",
       pm ? priorityMap(pm.t, pm.imp) : "",
       sayPairs(md),
-      outline(md)
+      opts.compact ? "" : outline(md)
     ].filter(Boolean);
     const note = !scoreT && !ba && !pm ? `<p class="av-empty">No score or fix tables found, so only the quality check is shown. The full picture works best with answers from the Researcher or Expert prompts, which ask for tables.</p>` : "";
     return `<div class="av">${parts.join("")}${note}</div>`;
