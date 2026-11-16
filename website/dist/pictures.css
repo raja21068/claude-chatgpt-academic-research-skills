@@ -1,0 +1,9 @@
+.pic-shell{max-width:1060px;display:grid;gap:22px;padding-bottom:10px}
+.pic-shell .library-hero{margin-bottom:0}
+.pic-list{display:grid;gap:26px}
+.pic-card{margin:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg,18px);box-shadow:var(--sh-1,none);overflow:hidden}
+.pic-link{display:block;background:#f1f5f9;line-height:0}
+.pic-card img{display:block;width:100%;height:auto}
+.pic-card figcaption{display:grid;gap:6px;padding:16px clamp(16px,3vw,26px) 20px}
+.pic-card figcaption>strong{font:500 clamp(19px,2.4vw,24px)/1.25 var(--serif);letter-spacing:-.02em}
+.pic-card figcaption span{font-size:.92rem;color:#384c40;line-height:1.55;max-width:80ch}
