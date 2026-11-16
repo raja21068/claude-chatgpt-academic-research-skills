@@ -228,3 +228,49 @@
 .home-gallery{margin:0 0 14px}
 .papers-card{margin-bottom:28px}
 #papers{scroll-margin-top:16px}
+
+/* ── hero: headline + answer card ── */
+.hero-claim{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "sub" "moves" "actions" "card" "facts";gap:0;justify-items:center}
+.hero-claim h1{grid-area:head}
+.hero-claim .hero-sub{grid-area:sub}
+.hero-claim .moves{grid-area:moves}
+.hero-claim .hero-actions{grid-area:actions;margin-bottom:26px}
+.hero-claim .hero-card{grid-area:card;margin:0 0 26px}
+.hero-claim .facts{grid-area:facts;width:100%}
+.hero-card{width:min(100%,430px);background:#fffefa;color:var(--ink);border-radius:20px;padding:16px 18px 14px;text-align:left;box-shadow:0 24px 60px rgba(0,0,0,.32),0 2px 0 rgba(255,255,255,.5) inset;border:1px solid rgba(255,255,255,.55)}
+.hc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.hc-label{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.hc-tag{font-size:.68rem;font-weight:800;background:#fdefdc;color:#87400a;border-radius:99px;padding:2px 9px}
+.hc-score{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.hc-score b{font:500 3.1rem/1 var(--serif);color:var(--dark)}
+.hc-score span{color:var(--muted);font-size:1rem}
+.hc-score em{font-style:normal;font-size:.74rem;font-weight:800;color:#87400a;background:#fdefdc;border-radius:99px;padding:3px 10px;margin-left:auto}
+.hc-bars{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:6px}
+.hc-bars li{margin:0;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) 40px;gap:8px;align-items:center;font-size:.78rem}
+.hc-bars li+li{margin-top:0}
+.hc-bars span{color:#384c40;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hc-bars i{display:block;height:9px;border-radius:5px;background:#edf1ea;position:relative;overflow:hidden}
+.hc-bars i::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--green);border-radius:0 5px 5px 0}
+.hc-bars i.low::before{background:#b54708}
+.hc-bars b{font-size:.76rem;text-align:right;font-variant-numeric:tabular-nums}
+.hc-fix{padding:9px 11px;border-radius:10px;background:var(--mint)}
+.hc-fix strong{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.hc-fix ol{margin:4px 0 0;padding-left:1.15rem;font-size:.82rem;color:#2d4338}
+.hc-fix li+li{margin-top:2px}
+.hc-foot{margin:9px 0 0;font-size:.74rem;color:var(--muted);text-align:center}
+@media(min-width:1100px){
+  .hero-claim{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"head card" "sub card" "moves card" "actions card" "facts facts";column-gap:clamp(24px,4vw,56px);justify-items:stretch;text-align:left;align-items:start}
+  .hero-claim h1{font-size:clamp(40px,4.5vw,62px);align-self:end}
+  .hero-claim .hero-sub{margin:16px 0 14px !important;max-width:none !important}
+  .hero-claim .moves{justify-content:flex-start;margin:0 0 20px}
+  .hero-claim .hero-actions{justify-content:flex-start;margin-bottom:0}
+  .hero-claim .hero-card{justify-self:end;align-self:center;grid-row:1 / span 4;margin:0}
+  .hero-claim .facts{margin:34px 0 0;max-width:none}
+}
+
+/* practice diagram: stack the three pictures whenever the content column is narrow */
+.walk-pics>*{min-width:0}
+@media(max-width:1180px){
+  .walk-pics{grid-template-columns:minmax(0,1fr)}
+  .wp-arrow{transform:rotate(90deg);justify-self:center}
+}
