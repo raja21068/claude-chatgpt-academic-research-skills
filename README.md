@@ -1,12 +1,32 @@
-# Claude + ChatGPT Academic Research Skills
+# Claude + ChatGPT Academic Research Skills: One Prompt to Papers, PPTs, PDFs, Code, and Figures
 
-Skill files and prompts for taking a research project from idea to reviewed paper with ChatGPT or Claude: idea scoring, literature search, writing, code, review, figures and slides. No API key needed.
+[![Open the website](https://img.shields.io/badge/🌐_Website-Student_Research_Workflow-245441?style=for-the-badge)](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)
+[![Watch the video](https://img.shields.io/badge/▶_Video-Watch_on_YouTube-c4302b?style=for-the-badge)](https://youtu.be/vhvtOVsnYLg)
 
-**Website:** [raja21068.github.io/claude-chatgpt-academic-research-skills](https://raja21068.github.io/claude-chatgpt-academic-research-skills/) has ready prompts for every step (beginner / researcher / expert), worked examples, and a 5-minute practice review. Source in [`website/`](website/).
+## 🎥 Watch the Demo Video
 
-**Video:** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg)
+[![Watch the video](https://img.youtube.com/vi/vhvtOVsnYLg/maxresdefault.jpg)](https://youtu.be/vhvtOVsnYLg)
 
-## What's included
+👉 **Watch on YouTube:** [How to Create a Full Research Paper with Claude Skills](https://youtu.be/vhvtOVsnYLg)
+
+## 🌐 Student Research Workflow Website
+
+**👉 [raja21068.github.io/claude-chatgpt-academic-research-skills](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)**
+
+A free, step-by-step guide for using these skills with ChatGPT or Claude, from research idea to reviewed paper:
+
+- **[How it works](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-it-works)**: the 6 research steps as one picture.
+- **[Prompts](https://raja21068.github.io/claude-chatgpt-academic-research-skills/idea-prompts.html)**: ready prompts for every step in **Beginner / Researcher / Expert** versions, with sample answers. Paste your AI answer back to see its score, a quality check, and your score over rounds.
+- **[Worked examples](https://raja21068.github.io/claude-chatgpt-academic-research-skills/cases.html)**: two short picture stories (improving an idea, fixing a paper after review).
+- **[Practice on a fake paper](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-to)**: try a full AI review in about 5 minutes.
+
+Everything runs in your browser. Nothing you type is sent anywhere. Source: [`website/`](website/).
+
+![One prompt, one paper](./main_image2.png)
+
+## 🚀 What's included
+
+One prompt in, one finished output out: **a paper** (PDF, LaTeX, tables, figures), **a PPT** (slides and notes) or **code** (runnable, with experiments and graphs).
 
 | Step | Folder | What it does |
 |---|---|---|
@@ -25,7 +45,20 @@ Skill files and prompts for taking a research project from idea to reviewed pape
 | Full pipelines | [13_academic-pipeline-agent.zip](13_academic-pipeline-agent.zip), [14-deep-research-agnet.zip](14-deep-research-agnet.zip), [3_academic-paper_skills_agent_for_all_fileds.zip](3_academic-paper_skills_agent_for_all_fileds.zip) | End-to-end pipeline, deep research, and a general paper-writing skill |
 | Other | [15- CV](<15- CV>), [17- Removing AI](<17- Removing AI>), [18-full-stack applications](<18-full-stack applications>), [19-phd_apply_agnet_localy](19-phd_apply_agnet_localy), [Miscs](Miscs) | CV builder, humanizer, SaaS app factory, PhD outreach agent, small general skills |
 
-## Quick start
+### Workflow stages and commands
+
+1. **Idea Generation** — `/idea-discovery`, `/research-lit`
+2. **Code Generation** — `/experiment-bridge`, `/run-experiment`
+3. **Paper Writing** — `/paper-writing`, `/auto-paper-improvement-loop`
+4. **Academic Paper Review** — `/auto-review-loop`, `/proof-checker`
+5. **Paper Poster** — `/paper-poster`, `/paper-illustration-image2`
+6. **Paper Slides** — `/paper-slides`, `/slides-polish`
+7. **Grant Proposal** — `/grant-proposal`
+8. **Paper Figure Generation** — `/figure-spec`, `/paper-illustration-image2`
+9. **Proof Checker** — `/proof-checker`
+10. **Patent (Optional)** — `/patent-draft`
+
+## ⚡ Quick start
 
 1. Open the folder for your step and download its `.zip` or `SKILL.md`.
 2. **In ChatGPT or Claude (browser):** start a new chat, attach the skill file and your project files, then paste a prompt from the [website](https://raja21068.github.io/claude-chatgpt-academic-research-skills/idea-prompts.html).
@@ -34,13 +67,9 @@ Skill files and prompts for taking a research project from idea to reviewed pape
 
 Not sure where to begin? Do the [practice review](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-to) first.
 
-## Typical order
+![How the workflow fits together](./main_image.png)
 
-Idea → literature check → first draft with empty results → code → results → review → revise. Each folder above is one step; the website gives three prompts per step to run in order.
+## 📚 Acknowledgements
 
-## Credits
-
-- ARIS methodology: [Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)
-- PaperOrchestra: [raja21068/PaperOrchestra](https://github.com/raja21068/PaperOrchestra)
-
-![One prompt, one paper](./main_image2.png)
+- ARIS Methodology: [Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)
+- PaperOrchestra: [PaperOrchestra GitHub](https://github.com/raja21068/PaperOrchestra)
