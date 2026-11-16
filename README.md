@@ -11,6 +11,8 @@
 
 💬 **See a real peer-review chat:** [Peer Review And Rating (ChatGPT share)](https://chatgpt.com/share/6afb2d9c-81c8-83ea-94f2-399016c33ed3)
 
+📄 **Paper:** [AutoResearch: An Execution-Grounded Multi-Agent Framework for Reliable Research Workflow Automation](https://arxiv.org/abs/2607.02520) (arXiv:2607.02520)
+
 ## 🌐 Student Research Workflow Website
 
 **👉 [raja21068.github.io/claude-chatgpt-academic-research-skills](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)**

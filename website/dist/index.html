@@ -7,7 +7,7 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=14">
+<link rel="stylesheet" href="flow.css?v=15">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
 <script src="answer-visual.js?v=11" defer></script>
@@ -38,7 +38,7 @@
   </section>
 
   <nav class="section-nav" aria-label="On this page">
-    <a href="#case">Example project</a><a href="#sample">Sample answer</a><a href="#how-it-works">How it works</a><a href="#watch">Video</a><a href="#main">Step guides</a><a href="#how-to">Practice</a><a href="idea-prompts.html">Prompts ↗</a>
+    <a href="#case">Example project</a><a href="#paper">Our paper</a><a href="#sample">Sample answer</a><a href="#how-it-works">How it works</a><a href="#watch">Video</a><a href="#main">Step guides</a><a href="#how-to">Practice</a><a href="idea-prompts.html">Prompts ↗</a>
   </nav>
 
   <section id="case" class="card case-card" aria-labelledby="case-title">
@@ -93,6 +93,19 @@
       <p class="case-caveat">Scores are an AI's opinion. They are not proof that the work is good, so check the sources yourself. Links open on chatgpt.com.</p>
     </div>
     <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Do step 1 with your own project →</a></div>
+  </section>
+
+  <section id="paper" class="card paper-card" aria-labelledby="paper-title">
+    <p class="eyebrow">Featured paper</p>
+    <h2 id="paper-title"><a href="https://arxiv.org/abs/2607.02520" target="_blank" rel="noopener noreferrer">AutoResearch: An Execution-Grounded Multi-Agent Framework for Reliable Research Workflow Automation</a></h2>
+    <p class="paper-authors">Rajesh Kumar, Waqar Ali, Junaid Ahmed, Abdullah Aman Khan, Shaoning Zeng</p>
+    <p class="paper-links"><span class="paper-id">arXiv:2607.02520</span><a class="button primary" href="https://arxiv.org/pdf/2607.02520" target="_blank" rel="noopener noreferrer">Read the paper (PDF) ↗</a><a class="button secondary" href="https://arxiv.org/abs/2607.02520" target="_blank" rel="noopener noreferrer">Abstract page ↗</a></p>
+    <dl class="paper-points">
+      <div><dt>The problem</dt><dd>Automated research agents often write code and citations without checking that the experiments run or that the sources support the claims.</dd></div>
+      <div><dt>The idea</dt><dd>Run the code in a sandbox and repair it when it fails. Verify citations. Audit whether each claim is supported. Produce the paper as LaTeX.</dd></div>
+      <div><dt>How it is framed</dt><dd>A reliability-focused research assistant, not a fully autonomous scientist.</dd></div>
+    </dl>
+    <p class="paper-note"><strong>Read it as the authors' own report.</strong> The paper reports improvements over baselines on coding benchmarks, citation validity and workflow completion. Check the paper before relying on those results. This website is a separate, prompt-based guide. It does not run the system described in the paper.</p>
   </section>
 
   <section id="sample" class="card sample" aria-labelledby="sample-title">
