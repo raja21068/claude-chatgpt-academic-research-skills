@@ -316,3 +316,17 @@
 .get-text p{color:#384c40;margin:0 0 14px;max-width:56ch}
 .hero-card--band{box-shadow:var(--sh-2,0 18px 40px rgba(20,53,42,.12));border:1px solid var(--line);width:min(100%,430px);justify-self:center}
 @media(min-width:900px){.get-band{grid-template-columns:minmax(0,1fr) minmax(0,430px);gap:40px}.hero-card--band{justify-self:end}}
+
+/* ── viewer at the end + closing call to action ── */
+.papers-card{margin-top:8px}
+.papers-lead{margin:6px 0 14px;color:#384c40;font-size:.95rem;max-width:72ch}
+.final-cta{margin:34px 0 10px;padding:clamp(28px,5vw,48px) clamp(18px,4vw,40px);text-align:center;border-radius:26px;color:#fcfdf4;
+  background:radial-gradient(640px 300px at 90% -20%,rgba(220,238,190,.24),transparent 62%),linear-gradient(118deg,#10302a 20%,#235240 100%);box-shadow:0 18px 44px rgba(20,53,42,.22)}
+.final-cta h2{color:#fff;font-size:clamp(26px,3.6vw,40px);margin:0 0 6px}
+.final-cta p{margin:0 0 18px;color:#e1ece3}
+.final-cta .prompt-actions{justify-content:center}
+.final-cta .primary{background:#e4efcb;color:#14352a;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.final-cta .secondary{background:transparent;color:#f6f8ee;border-color:rgba(255,255,255,.4)}
+.final-cta .secondary:hover{background:rgba(255,255,255,.12)}
+.papers-card{margin-top:0}
+@media(max-width:560px){#papers .gal-viewer{height:58vh;min-height:320px}}
