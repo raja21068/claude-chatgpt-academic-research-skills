@@ -7,7 +7,7 @@
 <title>Audit Examples</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="audits.css?v=2">
+<link rel="stylesheet" href="audits.css?v=3">
 <meta name="theme-color" content="#245441">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23245441'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23e1f3d8' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -15,8 +15,10 @@
 <meta property="og:description" content="Seven AI-generated papers, each with a one-page audit: what the paper reports, what to check first, and the limits.">
 <meta property="og:url" content="https://raja21068.github.io/claude-chatgpt-academic-research-skills/audits.html">
 <meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="gallery.css?v=1">
 <link rel="stylesheet" href="theme.css?v=3">
 <script src="theme.js?v=2" defer></script>
+<script src="gallery.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip" href="#aud-main">Skip to the audits</a>
@@ -42,6 +44,13 @@
       <li>The copies we read are marked "Anonymous authors" with an "ICLR 2025" review header, yet cite references dated 2026. The venue and date are unconfirmed, so check them with the source.</li>
       <li>Do not cite these audits as publications. Use them to learn how to check a paper.</li>
     </ul>
+  </section>
+
+  <section class="card aud-gallery" aria-labelledby="gal-title">
+    <p class="eyebrow">The papers</p>
+    <h2 id="gal-title">Read the papers here</h2>
+    <p class="aud-gallery-lead">Pick an area, then a paper. Scroll inside the viewer to read it. Page 1 of each file is our audit.</p>
+    <div data-gallery data-open="true"></div>
   </section>
 
   <nav class="aud-jump card" aria-label="Jump to a paper">

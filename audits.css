@@ -26,3 +26,5 @@
 .aud-pdf span{font-size:.8rem;color:var(--muted)}
 .aud-rights{padding:10px 14px;border-left:3px solid #c9a400;background:#fffaf0;border-radius:0 9px 9px 0;font-size:.86rem !important;color:#4d4220 !important}
 @media(min-width:900px){.aud-card>.aud-pdf{grid-area:pdf}.aud-card{grid-template-areas:"head head" "pdf pdf" "rep chk" "lim chk"}}
+.aud-gallery h2{font-size:1.5rem;margin:0 0 4px}
+.aud-gallery-lead{color:var(--muted);margin:4px 0 14px;font-size:.92rem}
