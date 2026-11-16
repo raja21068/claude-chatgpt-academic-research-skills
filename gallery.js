@@ -47,7 +47,7 @@
         </div>
         <div class="gal-body">
           <div class="gal-viewer" tabindex="0" aria-label="PDF viewer. Page 1 is our audit; the pages after it are the original paper."></div>
-          <p class="gal-note">Page 1 is our audit. The pages after it are the original paper, unchanged. <a class="gal-audit" href="#">Read the audit notes ↓</a></p>
+          <p class="gal-note">Papers by ScientistTwo (Google Cloud AI Research). Page 1 is our audit; the pages after it are the original paper, unchanged. <a class="gal-audit" href="#">Read the audit notes ↓</a></p>
         </div>
       </div>`;
     const $ = (s) => root.querySelector(s);
