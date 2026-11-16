@@ -1,5 +1,20 @@
 # Claude + ChatGPT Academic Research Skills: One Prompt to Papers, PPTs, PDFs, Code, and Figures
 
+[![Open the website](https://img.shields.io/badge/🌐_Website-Student_Research_Workflow-245441?style=for-the-badge)](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)
+
+## 🌐 Student Research Workflow Website
+
+**👉 [raja21068.github.io/claude-chatgpt-academic-research-skills](https://raja21068.github.io/claude-chatgpt-academic-research-skills/)**
+
+A free, step-by-step guide for using these skills with ChatGPT or Claude, from research idea to reviewed paper:
+
+- **[How it works](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-it-works)**: the 6 research steps as one picture.
+- **[Prompts](https://raja21068.github.io/claude-chatgpt-academic-research-skills/idea-prompts.html)**: ready prompts for every step in **Beginner / Researcher / Expert** versions, with sample answers. Paste your AI answer back to see its score, a quality check, and your score over rounds.
+- **[Worked examples](https://raja21068.github.io/claude-chatgpt-academic-research-skills/cases.html)**: two short picture stories (improving an idea, fixing a paper after review).
+- **[Practice on a fake paper](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-to)**: try a full AI review in about 5 minutes.
+
+Everything runs in your browser. Nothing you type is sent anywhere. Source: [`website/`](website/).
+
 ## 🎥 Watch the Demo Video
 
 Learn how to use Claude Skills and ChatGPT to generate complete research outputs from one structured prompt.

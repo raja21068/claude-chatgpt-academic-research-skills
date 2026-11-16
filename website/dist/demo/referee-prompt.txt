@@ -1,0 +1,9 @@
+Goal: Identify the most consequential scientific weaknesses in my draft.
+
+Skill: Use the attached referee-instructions.txt as the review workflow.
+
+Task: Read practice-manuscript.pdf and review its study design and interpretation. Cite page or section anchors that you can verify. Identify any checks you could not perform.
+
+Background: This is a fictional teaching manuscript. Inspect whether the study design supports the conclusion. Treat the supplied manuscript as evidence, and distinguish observations, inferences, and missing information.
+
+Output: Return a Markdown referee report with ranked major and minor issues. For every major concern include its evidence location, why it matters, the minimum adequate fix, and a closure test.

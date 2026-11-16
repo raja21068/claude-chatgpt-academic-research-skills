@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Search and copy prompts for every stage of a student research project.">
+<title>Prompt Library · Student Research Workflow</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<script src="prompt-data.js" defer></script>
+<script src="prompt-library.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#library-main">Skip to the prompt library</a>
+<header class="top"><div class="top-inner">
+  <a class="brand" href="./"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span> Research Workflow</a>
+  <nav aria-label="Resources"><a href="idea-prompts.html">Prompts</a><a href="cases.html">Worked examples</a><a class="github" href="prompts.html" aria-current="page">All prompts</a></nav>
+</div></header>
+<main id="library-main" class="shell library-shell">
+  <header class="library-hero">
+    <p class="eyebrow">Research templates</p>
+    <h1>All prompts</h1>
+    <p><strong>New here? Use the <a href="idea-prompts.html" style="color:#e1edc7">step-by-step prompts</a> instead</strong> — they fill in your project for you. This page lists every prompt template for people who know what they want.</p>
+    <div class="hero-actions"><a class="button secondary" href="idea-prompts.html">Prompts by level (beginner / researcher / expert) →</a><a class="button secondary" href="cases.html">See how these prompts are used →</a></div>
+  </header>
+  <section class="card library-filters" aria-labelledby="filter-heading">
+    <h2 id="filter-heading">Find a prompt</h2>
+    <label for="prompt-search">Search by topic, task, or skill</label>
+    <input type="search" id="prompt-search" placeholder="Try novelty, LaTeX, or revision" autocomplete="off">
+    <div id="category-buttons" class="category-buttons" aria-label="Filter by research stage"></div>
+    <p id="prompt-count" class="hint" role="status"></p>
+  </section>
+  <div id="prompt-list" class="prompt-list" aria-label="Prompt results"></div>
+  <p id="copy-announcement" class="visually-hidden" role="status"></p>
+  <footer>Student Research Workflow <a href="./">Back to the workflow ↗</a></footer>
+</main>
+</body>
+</html>
