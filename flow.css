@@ -84,3 +84,14 @@
 .wp-page mark{background:#f1dfa0;padding:0 2px}
 .wp-ok{display:inline-block;margin-top:5px;font-weight:800;color:#1d5a3a}
 @media(max-width:900px){.walk-pics{grid-template-columns:1fr}.wp-arrow{transform:rotate(90deg);justify-self:center}}
+/* skills table */
+.skills-wrap{overflow-x:auto;margin:18px 0 6px}
+.skills-table{border-collapse:collapse;width:100%;font-size:.9rem}
+.skills-table caption{text-align:left;font-weight:750;font-size:1rem;padding:0 0 8px}
+.skills-table th,.skills-table td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:middle}
+.skills-table thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:2px solid var(--line)}
+.skills-table tbody th{font-weight:750;white-space:nowrap}
+.skills-table tbody th a{text-decoration:none;color:var(--ink)}
+.skills-table .tiny{padding:4px 10px;font-size:.78rem}
+.skills-table td a:not(.button){font-weight:650}
+.skills-more{margin:8px 0 0;font-size:.86rem;color:var(--muted)}
