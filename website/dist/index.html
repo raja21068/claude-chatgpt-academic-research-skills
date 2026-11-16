@@ -7,7 +7,7 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=18">
+<link rel="stylesheet" href="flow.css?v=19">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
 <script src="answer-visual.js?v=11" defer></script>
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="gallery.css?v=1">
 <link rel="stylesheet" href="theme.css?v=3">
 <script src="theme.js?v=2" defer></script>
-<script src="gallery.js?v=4" defer></script>
+<script src="gallery.js?v=5" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the guide</a>
@@ -48,83 +48,9 @@
     <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
   </section>
 
-  <nav class="section-nav" aria-label="On this page">
-    <a href="#case">Example project</a><a href="#paper">Our paper</a><a href="#audits">Audits</a><a href="#sample">Sample answer</a><a href="#how-it-works">How it works</a><a href="#watch">Video</a><a href="#main">Step guides</a><a href="#how-to">Practice</a><a href="idea-prompts.html">Prompts ↗</a>
-  </nav>
-
-  <section id="case" class="card case-card" aria-labelledby="case-title">
-    <p class="eyebrow">Example project <span class="case-tag">Sample · made up</span></p>
-    <h2 id="case-title">One project, from idea to reviewed paper</h2>
-    <p class="case-lead">Follow a small made-up project, <em>forecasting library visits</em>, through all six steps. It shows what you ask and what you get at each step. The numbers are examples, <strong>not results</strong>.</p>
-    <ol class="case-steps2">
-      <li class="case-step"><span class="case-n">1</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#idea">Idea</a></h3>
-          <p class="case-ask"><span>You ask</span>Suggest 3 ideas, then score the best one and check if it is new.</p>
-          <p class="case-get"><span>You get</span>Best idea: <em>do exam weeks make simple visit forecasts fail?</em> Scored <b>58/100</b>, then improved to <b>76/100</b>. <a class="case-more" href="demo/sample-idea-review.md">Read the sample answer</a></p>
-        </div></li>
-      <li class="case-step"><span class="case-n">2</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#literature">Literature</a></h3>
-          <p class="case-ask"><span>You ask</span>Find the closest papers and compare them with my idea.</p>
-          <p class="case-get"><span>You get</span>3 close papers on footfall forecasting. None checks exam weeks separately. That is the gap.</p>
-        </div></li>
-      <li class="case-step"><span class="case-n">3</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#draft">First draft</a></h3>
-          <p class="case-ask"><span>You ask</span>Write the paper, but leave the results tables empty.</p>
-          <p class="case-get"><span>You get</span>A full draft. Table 1, <em>error by day type</em>, says <b>[pending]</b> in every cell.</p>
-        </div></li>
-      <li class="case-step"><span class="case-n">4</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#code">Code</a></h3>
-          <p class="case-ask"><span>You ask</span>Write the simplest code that runs from start to end.</p>
-          <p class="case-get"><span>You get</span>One script: loads the data, runs 3 models, saves <code>metrics.csv</code>. You run it and keep the files.</p>
-        </div></li>
-      <li class="case-step"><span class="case-n">5</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#results">Results</a></h3>
-          <p class="case-ask"><span>You ask</span>Fill the tables from my result files and check every number.</p>
-          <p class="case-get"><span>You get</span>Every number comes from a file. The check catches: abstract says 18%, file says 14%.</p>
-        </div></li>
-      <li class="case-step"><span class="case-n">6</span>
-        <div class="case-body">
-          <h3><a href="idea-prompts.html#review">Review</a></h3>
-          <p class="case-ask"><span>You ask</span>Review the paper like a referee, then plan the fixes.</p>
-          <p class="case-get"><span>You get</span>Review score <b>5.5/10</b>. Fix list: narrow the claim, fix the analysis. Expected after fixes: <b>7.5/10</b>. <a class="case-more" href="demo/sample-review-revision-plan.md">Read the sample answer</a></p>
-        </div></li>
-    </ol>
-    <div class="case-real">
-      <h3>Real examples, not made up</h3>
-      <p>Two unedited ChatGPT conversations from the site owner's own research. They show what these prompts produce on a real project.</p>
-      <ul>
-        <li><a href="https://chatgpt.com/share/6afb2d33-10f0-83e9-88aa-84c518267dd0" target="_blank" rel="noopener noreferrer">Idea step: an AI scoring a research proposal ↗</a></li>
-        <li><a href="https://chatgpt.com/share/6afb2d9c-81c8-83ea-94f2-399016c33ed3" target="_blank" rel="noopener noreferrer">Review step: an AI rating a manuscript ↗</a></li>
-      </ul>
-      <p class="case-caveat">Scores are an AI's opinion. They are not proof that the work is good, so check the sources yourself. Links open on chatgpt.com.</p>
-    </div>
-    <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Do step 1 with your own project →</a></div>
-  </section>
-
-  <section id="paper" class="card paper-card" aria-labelledby="paper-title">
-    <p class="eyebrow">Featured paper</p>
-    <h2 id="paper-title"><a href="https://arxiv.org/abs/2607.02520" target="_blank" rel="noopener noreferrer">AutoResearch: An Execution-Grounded Multi-Agent Framework for Reliable Research Workflow Automation</a></h2>
-    <p class="paper-authors">Rajesh Kumar, Waqar Ali, Junaid Ahmed, Abdullah Aman Khan, Shaoning Zeng</p>
-    <p class="paper-links"><span class="paper-id">arXiv:2607.02520</span><a class="button primary" href="https://arxiv.org/pdf/2607.02520" target="_blank" rel="noopener noreferrer">Read the paper (PDF) ↗</a><a class="button secondary" href="https://arxiv.org/abs/2607.02520" target="_blank" rel="noopener noreferrer">Abstract page ↗</a></p>
-    <dl class="paper-points">
-      <div><dt>The problem</dt><dd>Automated research agents often write code and citations without checking that the experiments run or that the sources support the claims.</dd></div>
-      <div><dt>The idea</dt><dd>Run the code in a sandbox and repair it when it fails. Verify citations. Audit whether each claim is supported. Produce the paper as LaTeX.</dd></div>
-      <div><dt>How it is framed</dt><dd>A reliability-focused research assistant, not a fully autonomous scientist.</dd></div>
-    </dl>
-    <p class="paper-note"><strong>Read it as the authors' own report.</strong> The paper reports improvements over baselines on coding benchmarks, citation validity and workflow completion. Check the paper before relying on those results. This website is a separate, prompt-based guide. It does not run the system described in the paper.</p>
-  </section>
-
-  <section id="audits" class="card audits-card" aria-labelledby="audits-title">
-    <p class="eyebrow">Audit examples</p>
-    <h2 id="audits-title">See how an AI-generated paper gets checked</h2>
-    <p class="audits-lead">Seven papers written by Google Cloud AI Research's ScientistTwo, each with a one-page audit: <strong>what the paper says, what to check first, what it does not prove.</strong> They were not made by this workflow, and we reproduced none of their results. Each audit comes with the original paper as a PDF.</p>
-    <div data-gallery data-open="false" class="home-gallery"></div>
-    <div class="prompt-actions"><a class="button primary" href="audits.html">Open the 7 audits →</a><a href="https://scientist-two.github.io/" target="_blank" rel="noopener noreferrer">ScientistTwo (the source) ↗</a></div>
+  <section id="papers" class="card papers-card" aria-labelledby="papers-title">
+    <h2 id="papers-title" class="visually-hidden">Papers</h2>
+    <div data-gallery data-open="true"></div>
   </section>
 
   <section id="sample" class="card sample" aria-labelledby="sample-title">
