@@ -173,7 +173,13 @@
     body.hidden = !open;
     toggle.textContent = open ? "Hide" : "Show";
     toggle.setAttribute("aria-expanded", String(open));
-    renderChips(); renderMeta(); showPdf();
+    renderChips(); renderMeta();
+    // data-defer: let the first screen paint before the PDF engine and first paper load.
+    if (root.dataset.defer === "true" && open) {
+      const go = () => showPdf();
+      if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 1500 }); else setTimeout(go, 700);
+      viewer.innerHTML = '<p class="gal-status">Loading the paper…</p>';
+    } else showPdf();
   }
 
   document.querySelectorAll("[data-gallery]").forEach(init);

@@ -7,7 +7,7 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=26">
+<link rel="stylesheet" href="flow.css?v=28">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
 <script src="level-prompts-data.js?v=12" defer></script>
@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="gallery.css?v=1">
 <link rel="stylesheet" href="theme.css?v=3">
 <script src="theme.js?v=2" defer></script>
-<script src="gallery.js?v=5" defer></script>
+<script src="gallery.js?v=7" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the guide</a>
@@ -57,6 +57,13 @@
       </button>
       <figcaption><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=120s" target="_blank" rel="noopener noreferrer">Open on YouTube from 2:00 ↗</a> · Loads from YouTube only when you press play.</figcaption>
     </figure>
+  </section>
+
+  <section id="papers" class="card papers-card" aria-labelledby="papers-title">
+    <p class="eyebrow">Real papers, checked</p>
+    <h2 id="papers-title">Read seven papers, each with a one-page audit</h2>
+    <p class="papers-lead">Pick an area, then a paper, and scroll inside the viewer. Page 1 of each file is our audit. <a href="audits.html">See all seven audits ↗</a></p>
+    <div data-gallery data-open="true" data-defer="true"></div>
   </section>
 
   <section id="get" class="card get-band" aria-labelledby="get-title">
@@ -170,11 +177,6 @@
     <div class="prompt-actions"><a class="button primary" href="idea-prompts.html#idea">Try it with your own idea →</a><a href="demo/sample-idea-review.md">Read the full sample answer</a></div>
   </section>
 
-  <section id="papers" class="card papers-card" aria-labelledby="papers-title">
-    <h2 id="papers-title" class="visually-hidden">Papers</h2>
-    <div data-gallery data-open="true"></div>
-  </section>
-
   <main id="main" class="layout">
     <aside class="sidebar" aria-label="Workflow navigation">
       <div class="progress-head"><strong>Workflow stages</strong><span id="progress-text">0 / 6</span></div>
@@ -256,6 +258,12 @@
       </section>
     </div>
   </main>
+  <section id="final-cta" class="final-cta" aria-labelledby="final-title">
+    <h2 id="final-title">Ready to start?</h2>
+    <p>Pick your step, copy a prompt, and check the answer.</p>
+    <div class="prompt-actions"><a class="button primary" href="idea-prompts.html">Get the prompts →</a><a class="button secondary" href="#how-to">Practice first (5 min)</a></div>
+  </section>
+
   <footer>Student Research Workflow <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills" target="_blank" rel="noopener noreferrer">Source repository ↗</a></footer>
 </div>
 </body>
