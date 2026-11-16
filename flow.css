@@ -179,3 +179,28 @@
 .sm-prompts{width:100%;grid-template-columns:minmax(0,1fr)}
 .watch-chat{margin:10px 0 0;padding:10px 14px;border-radius:10px;background:var(--mint);font-size:.9rem;color:var(--dark)}
 .watch-chat span{display:block;margin-top:3px;font-size:.8rem;color:var(--muted)}
+
+/* ── example project ── */
+.case-card{margin-bottom:24px}
+#case{scroll-margin-top:58px}
+.case-tag{margin-left:8px;padding:2px 9px;border-radius:99px;background:#fdefdc;color:#87400a;font-size:.68rem;letter-spacing:.04em;text-transform:none;font-weight:800}
+.case-lead{color:var(--muted);margin:8px 0 16px;max-width:72ch}
+.case-steps2{list-style:none;padding:0;margin:0;display:grid;gap:0;border-left:3px solid #cfe0d2;margin-left:15px}
+.case-step{position:relative;margin:0;padding:0 0 18px 28px}
+.case-step+.case-step{margin-top:0}
+.case-n{position:absolute;left:-16px;top:0;width:29px;height:29px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:.82rem;display:grid;place-items:center;border:3px solid var(--white)}
+.case-body h3{font-size:1.02rem;margin:3px 0 7px}
+.case-body h3 a{color:var(--ink);text-decoration:none}
+.case-body h3 a:hover{color:var(--green);text-decoration:underline}
+.case-ask,.case-get{margin:0 0 6px;padding:9px 12px;border-radius:9px;font-size:.88rem;line-height:1.45}
+.case-ask{background:#fff;border:1px solid var(--line)}
+.case-get{background:var(--mint);color:var(--dark)}
+.case-ask span,.case-get span{display:block;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.case-more{margin-left:6px;font-weight:700;font-size:.82rem;white-space:nowrap}
+.case-real{margin:6px 0 16px;padding:14px 16px;border:1px solid #9cc5aa;border-radius:12px;background:#f7fbf4}
+.case-real h3{font-size:1rem;margin:0 0 4px}
+.case-real p{margin:0 0 8px;font-size:.88rem;color:#384c40}
+.case-real ul{margin:0 0 8px;padding-left:1.2rem}
+.case-real li{margin:0 0 4px;font-weight:650;font-size:.9rem}
+.case-real li+li{margin-top:4px}
+.case-caveat{font-size:.8rem !important;color:var(--muted) !important;margin:0 !important}
