@@ -7,9 +7,11 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=22">
+<link rel="stylesheet" href="flow.css?v=24">
 <link rel="stylesheet" href="answer-visual.css?v=1">
 <script src="workflows.js?v=2" defer></script>
+<script src="level-prompts-data.js?v=12" defer></script>
+<script src="steps-actions.js?v=1" defer></script>
 <script src="answer-visual.js?v=11" defer></script>
 <script src="home.js?v=1" defer></script>
 <script src="app.js?v=5" defer></script>
@@ -64,46 +66,53 @@
   <section id="how-it-works" class="flow card" aria-labelledby="flow-title">
     <p class="eyebrow">How it works</p>
     <h2 id="flow-title">One loop, six steps</h2>
+    <p class="sm-help">Press <strong>Copy</strong> to copy a ready prompt. Press <strong>Download agent</strong> to get the skill file for that step. Prompts use the level you chose on the Prompts page (beginner by default).</p>
     
     <figure class="sysmap">
     <ol class="sm-grid" aria-label="System overview: six steps in one loop">
       <li class="sm-cell sm-you"><div class="sm-end"><strong>You</strong><span>topic + your files</span></div></li>
-      <li class="sm-cell sm-g1"><a class="flow-step sm-group" href="#idea" data-stage="idea">
+      <li class="sm-cell sm-g1"><div class="flow-step sm-group" data-stage="idea">
         <span class="flow-num">1</span>
-        <strong>Idea</strong><span class="sm-skill">Idea Discovery V5</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Generate ideas</li><li><span>2</span>Score it &amp; check if it's new</li><li><span>3</span>Improve &amp; re-score</li></ol>
+        <strong><a class="sm-title" href="#idea">Idea</a></strong><span class="sm-skill">Idea Discovery V5</span>
+        <ol class="sm-prompts" aria-label="Three prompts for Idea"><li><span>1</span><em>Generate ideas</em><button type="button" class="sm-copy" data-stage="idea" data-i="0" aria-label="Copy prompt 1: Generate ideas"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Score it &amp; check if it's new</em><button type="button" class="sm-copy" data-stage="idea" data-i="1" aria-label="Copy prompt 2: Score it and check if it's new"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Improve &amp; re-score</em><button type="button" class="sm-copy" data-stage="idea" data-i="2" aria-label="Copy prompt 3: Improve and re-score"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: One-page idea brief</span>
-      </a></li>
-      <li class="sm-cell sm-g2"><a class="flow-step sm-group" href="#literature" data-stage="literature">
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/1-%20idea%20generation/idea-discovery-v5.zip" rel="noopener" title="idea-discovery-v5.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>0.15 MB</small></a><a class="sm-open" href="#idea">Open step →</a></div>
+      </div></li>
+      <li class="sm-cell sm-g2"><div class="flow-step sm-group" data-stage="literature">
         <span class="flow-num">2</span>
-        <strong>Literature</strong><span class="sm-skill">Paper Finder</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Find the closest papers</li><li><span>2</span>Compare with your idea</li><li><span>3</span>Write the related-work section</li></ol>
+        <strong><a class="sm-title" href="#literature">Literature</a></strong><span class="sm-skill">Paper Finder</span>
+        <ol class="sm-prompts" aria-label="Three prompts for Literature"><li><span>1</span><em>Find the closest papers</em><button type="button" class="sm-copy" data-stage="literature" data-i="0" aria-label="Copy prompt 1: Find the closest papers"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Compare with your idea</em><button type="button" class="sm-copy" data-stage="literature" data-i="1" aria-label="Copy prompt 2: Compare with your idea"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Write the related-work section</em><button type="button" class="sm-copy" data-stage="literature" data-i="2" aria-label="Copy prompt 3: Write the related-work section"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: Checked papers + gap</span>
-      </a></li>
-      <li class="sm-cell sm-g3"><a class="flow-step sm-group" href="#draft" data-stage="draft">
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/16-Paper-Finder-Search%20%28Input%201%20Paper%20%2B%20List%20of%20Your%20Favourite%20Journals%20%29/paper-finder.zip" rel="noopener" title="paper-finder.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>0.02 MB</small></a><a class="sm-open" href="#literature">Open step →</a></div>
+      </div></li>
+      <li class="sm-cell sm-g3"><div class="flow-step sm-group" data-stage="draft">
         <span class="flow-num">3</span>
-        <strong>First draft</strong><span class="sm-skill">Paper Writing Agent V2</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Make the outline</li><li><span>2</span>Draft with empty results</li><li><span>3</span>Check the plan</li></ol>
+        <strong><a class="sm-title" href="#draft">First draft</a></strong><span class="sm-skill">Paper Writing Agent V2</span>
+        <ol class="sm-prompts" aria-label="Three prompts for First draft"><li><span>1</span><em>Make the outline</em><button type="button" class="sm-copy" data-stage="draft" data-i="0" aria-label="Copy prompt 1: Make the outline"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Draft with empty results</em><button type="button" class="sm-copy" data-stage="draft" data-i="1" aria-label="Copy prompt 2: Draft with empty results"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Check the plan</em><button type="button" class="sm-copy" data-stage="draft" data-i="2" aria-label="Copy prompt 3: Check the plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: Draft + fixed plan</span>
-      </a></li>
-      <li class="sm-cell sm-g4"><a class="flow-step sm-group" href="#code" data-stage="code">
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/3-%20paper-writing/1.paper-writing-agent-V2.zip" rel="noopener" title="1.paper-writing-agent-V2.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>0.06 MB</small></a><a class="sm-open" href="#draft">Open step →</a></div>
+      </div></li>
+      <li class="sm-cell sm-g4"><div class="flow-step sm-group" data-stage="code">
         <span class="flow-num">4</span>
-        <strong>Code</strong><span class="sm-skill">Research Code Agent V5</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Write the first version</li><li><span>2</span>Fix errors</li><li><span>3</span>Check before trusting</li></ol>
+        <strong><a class="sm-title" href="#code">Code</a></strong><span class="sm-skill">Research Code Agent V5</span>
+        <ol class="sm-prompts" aria-label="Three prompts for Code"><li><span>1</span><em>Write the first version</em><button type="button" class="sm-copy" data-stage="code" data-i="0" aria-label="Copy prompt 1: Write the first version"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Fix errors</em><button type="button" class="sm-copy" data-stage="code" data-i="1" aria-label="Copy prompt 2: Fix errors"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Check before trusting</em><button type="button" class="sm-copy" data-stage="code" data-i="2" aria-label="Copy prompt 3: Check before trusting"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: Code that runs + numbers</span>
-      </a></li>
-      <li class="sm-cell sm-g5"><a class="flow-step sm-group" href="#results" data-stage="results">
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/2-%20code%20generation/research-code-agent-v5.zip" rel="noopener" title="research-code-agent-v5.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>0.12 MB</small></a><a class="sm-open" href="#code">Open step →</a></div>
+      </div></li>
+      <li class="sm-cell sm-g5"><div class="flow-step sm-group" data-stage="results">
         <span class="flow-num">5</span>
-        <strong>Results</strong><span class="sm-skill">Paper Writing Agent V2</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Tables &amp; figures</li><li><span>2</span>Write results</li><li><span>3</span>Check every number</li></ol>
+        <strong><a class="sm-title" href="#results">Results</a></strong><span class="sm-skill">Paper Writing Agent V2</span>
+        <ol class="sm-prompts" aria-label="Three prompts for Results"><li><span>1</span><em>Tables &amp; figures</em><button type="button" class="sm-copy" data-stage="results" data-i="0" aria-label="Copy prompt 1: Tables and figures"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Write results</em><button type="button" class="sm-copy" data-stage="results" data-i="1" aria-label="Copy prompt 2: Write results"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Check every number</em><button type="button" class="sm-copy" data-stage="results" data-i="2" aria-label="Copy prompt 3: Check every number"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: Paper with traced numbers</span>
-      </a></li>
-      <li class="sm-cell sm-g6"><a class="flow-step sm-group" href="#review" data-stage="review">
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/3-%20paper-writing/1.paper-writing-agent-V2.zip" rel="noopener" title="1.paper-writing-agent-V2.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>0.06 MB</small></a><a class="sm-open" href="#results">Open step →</a></div>
+      </div></li>
+      <li class="sm-cell sm-g6"><div class="flow-step sm-group" data-stage="review">
         <span class="flow-num">6</span>
-        <strong>Review</strong><span class="sm-skill">Beihang Referee</span>
-        <ol class="sm-prompts" aria-label="Three prompts"><li><span>1</span>Get a referee review</li><li><span>2</span>Plan the fixes</li><li><span>3</span>Re-check &amp; reply</li></ol>
+        <strong><a class="sm-title" href="#review">Review</a></strong><span class="sm-skill">Beihang Referee</span>
+        <ol class="sm-prompts" aria-label="Three prompts for Review"><li><span>1</span><em>Get a referee review</em><button type="button" class="sm-copy" data-stage="review" data-i="0" aria-label="Copy prompt 1: Get a referee review"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>2</span><em>Plan the fixes</em><button type="button" class="sm-copy" data-stage="review" data-i="1" aria-label="Copy prompt 2: Plan the fixes"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li><li><span>3</span><em>Re-check &amp; reply</em><button type="button" class="sm-copy" data-stage="review" data-i="2" aria-label="Copy prompt 3: Re-check and reply"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><b>Copy</b></button></li></ol>
         <span class="flow-out">You get: Report + fixes</span>
-      </a></li>
+        <div class="sm-actions"><a class="sm-dl" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/20-%20Paper%20Review%20Agent/Beihang-Referee.zip" rel="noopener" title="Beihang-Referee.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></svg><span>Download agent (.zip)</span><small>2.5 MB</small></a><a class="sm-open" href="#review">Open step →</a></div>
+      </div></li>
       <li class="sm-cell sm-out"><div class="sm-end sm-end-out"><strong>Output</strong><span>reviewed paper, code, figures</span></div></li>
       <li class="sm-note sm-loop1" aria-hidden="false">↺ Already done by someone else? Go back to <b>Idea</b>.</li>
       <li class="sm-note sm-loop2">↺ Problems found? Fix them and run <b>Review</b> again.</li>
@@ -190,38 +199,10 @@
         <p class="eyebrow">Practice first · about 5 minutes</p>
         <h2 id="how-title">Practice on a fake paper before using your own</h2>
         <p class="walk-intro">Download a made-up paper, ask ChatGPT to review it, check the answer. Nothing here matters, so you can't get it wrong.</p>
-        <ol class="walk-overview" aria-label="What you will do"><li><strong>Download</strong> 3 files</li><li><strong>Attach &amp; send</strong> in ChatGPT</li><li><strong>Check</strong> the answer</li></ol>
-        <div class="walk-pics" aria-label="Picture of the three steps">
-          <figure class="wp">
-            <span class="wp-num">1</span>
-            <div class="wp-box wp-files">
-              <div class="wp-file txt"><b>TXT</b>referee-prompt<i>↓</i></div>
-              <div class="wp-file txt"><b>TXT</b>referee-instructions<i>↓</i></div>
-              <div class="wp-file pdf"><b>PDF</b>practice-manuscript<i>↓</i></div>
-            </div>
-            <figcaption><strong>Download</strong> the 3 files to your computer.</figcaption>
-          </figure>
-          <span class="wp-arrow" aria-hidden="true">→</span>
-          <figure class="wp">
-            <span class="wp-num">2</span>
-            <div class="wp-box wp-chat">
-              <div class="wp-chat-top">New chat</div>
-              <div class="wp-chips"><span class="wp-chip txt">TXT prompt</span><span class="wp-chip txt">TXT instructions</span><span class="wp-chip pdf">PDF manuscript</span></div>
-              <div class="wp-input"><span class="wp-plus" title="Attach button">+</span><span class="wp-msg">Read referee-prompt.txt and…</span><span class="wp-send">Send ➤</span></div>
-            </div>
-            <figcaption><strong>Attach</strong> them with <b>+</b>, paste the message, press <b>Send</b>.</figcaption>
-          </figure>
-          <span class="wp-arrow" aria-hidden="true">→</span>
-          <figure class="wp">
-            <span class="wp-num">3</span>
-            <div class="wp-box wp-check">
-              <div class="wp-answer"><small>AI answer</small><p><b>Problem 1:</b> students chose reminders themselves…</p><p class="wp-where">Where: <u>page 1, Methods</u></p></div>
-              <div class="wp-link" aria-hidden="true">↓ open the PDF there</div>
-              <div class="wp-page"><small>practice-manuscript.pdf · page 1</small><p>…students <mark>chose whether to receive</mark> a reminder…</p><span class="wp-ok">✓ It really says that</span></div>
-            </div>
-            <figcaption><strong>Check</strong>: does the paper really say what the AI claims?</figcaption>
-          </figure>
-        </div>
+        <figure class="how-fig">
+          <a href="img/how-to-beihang-referee.jpg" target="_blank" rel="noopener"><img src="img/how-to-beihang-referee.jpg" width="1600" height="800" alt="How to use Beihang Referee in three steps: 1 prepare three files (Prompt.txt, Beihang-Referee.zip, Paper.pdf); 2 upload them to a new ChatGPT or Claude chat and run the review; 3 check the peer-review report, which here shows an example score of 58 out of 100 and a fix-first list." loading="lazy"></a>
+          <figcaption>The review in three moves. <strong>The report on the right is an example:</strong> its scores are made up to show the format. The practice below uses two small text files in place of the zip, so it works in any chat. <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/20-%20Paper%20Review%20Agent/Beihang-Referee.zip" rel="noopener">Download Beihang-Referee.zip (2.5 MB)</a></figcaption>
+        </figure>
         <div class="walk-steps">
           <article class="walk-step">
             <h3><span aria-hidden="true">1</span> Download the 3 practice files</h3>
