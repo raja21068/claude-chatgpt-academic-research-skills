@@ -7,7 +7,7 @@
 <title>Audit Examples</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="audits.css?v=1">
+<link rel="stylesheet" href="audits.css?v=2">
 </head>
 <body>
 <a class="skip" href="#aud-main">Skip to the audits</a>
@@ -24,8 +24,9 @@
 
   <section class="card aud-intro" aria-labelledby="aud-who">
     <h2 id="aud-who">Whose papers these are</h2>
-    <p><strong>These papers were written by ScientistTwo, not by this workflow.</strong> ScientistTwo is an autonomous research system from Google Cloud AI Research, and the papers are AI-generated. See their site: <a href="https://scientist-two.github.io/" target="_blank" rel="noopener noreferrer">scientist-two.github.io ↗</a>. We do not host the papers. Read the originals there.</p>
-    <p>What you see below is our own audit commentary on them, written with AI help.</p>
+    <p><strong>These papers were written by ScientistTwo, not by this workflow.</strong> ScientistTwo is an autonomous research system from Google Cloud AI Research, and the papers are AI-generated. Their site: <a href="https://scientist-two.github.io/" target="_blank" rel="noopener noreferrer">scientist-two.github.io ↗</a>.</p>
+    <p>Each card below links to a PDF. <strong>Page 1 is our own audit</strong>, written with AI help. <strong>The pages after it are the original paper, unchanged.</strong> They are shared here only to help people learn how to check a paper.</p>
+    <p class="aud-rights"><strong>Rights:</strong> ScientistTwo's page states no licence for its papers. All credit for the papers belongs to ScientistTwo. If its authors or owners want any file taken down, <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/issues" target="_blank" rel="noopener noreferrer">tell us on GitHub ↗</a> and we will remove it.</p>
     <ul class="aud-limits">
       <li><strong>No code was run and no result was reproduced.</strong> Every number is what the source paper claims.</li>
       <li><strong>No referee model or independent reviewer was used.</strong></li>
@@ -41,42 +42,49 @@
   <div class="aud-list">
     <article class="aud-card" id="p01">
       <header><span class="aud-n">01</span><div><p class="aud-dom">Others · DynaSpec-RAG</p><h2>Adaptive Spectral Retrieval and Reliability-Guided Fusion for Zero-Shot Time-Series Forecasting</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/01_Others_DynaSpec-RAG_Audited.pdf" target="_blank" rel="noopener">Open the PDF (1.7 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>Across seven forecasting benchmarks, average MSE 0.1892 versus 0.1940 for TS-RAG, with about 0.27 million trainable parameters. A 5.6% MSE improvement on GIFT-Eval without retraining.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Call the safety fallback a validation-selected rule, not a guarantee on unseen data.</li><li>Report MSE and MAE per dataset with paired uncertainty, and show how fallback choices were calibrated without test leakage.</li><li>Ablate spectral splitting, boundary continuation, gating and fallback at a matched budget.</li><li>Report how the retrieval index was built, the leakage safeguards, and per-series latency.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>The average gain is modest and may hide regressions in some domains. A validation fallback cannot guarantee safety under any distribution shift.</p></div>
     </article>
     <article class="aud-card" id="p02">
       <header><span class="aud-n">02</span><div><p class="aud-dom">LLMs · Mem-MaxRL</p><h2>Stabilizing Reasoning Diversity in Large Language Models Through Memory-Guided Reinforcement Learning</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/02_LLMs_Mem-MaxRL_Audited.pdf" target="_blank" rel="noopener">Open the PDF (0.8 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>On a recurring 17×17 maze task, pass@256 of 66.4%, versus 59.4% for the pretrained model and 25.8% for MAXRL.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Evaluate recurring prompts and truly unseen prompts separately.</li><li>Report pass@1 next to pass@k, with confidence intervals and matched sampling budgets.</li><li>Measure buffer hit rates, memory growth, retrieval cost, and success when a valid memory exists.</li><li>Compare with memory-only replay, smoothed weighting alone, and equal-compute replay.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>A recurring maze can favour replaying earlier successes. A high pass@k alone does not show better reasoning.</p></div>
     </article>
     <article class="aud-card" id="p03">
       <header><span class="aud-n">03</span><div><p class="aud-dom">Foundation · UNI-XDLM</p><h2>Distribution-Aware Noise Calibration for Efficient Discrete Diffusion Language Modeling</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/03_Foundation_UNI-XDLM_Audited.pdf" target="_blank" rel="noopener">Open the PDF (0.6 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>On OpenWebText, validation perplexity 146.4 versus 155.3 for XDLM. Across seven zero-shot datasets, average perplexity 380.7 versus 432.6.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>State the assumptions of the closed-form ELBO. Separate an exact expression from exact optimisation.</li><li>Separate the gains from the unigram prior, reverse-rate annealing and smoothing.</li><li>Check that perplexities use compatible tokenisation, likelihood estimators, context lengths and compute.</li><li>Test sensitivity to the prior corpus, vocabulary support and rare tokens.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>Lower perplexity does not automatically mean better samples or reasoning. The &quot;exact ELBO&quot; claim needs careful qualification.</p></div>
     </article>
     <article class="aud-card" id="p04">
       <header><span class="aud-n">04</span><div><p class="aud-dom">Interpretability · Overdamped DAVE</p><h2>Efficient Vision Transformer Attribution Through Rank-Preserving Concentration Dynamics</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/04_Interpretability_Overdamped_DAVE_Audited.pdf" target="_blank" rel="noopener">Open the PDF (3.0 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>On ImageNet-1k with three backbones, localisation gains of up to 25.88 points (Grid Pointing Game) and 13.42 points (Energy Pointing Game). A single-sample setting runs about 93 times faster than a 100-sample setting.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Separate rank-based deletion metrics from metrics that change under monotone rescaling.</li><li>Compare the same source attribution maps before and after the concentration step.</li><li>Run faithfulness tests (deletion, insertion, randomisation, distribution shift) at matched budgets.</li><li>Say what hardware the latency used and whether the 93× is end to end or attribution only.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>A rank-preserving step cannot improve purely rank-based measures on a fixed map. Pointing-game gains may reflect concentration, not causal faithfulness.</p></div>
     </article>
     <article class="aud-card" id="p05">
       <header><span class="aud-n">05</span><div><p class="aud-dom">Alignment · CHVA</p><h2>Hierarchical Value Representation and Calibration for Reliable Large Language Model Alignment</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/05_Alignment_CHVA_Audited.pdf" target="_blank" rel="noopener">Open the PDF (4.2 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>Pairwise ranking accuracy up 20.3% and similarity correlation up 38.5% over base encoders. Cross-value overlap down from 0.404 to 0.119. Refusal rate falls to 51.7% under one negative-security steering condition.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Say whether the gains are relative percentages or percentage points.</li><li>State which population fits the calibration statistics, and prevent demographic test leakage.</li><li>Report group-wise errors, sample sizes, uncertainty, and the ethical limits of demographic profiling.</li><li>Treat the drop in refusals under extreme steering as a main safety result, not a side note.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>Separating value axes does not prove normative validity or that the sample represents a population. It should not be presented as deployment-ready.</p></div>
     </article>
     <article class="aud-card" id="p06">
       <header><span class="aud-n">06</span><div><p class="aud-dom">Neuroscience · Simplified DWGR-SVL</p><h2>Simplifying Spike-Driven Vision-Language Pretraining for Efficient Open-World 3D Recognition</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/06_Neuroscience_Simplified_DWGR-SVL_Audited.pdf" target="_blank" rel="noopener">Open the PDF (2.4 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>Pretraining on 583,907 shapes. Zero-shot top-1 accuracy 83.75% on ModelNet40 and 41.47% on Objaverse-LVIS, which is 1.65 and 1.37 points above the stated baseline.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Separate operation counts from measured latency, power and energy per inference.</li><li>Disclose any floating-point operations in training, alignment, graph construction and inference.</li><li>Run matched-data and matched-compute ablations of the Student-t MMD, patch alignment and geodesic propagation.</li><li>Explain the zero-shot class splits, prompt choice, preprocessing, and any overlap with the pretraining data.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>A module that only accumulates does not make the whole inference pipeline accumulation-only. State-of-the-art claims depend on comparable data and protocols.</p></div>
     </article>
     <article class="aud-card" id="p07">
       <header><span class="aud-n">07</span><div><p class="aud-dom">Neuroscience · FCD-Engram</p><h2>Curvature-Guided Parameter Editing for Selective Knowledge Removal in Large Language Models</h2></div></header>
+      <p class="aud-pdf"><a class="button secondary" href="papers/07_Neuroscience_FCD-Engram_Audited.pdf" target="_blank" rel="noopener">Open the PDF (2.6 MB)</a><span>Page 1 is our audit. The pages after it are the original paper, unchanged.</span></p>
       <div class="aud-col aud-rep"><h3>What the source says</h3><p>On TOFU with Llama-3.2-1B-Instruct, overall score 0.916 versus 0.860 for the strongest tuned covariance baseline, with about 30 times fewer FLOPs than iterative methods.</p><p class="aud-flag">Reported by the source paper. We did not run or reproduce it.</p></div>
       <div class="aud-col"><h3>What to check first</h3><ol><li>Define every part of the composite overall score and report each metric.</li><li>Separate suppressing answers from removing the information inside the model. Test paraphrases and adversarial recovery.</li><li>Report sequential forgetting, relearning resistance, retain-set quality, and uncertainty across targets and seeds.</li><li>Count the cost of estimating covariance and Fisher information, preparing reference data and every editing pass.</li></ol></div>
       <div class="aud-col aud-lim"><h3>Limits</h3><p>Low memorisation scores and low probe decodability do not prove permanent deletion. It should not be presented as guaranteeing regulatory erasure.</p></div>

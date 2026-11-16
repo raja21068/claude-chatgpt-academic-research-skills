@@ -22,7 +22,7 @@ A free, step-by-step guide for using these skills with ChatGPT or Claude, from r
 - **[How it works](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-it-works)**: the 6 research steps as one picture.
 - **[Prompts](https://raja21068.github.io/claude-chatgpt-academic-research-skills/idea-prompts.html)**: ready prompts for every step in **Beginner / Researcher / Expert** versions, with sample answers. Paste your AI answer back to see its score, a quality check, and your score over rounds.
 - **[Worked examples](https://raja21068.github.io/claude-chatgpt-academic-research-skills/cases.html)**: two short picture stories (improving an idea, fixing a paper after review).
-- **[Audit examples](https://raja21068.github.io/claude-chatgpt-academic-research-skills/audits.html)**: seven AI-generated papers from Google's ScientistTwo, each with a one-page audit (what it says, what to check, limits). Not made by this workflow; originals are on ScientistTwo's site.
+- **[Audit examples](https://raja21068.github.io/claude-chatgpt-academic-research-skills/audits.html)**: seven AI-generated papers from Google's ScientistTwo, each with a one-page audit (what it says, what to check, limits). Not made by this workflow; credit and source: ScientistTwo.
 - **[Practice on a fake paper](https://raja21068.github.io/claude-chatgpt-academic-research-skills/#how-to)**: try a full AI review in about 5 minutes.
 
 Everything runs in your browser. Nothing you type is sent anywhere. Source: [`website/`](website/).
