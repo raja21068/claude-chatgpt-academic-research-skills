@@ -177,3 +177,5 @@
   .sm-cards{grid-template-columns:1fr}
 }
 .sm-prompts{width:100%;grid-template-columns:minmax(0,1fr)}
+.watch-chat{margin:10px 0 0;padding:10px 14px;border-radius:10px;background:var(--mint);font-size:.9rem;color:var(--dark)}
+.watch-chat span{display:block;margin-top:3px;font-size:.8rem;color:var(--muted)}
