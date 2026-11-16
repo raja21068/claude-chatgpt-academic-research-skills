@@ -7,7 +7,7 @@
 <title>Student Research Workflow</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="guide.css">
-<link rel="stylesheet" href="flow.css?v=6">
+<link rel="stylesheet" href="flow.css?v=7">
 <script src="workflows.js" defer></script>
 <script src="app.js?v=4" defer></script>
 <script src="walkthrough.js?v=2" defer></script>
@@ -21,10 +21,9 @@
 <div class="shell">
   <section id="start-here" class="hero hero-with-demo" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow">Start here</p>
-      <h1 id="hero-title">From research idea<br>to <em>reviewed manuscript.</em></h1>
-      <p>Six simple steps. At each step you copy a ready-made prompt, paste it into ChatGPT or Claude with your files, and save what comes back for the next step.</p>
-      <div class="hero-actions"><a class="button primary" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a><a class="button hero-secondary" href="#idea">Start with your idea <span aria-hidden="true">→</span></a></div>
+      <h1 id="hero-title">From research idea<br>to <em>reviewed paper.</em></h1>
+      <p>Skill files and ready prompts for ChatGPT and Claude. Free, no API key.</p>
+      <div class="hero-actions"><a class="button primary" href="idea-prompts.html">Get the prompts <span aria-hidden="true">→</span></a><a class="button hero-secondary" href="#how-to">Practice first (5 min) <span aria-hidden="true">↓</span></a></div>
     </div>
     <figure class="hero-demo">
       <iframe src="https://www.youtube.com/embed/vhvtOVsnYLg?start=27" title="How to Create a Full Research Paper with Claude Skills" width="560" height="315" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
@@ -35,8 +34,7 @@
   <section id="how-it-works" class="flow card" aria-labelledby="flow-title">
     <p class="eyebrow">How it works</p>
     <h2 id="flow-title">Your paper in 6 steps</h2>
-    <p class="flow-lead">Each step uses what the step before it made. Click any step to open it.</p>
-
+    
     <ol class="flow-steps">
       <li><a class="flow-step" href="#idea" data-stage="idea">
         <span class="flow-num">1</span>
@@ -81,18 +79,24 @@
         <span class="flow-out">You get: reviewer report + fixes</span>
       </a></li>
     </ol>
-    <p class="flow-tip">Not sure what to type? Every step has <a href="idea-prompts.html">ready prompts for beginners, researchers and experts →</a></p>
+
+    <div class="skills-wrap">
+      <table class="skills-table">
+        <caption>Skill file and prompts for each step</caption>
+        <thead><tr><th scope="col">Step</th><th scope="col">Skill file</th><th scope="col">Get the skill</th><th scope="col">Prompts</th></tr></thead>
+        <tbody>
+        <tr><th scope="row"><a href="idea-prompts.html#idea">1 · Idea</a></th><td>Idea Discovery V5</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/1-%20idea%20generation/idea-discovery-v5.zip" target="_blank" rel="noopener noreferrer">Download ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#idea">Get prompts</a></td></tr>
+        <tr><th scope="row"><a href="idea-prompts.html#literature">2 · Literature</a></th><td>Paper Finder</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/tree/main/16-Paper-Finder-Search%20%28Input%201%20Paper%20%2B%20List%20of%20Your%20Favourite%20Journals%20%29" target="_blank" rel="noopener noreferrer">Folder ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#literature">Get prompts</a></td></tr>
+        <tr><th scope="row"><a href="idea-prompts.html#draft">3 · First draft</a></th><td>Paper Writing Agent V2</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/3-%20paper-writing/1.paper-writing-agent-V2.zip" target="_blank" rel="noopener noreferrer">Download ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#draft">Get prompts</a></td></tr>
+        <tr><th scope="row"><a href="idea-prompts.html#code">4 · Code</a></th><td>Research Code Agent V5</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/2-%20code%20generation/research-code-agent-v5.zip" target="_blank" rel="noopener noreferrer">Download ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#code">Get prompts</a></td></tr>
+        <tr><th scope="row"><a href="idea-prompts.html#results">5 · Results</a></th><td>Paper Writing Agent V2</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/3-%20paper-writing/1.paper-writing-agent-V2.zip" target="_blank" rel="noopener noreferrer">Download ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#results">Get prompts</a></td></tr>
+        <tr><th scope="row"><a href="idea-prompts.html#review">6 · Review</a></th><td>Beihang Referee</td><td><a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/raw/main/20-%20Paper%20Review%20Agent/Beihang-Referee.zip" target="_blank" rel="noopener noreferrer">Download ↗</a></td><td><a class="button secondary tiny" href="idea-prompts.html#review">Get prompts</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="skills-more">More skills (figures, slides, poster, grants, patent, proofs): <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills#-whats-included" target="_blank" rel="noopener noreferrer">full list on GitHub ↗</a></p>
     <p class="flow-loop"><span aria-hidden="true">↺</span> If the literature check shows your idea is not new, go back to step 1. If the review finds problems, fix them and review again.</p>
 
-    <div class="flow-inside">
-      <h3>What you do inside every step</h3>
-      <ol class="flow-mini">
-        <li><span>A</span><div><strong>Fill the prompt</strong><p>Pick a task in the prompt builder and type your details.</p></div></li>
-        <li><span>B</span><div><strong>Paste into ChatGPT or Claude</strong><p>Attach the files the step lists, then send.</p></div></li>
-        <li><span>C</span><div><strong>Check the answer</strong><p>Open the sources it cites. Never trust a number you cannot trace.</p></div></li>
-        <li><span>D</span><div><strong>Save it, go to next step</strong><p>The saved file is the input for the next step.</p></div></li>
-      </ol>
-    </div>
   </section>
 
   <main id="main" class="layout">
@@ -129,7 +133,7 @@
       <section id="how-to" class="card how-to walkthrough" aria-labelledby="how-title" tabindex="-1">
         <p class="eyebrow">Practice first · about 5 minutes</p>
         <h2 id="how-title">Practice on a fake paper before using your own</h2>
-        <p class="walk-intro">New to using AI for research? Do this once. You will download a short made-up paper, ask ChatGPT to review it, and check the answer. Nothing you do here matters, so you can't get it wrong.</p>
+        <p class="walk-intro">Download a made-up paper, ask ChatGPT to review it, check the answer. Nothing here matters, so you can't get it wrong.</p>
         <ol class="walk-overview" aria-label="What you will do"><li><strong>Download</strong> 3 files</li><li><strong>Attach &amp; send</strong> in ChatGPT</li><li><strong>Check</strong> the answer</li></ol>
         <div class="walk-pics" aria-label="Picture of the three steps">
           <figure class="wp">
@@ -200,11 +204,6 @@
           <p>It is the same three moves every time: <strong>copy a prompt, attach your files, check the answer</strong>. The Prompts page gives you the right prompt for each step.</p>
           <div class="prompt-actions"><a class="button primary" href="idea-prompts.html">Get ready prompts →</a><a href="#idea">Start the research workflow</a></div>
         </div>
-        <details class="visual-references">
-          <summary>View the original workflow illustrations</summary>
-          <figure><a href="media/structured-prompt.webp" target="_blank" rel="noopener"><img src="media/structured-prompt.webp" loading="lazy" width="1672" height="941" alt="Illustration grouping goal, skill, task, background and output format into a structured prompt."></a><figcaption>The five inputs of a structured prompt. Review and verify any generated deliverable.</figcaption></figure>
-          <figure><a href="media/referee-workflow.webp" target="_blank" rel="noopener"><img src="media/referee-workflow.webp" loading="lazy" width="1672" height="941" alt="Illustration showing review materials moving through a temporary chat to an example scorecard."></a><figcaption>Original Referee illustration. The practice walkthrough uses individual files for browser chat. Use the <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/blob/main/20-%20Paper%20Review%20Agent/README.md" target="_blank" rel="noopener noreferrer">Referee guide</a> to extract and run the full Python package.</figcaption></figure>
-        </details>
         <p class="hint walk-source"><a href="https://help.openai.com/en/articles/8914046" target="_blank" rel="noopener noreferrer">How Temporary chat works in ChatGPT ↗</a></p>
       </section>
     </div>
