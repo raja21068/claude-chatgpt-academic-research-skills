@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A step-by-step student guide to research ideas, literature, drafts, code, and manuscript review.">
+<title>Student Research Workflow</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="flow.css?v=6">
+<script src="workflows.js" defer></script>
+<script src="app.js?v=4" defer></script>
+<script src="walkthrough.js?v=2" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+<header class="top"><div class="top-inner">
+  <a class="brand" href="#idea"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span> Research Workflow</a>
+  <nav aria-label="Resources"><a href="#how-it-works">How it works</a><a href="idea-prompts.html">Prompts</a><a href="cases.html">Worked examples</a><a href="prompts.html">All prompts</a><a class="github" href="https://github.com/raja21068/claude-chatgpt-academic-research-skills" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+</div></header>
+<div class="shell">
+  <section id="start-here" class="hero hero-with-demo" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Start here</p>
+      <h1 id="hero-title">From research idea<br>to <em>reviewed manuscript.</em></h1>
+      <p>Six simple steps. At each step you copy a ready-made prompt, paste it into ChatGPT or Claude with your files, and save what comes back for the next step.</p>
+      <div class="hero-actions"><a class="button primary" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a><a class="button hero-secondary" href="#idea">Start with your idea <span aria-hidden="true">→</span></a></div>
+    </div>
+    <figure class="hero-demo">
+      <iframe src="https://www.youtube.com/embed/vhvtOVsnYLg?start=27" title="How to Create a Full Research Paper with Claude Skills" width="560" height="315" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <figcaption><a href="https://www.youtube.com/watch?v=vhvtOVsnYLg&amp;t=27s" target="_blank" rel="noopener noreferrer">Watch on YouTube from 0:27 ↗</a></figcaption>
+    </figure>
+  </section>
+
+  <section id="how-it-works" class="flow card" aria-labelledby="flow-title">
+    <p class="eyebrow">How it works</p>
+    <h2 id="flow-title">Your paper in 6 steps</h2>
+    <p class="flow-lead">Each step uses what the step before it made. Click any step to open it.</p>
+
+    <ol class="flow-steps">
+      <li><a class="flow-step" href="#idea" data-stage="idea">
+        <span class="flow-num">1</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/></svg>
+        <strong>Idea</strong>
+        <span class="flow-in">You give: a topic</span>
+        <span class="flow-out">You get: 3 ideas, scored</span>
+      </a></li>
+      <li><a class="flow-step" href="#literature" data-stage="literature">
+        <span class="flow-num">2</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg>
+        <strong>Literature check</strong>
+        <span class="flow-in">You give: your idea</span>
+        <span class="flow-out">You get: close papers + is it new?</span>
+      </a></li>
+      <li><a class="flow-step" href="#draft" data-stage="draft">
+        <span class="flow-num">3</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7l-4-4Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>
+        <strong>First draft</strong>
+        <span class="flow-in">You give: idea + papers</span>
+        <span class="flow-out">You get: draft PDF, empty tables</span>
+      </a></li>
+      <li><a class="flow-step" href="#code" data-stage="code">
+        <span class="flow-num">4</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg>
+        <strong>Write code</strong>
+        <span class="flow-in">You give: the plan in the draft</span>
+        <span class="flow-out">You get: code that runs + numbers</span>
+      </a></li>
+      <li><a class="flow-step" href="#results" data-stage="results">
+        <span class="flow-num">5</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>
+        <strong>Add results</strong>
+        <span class="flow-in">You give: draft + real numbers</span>
+        <span class="flow-out">You get: full paper with figures</span>
+      </a></li>
+      <li><a class="flow-step" href="#review" data-stage="review">
+        <span class="flow-num">6</span>
+        <svg class="flow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+        <strong>Review &amp; fix</strong>
+        <span class="flow-in">You give: the full paper</span>
+        <span class="flow-out">You get: reviewer report + fixes</span>
+      </a></li>
+    </ol>
+    <p class="flow-tip">Not sure what to type? Every step has <a href="idea-prompts.html">ready prompts for beginners, researchers and experts →</a></p>
+    <p class="flow-loop"><span aria-hidden="true">↺</span> If the literature check shows your idea is not new, go back to step 1. If the review finds problems, fix them and review again.</p>
+
+    <div class="flow-inside">
+      <h3>What you do inside every step</h3>
+      <ol class="flow-mini">
+        <li><span>A</span><div><strong>Fill the prompt</strong><p>Pick a task in the prompt builder and type your details.</p></div></li>
+        <li><span>B</span><div><strong>Paste into ChatGPT or Claude</strong><p>Attach the files the step lists, then send.</p></div></li>
+        <li><span>C</span><div><strong>Check the answer</strong><p>Open the sources it cites. Never trust a number you cannot trace.</p></div></li>
+        <li><span>D</span><div><strong>Save it, go to next step</strong><p>The saved file is the input for the next step.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <main id="main" class="layout">
+    <aside class="sidebar" aria-label="Workflow navigation">
+      <div class="progress-head"><strong>Workflow stages</strong><span id="progress-text">0 / 6</span></div>
+      <progress id="progress" max="6" value="0" aria-label="Stages completed"></progress>
+      <nav id="stage-nav" aria-label="Research stages"></nav>
+      <p class="local-note">Progress is saved in this browser.</p>
+      <a class="side-library" href="idea-prompts.html">Get ready prompts →</a><a class="side-library" href="cases.html">Open the worked examples →</a>
+    </aside>
+    <div class="content">
+      <section id="lesson" class="card lesson" aria-labelledby="lesson-title" tabindex="-1"></section>
+      <section id="builder" class="card builder" aria-labelledby="builder-title">
+       <details class="builder-advanced">
+        <summary><span class="eyebrow">Advanced · optional</span><strong id="builder-title">Write your own custom prompt</strong><span class="hint">Most people don't need this. Use the green "Get ready prompts" button above instead.</span></summary>
+        <div class="section-head"><div></div><button id="example" class="button secondary" type="button">Load an example</button></div>
+        <p class="builder-note">Choose a task and add your details. Copy the result, open a chat, and attach the files listed in the current stage. <a href="#how-to">See an example</a>.</p>
+        <form id="prompt-form">
+          <label for="task">Task</label><select id="task"></select>
+          <div class="fields">
+            <div><label id="label-one" for="field-one">Project context</label><textarea id="field-one" rows="2" maxlength="4000"></textarea></div>
+            <div><label id="label-two" for="field-two">Constraints</label><textarea id="field-two" rows="2" maxlength="4000"></textarea></div>
+          </div>
+          <label for="links">Paper, dataset, or repository links <small>Optional</small></label>
+          <textarea id="links" rows="2" placeholder="https://doi.org/…&#10;One link per line" maxlength="4500" aria-describedby="links-help"></textarea>
+          <p class="hint" id="links-help">Links are added to the prompt as references. Attach any files the chat tool needs separately.</p>
+          <div class="prompt-head"><label for="prompt-output">Your prompt</label><button id="copy" class="button secondary" type="button">Copy prompt</button></div>
+          <textarea id="prompt-output" readonly rows="9" spellcheck="false"></textarea>
+          <p class="hint status" id="status" role="status"></p>
+          <div class="platforms"><span>Paste your prompt into</span><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude ↗</a></div>
+        </form>
+       </details>
+      </section>
+      <section id="how-to" class="card how-to walkthrough" aria-labelledby="how-title" tabindex="-1">
+        <p class="eyebrow">Practice first · about 5 minutes</p>
+        <h2 id="how-title">Practice on a fake paper before using your own</h2>
+        <p class="walk-intro">New to using AI for research? Do this once. You will download a short made-up paper, ask ChatGPT to review it, and check the answer. Nothing you do here matters, so you can't get it wrong.</p>
+        <ol class="walk-overview" aria-label="What you will do"><li><strong>Download</strong> 3 files</li><li><strong>Attach &amp; send</strong> in ChatGPT</li><li><strong>Check</strong> the answer</li></ol>
+        <div class="walk-pics" aria-label="Picture of the three steps">
+          <figure class="wp">
+            <span class="wp-num">1</span>
+            <div class="wp-box wp-files">
+              <div class="wp-file txt"><b>TXT</b>referee-prompt<i>↓</i></div>
+              <div class="wp-file txt"><b>TXT</b>referee-instructions<i>↓</i></div>
+              <div class="wp-file pdf"><b>PDF</b>practice-manuscript<i>↓</i></div>
+            </div>
+            <figcaption><strong>Download</strong> the 3 files to your computer.</figcaption>
+          </figure>
+          <span class="wp-arrow" aria-hidden="true">→</span>
+          <figure class="wp">
+            <span class="wp-num">2</span>
+            <div class="wp-box wp-chat">
+              <div class="wp-chat-top">New chat</div>
+              <div class="wp-chips"><span>📄 prompt</span><span>📄 instructions</span><span>📕 manuscript</span></div>
+              <div class="wp-input"><span class="wp-plus" title="Attach button">+</span><span class="wp-msg">Read referee-prompt.txt and…</span><span class="wp-send">Send ➤</span></div>
+            </div>
+            <figcaption><strong>Attach</strong> them with <b>+</b>, paste the message, press <b>Send</b>.</figcaption>
+          </figure>
+          <span class="wp-arrow" aria-hidden="true">→</span>
+          <figure class="wp">
+            <span class="wp-num">3</span>
+            <div class="wp-box wp-check">
+              <div class="wp-answer"><small>AI answer</small><p><b>Problem 1:</b> students chose reminders themselves…</p><p class="wp-where">Where: <u>page 1, Methods</u></p></div>
+              <div class="wp-link" aria-hidden="true">↓ open the PDF there</div>
+              <div class="wp-page"><small>practice-manuscript.pdf · page 1</small><p>…students <mark>chose whether to receive</mark> a reminder…</p><span class="wp-ok">✓ It really says that</span></div>
+            </div>
+            <figcaption><strong>Check</strong>: does the paper really say what the AI claims?</figcaption>
+          </figure>
+        </div>
+        <div class="walk-steps">
+          <article class="walk-step">
+            <h3><span aria-hidden="true">1</span> Download the 3 practice files</h3>
+            <p>Click each file name to save it to your computer.</p>
+            <ul class="file-list">
+              <li><a href="demo/referee-prompt.txt" download>referee-prompt.txt</a><span>Tells the AI what to look for</span></li>
+              <li><a href="demo/referee-instructions.txt" download>referee-instructions.txt</a><span>Tells the AI how to write the review</span></li>
+              <li><a href="demo/practice-manuscript.pdf" download>practice-manuscript.pdf</a><span>The made-up paper it will review</span></li>
+            </ul>
+          </article>
+          <article class="walk-step">
+            <h3><span aria-hidden="true">2</span> Attach the files and send</h3>
+            <ol class="walk-mini"><li>Open a new chat in ChatGPT (or Claude).</li><li>Click the <strong>+</strong> or 📎 button and add the 3 files.</li><li>Copy the message below, paste it in the chat, and press send.</li></ol>
+            <p class="hint">Tip: in ChatGPT you can choose <strong>Temporary chat</strong> so this practice is not saved.</p>
+            <label class="visually-hidden" for="demo-message">Practice chat message</label>
+            <textarea id="demo-message" readonly rows="3">Read referee-prompt.txt and referee-instructions.txt. Review practice-manuscript.pdf using those instructions. Give me the most important concern first and show where you found the evidence.</textarea>
+            <div class="prompt-actions"><button class="button primary" id="copy-demo" type="button">Copy message</button><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a></div>
+            <p class="hint status" id="demo-status" role="status"></p>
+          </article>
+          <article class="walk-step">
+            <h3><span aria-hidden="true">3</span> Check the answer</h3>
+            <p>The AI will list problems with the paper. For the first problem, open the PDF at the place it points to. <strong>Does the paper really say that?</strong> If yes, the AI did a good job. If not, tell it so in the chat.</p>
+            <p>A good answer looks something like this:</p>
+            <dl class="review-example">
+              <dt>Where</dt><dd>Page 1, Methods. Students chose whether to receive a reminder.</dd>
+              <dt>Problem</dt><dd>Students chose for themselves, so we can't be sure the reminders caused the higher scores.</dd>
+              <dt>Fix</dt><dd>Say "students with reminders scored higher" instead of "reminders raised scores", and explain why.</dd>
+              <dt>Fixed when</dt><dd>The abstract and conclusion no longer claim that reminders caused the higher scores.</dd>
+            </dl>
+            <p class="hint">Your chat's wording will be different. That's fine.</p>
+            <p>Want to see the answer as a picture with a quality check? Paste it under <a href="idea-prompts.html#review">Prompts → Check the answer you got</a>.</p>
+          </article>
+        </div>
+        <div class="walk-transfer">
+          <h3>Done? Now do the same with your own work</h3>
+          <p>It is the same three moves every time: <strong>copy a prompt, attach your files, check the answer</strong>. The Prompts page gives you the right prompt for each step.</p>
+          <div class="prompt-actions"><a class="button primary" href="idea-prompts.html">Get ready prompts →</a><a href="#idea">Start the research workflow</a></div>
+        </div>
+        <details class="visual-references">
+          <summary>View the original workflow illustrations</summary>
+          <figure><a href="media/structured-prompt.webp" target="_blank" rel="noopener"><img src="media/structured-prompt.webp" loading="lazy" width="1672" height="941" alt="Illustration grouping goal, skill, task, background and output format into a structured prompt."></a><figcaption>The five inputs of a structured prompt. Review and verify any generated deliverable.</figcaption></figure>
+          <figure><a href="media/referee-workflow.webp" target="_blank" rel="noopener"><img src="media/referee-workflow.webp" loading="lazy" width="1672" height="941" alt="Illustration showing review materials moving through a temporary chat to an example scorecard."></a><figcaption>Original Referee illustration. The practice walkthrough uses individual files for browser chat. Use the <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills/blob/main/20-%20Paper%20Review%20Agent/README.md" target="_blank" rel="noopener noreferrer">Referee guide</a> to extract and run the full Python package.</figcaption></figure>
+        </details>
+        <p class="hint walk-source"><a href="https://help.openai.com/en/articles/8914046" target="_blank" rel="noopener noreferrer">How Temporary chat works in ChatGPT ↗</a></p>
+      </section>
+    </div>
+  </main>
+  <footer>Student Research Workflow <a href="https://github.com/raja21068/claude-chatgpt-academic-research-skills" target="_blank" rel="noopener noreferrer">Source repository ↗</a></footer>
+</div>
+</body>
+</html>

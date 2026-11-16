@@ -1,0 +1,58 @@
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.hero-actions,.prompt-actions,.chapters,.category-buttons{display:flex;flex-wrap:wrap;gap:8px 11px;align-items:center}
+.hero-secondary{border-color:#94b8a4;color:#f6f8ee}
+.hero-secondary:hover{background:#285640}
+.side-library{display:block;margin:12px 8px 3px;font-size:.8rem;font-weight:700}
+.builder-note,.walk-intro{color:var(--muted);margin-bottom:14px}
+.walk-intro{margin-top:10px}
+.walkthrough video{width:100%;height:auto;aspect-ratio:16/9;display:block;border-radius:10px;background:var(--dark)}
+.chapters{margin:10px 0 19px}
+.chapters .button,.category-buttons .button{font-size:.76rem}
+.walk-steps{display:grid;gap:14px}
+.walk-step{border:1px solid var(--line);border-radius:12px;padding:15px}
+.walk-step h3,.walk-transfer h3{font-size:1rem;margin-bottom:8px}
+.walk-step h3 span{display:inline-grid;place-items:center;width:25px;height:25px;margin-right:6px;border-radius:50%;color:white;background:var(--green);font-size:.82rem}
+.walk-step p,.walk-transfer p,.review-example{font-size:.88rem;color:var(--muted)}
+.walk-step textarea{margin:10px 0;font-size:.86rem;background:#f7faf5}
+.file-list{padding:0;list-style:none}
+.file-list li{display:flex;gap:5px 10px;align-items:baseline;flex-wrap:wrap;margin:0;padding:5px 0}
+.file-list a{font-weight:700;overflow-wrap:anywhere}
+.file-list span{color:var(--muted)}
+.review-example{display:grid;grid-template-columns:max-content 1fr;gap:6px 12px;margin:12px 0}
+.review-example dt{font-weight:750;color:var(--green)}
+.review-example dd{margin:0}
+.walk-transfer{margin-top:14px;padding:15px;background:var(--mint);border-radius:10px}
+.walk-transfer .prompt-actions{margin-top:10px}
+.visual-references{margin-top:17px;font-size:.87rem}
+.visual-references summary,.prompt-preview summary{cursor:pointer;color:var(--green);font-weight:700}
+.visual-references figure{margin:12px 0}
+.visual-references img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:9px}
+.visual-references figcaption{color:var(--muted);margin-top:4px}
+.walk-source{margin-top:12px}
+.library-shell{max-width:1120px}
+.library-hero{margin:28px 0 16px;padding:clamp(24px,5.5vw,55px);background:linear-gradient(110deg,#14382b,#2b5944);border-radius:18px;color:var(--white)}
+.library-hero .eyebrow{color:#cee2c5}
+.library-hero h1{font:500 clamp(43px,7vw,75px)/1 var(--serif);letter-spacing:-.055em}
+.library-hero p:not(.eyebrow){max-width:65ch;color:#e5eee3;margin:15px 0 17px}
+.library-filters h2{font-size:1.45rem;margin-bottom:12px}
+.library-filters input{width:min(100%,510px);font:inherit;border:1px solid #ced9cf;border-radius:8px;padding:8px 10px;background:white;color:var(--ink)}
+.category-buttons{margin:13px 0 7px}
+.category-buttons [aria-pressed="true"]{color:white;background:var(--green);border-color:var(--green)}
+.prompt-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px;align-items:start}
+.prompt-card{display:grid;gap:8px;padding:clamp(17px,3vw,24px)}
+.prompt-card .eyebrow{margin:0}
+.prompt-card h2{font-size:clamp(23px,3vw,32px)}
+.prompt-card p:not(.eyebrow){font-size:.88rem;color:var(--muted)}
+.prompt-card .prompt-skill{color:var(--green);font-weight:730}
+.prompt-card .prompt-actions{margin:4px 0}
+.prompt-stage-link{font-size:.82rem}
+.prompt-preview textarea{margin-top:8px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.81rem}
+@media(max-width:620px){.prompt-list{grid-template-columns:1fr}.top-inner{flex-wrap:wrap;gap:7px;padding-block:10px}.top nav{flex-wrap:wrap}.library-hero{margin-top:16px}}
+@media(max-width:365px){.review-example{grid-template-columns:1fr;gap:3px}.review-example dd{margin-bottom:5px}}
+.hero-with-demo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,38px)}
+.hero-demo{min-width:0;margin:0}
+.hero-demo iframe{display:block;width:100%;height:auto;min-height:200px;aspect-ratio:16/9;background:#10251d;border:1px solid #769884;border-radius:12px}
+.hero-demo figcaption{margin-top:8px;font-size:.83rem}
+.hero-demo a{color:#e1edc7;font-weight:700}
+@media(max-width:900px){.hero-with-demo{grid-template-columns:1fr}.hero-demo{width:min(100%,640px)}}
+@media(max-width:620px){.hero-with-demo{display:grid}}

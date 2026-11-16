@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Work through a research idea that changes after a novelty search and a paper that improves after evidence-based review.">
+<title>Worked Research Examples · Student Research Workflow</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="cases.css?v=2">
+<script src="cases.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#case-main">Skip to the worked examples</a>
+<header class="top"><div class="top-inner">
+  <a class="brand" href="./"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span> Research Workflow</a>
+  <nav aria-label="Resources"><a href="./">Workflow</a><a href="idea-prompts.html">Prompts</a><a href="cases.html" aria-current="page">Worked examples</a><a href="prompts.html">All prompts</a></nav>
+</div></header>
+<main id="case-main" class="shell case-shell">
+  <header class="library-hero">
+    <p class="eyebrow">Practice with worked examples</p>
+    <h1>What would you do next?</h1>
+    <p>Follow two cases from the first prompt to the decision. Each step shows what to give the AI, what to ask, what to verify, and what to carry forward.</p>
+    <div class="hero-actions"><a class="button primary" href="#idea-case">Develop a research idea ↓</a><a class="button hero-secondary" href="#review-case">Review and revise a paper ↓</a></div>
+  </header>
+  <div class="case-grid">
+  <aside class="sidebar case-nav"><strong>Jump to a lesson</strong>
+    <nav aria-label="Worked lessons">
+      <a class="stage-link" href="#idea-case">Develop a research idea</a>
+      <a class="stage-link" href="#review-case">Review and revise a paper</a>
+    </nav>
+    <a class="side-library" href="idea-prompts.html">Get ready prompts →</a>
+  </aside>
+  <div class="case-content">
+  <section id="idea-case" class="card case" aria-labelledby="idea-title">
+    <p class="eyebrow">Worked example 1 · Idea generation</p>
+    <h2 id="idea-title">From a broad idea to a testable benchmark</h2>
+    <p class="case-lead">A student wants to discover equations that hold when conditions change. The first idea sounds promising. A closer literature search changes what the student can claim.</p>
+    <p class="st-intro">The whole story in 6 pictures. Read left to right, top to bottom. The full prompts for each step are further down.</p>
+    <ol class="story" aria-label="The idea story in 6 steps">
+      <li class="st-card"><span class="st-num">1</span><strong>Start with a problem</strong>
+          <p class="st-q"><span>Ask</span>What happens to learned equations when conditions change?</p><p class="st-a"><span>Result</span>3 possible questions. Limits written down: 4 weeks, one laptop.</p></li>
+      <li class="st-card"><span class="st-num">2</span><strong>Pick one to test</strong>
+          <p class="st-q"><span>Ask</span>Which question can I test with data I can get and a simple comparison?</p><p class="st-a"><span>Result</span>Chosen: can picking the next measurement show when an equation breaks?</p></li>
+      <li class="st-card warn"><span class="st-num">3</span><strong>Search for the same idea</strong><span class="st-tag warn">⚠ Already done</span>
+          <p class="st-q"><span>Ask</span>Has anyone already done this?</p><p class="st-a"><span>Result</span>Yes. Medina and White already use this idea to choose experiments.</p></li>
+      <li class="st-card warn"><span class="st-num">4</span><strong>Be honest about what's new</strong><span class="st-tag warn">Idea changes</span>
+          <p class="st-q"><span>Ask</span>What would a reviewer say about the closest paper?</p><p class="st-a"><span>Result</span>Drop the “new method” claim. Testing it when conditions change might still be new.</p></li>
+      <li class="st-card good"><span class="st-num">5</span><strong>Search again for the new question</strong><span class="st-tag good">New question</span>
+          <p class="st-q"><span>Ask</span>Has anyone compared this fairly, with the same budget?</p><p class="st-a"><span>Result</span>If yes → stop. If no → continue. Save why the idea changed.</p></li>
+      <li class="st-card good"><span class="st-num">6</span><strong>Plan a small test that can fail</strong><span class="st-tag good">Ready to test</span>
+          <p class="st-q"><span>Ask</span>Can it beat random choice with the same number of measurements?</p><p class="st-a"><span>Result</span>Decide the comparisons before running. If random choice matches it, rethink.</p></li>
+    </ol>
+    <p class="st-moral"><strong>Lesson:</strong> finding that your idea already exists is normal. Narrow it, check again, and test the smaller question.</p>
+    <div class="decision-map" aria-labelledby="idea-map">
+      <h3 id="idea-map">What the closest paper changes</h3>
+      <div class="map-root">Does prior work already do the same thing?</div>
+      <div class="map-branches">
+        <div><span>Same mechanism and evaluation</span><strong>Stop that version</strong><p>Record the overlap and switch ideas unless you can state a different research question.</p></div>
+        <div><span>Same mechanism, different question</span><strong>Narrow and search again</strong><p>Define the new question and look specifically for studies that already test it.</p></div>
+        <div><span>No close match found yet</span><strong>Design a small pilot</strong><p>Document search limits. Set a result that would make you stop.</p></div>
+      </div>
+    </div>
+    <ol class="case-steps">
+      <li>
+        <h3>Start with a problem and a resource limit</h3>
+        <p><strong>Give it:</strong> Your interest, available data, time and compute. Here the student has four weeks, public examples, and a laptop.</p>
+        <details open><summary>Prompt to send</summary><div class="prompt-copy"><pre>I'm interested in equations learned from data that may fail when conditions change. I have four weeks, a laptop, and public or simulated data. Propose three distinct questions. For each, give a falsifiable hypothesis, accessible data, a simple baseline, the main metric, and a reason the idea might fail. Mark every proposed research gap as provisional.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Candidate questions could compare formula recovery, identify a broken equation, or diagnose a change in regime. Keep the options whose data and baselines you can obtain. Save the shortlist and why you dropped the others.</p>
+      </li>
+      <li>
+        <h3>Score the shortlist and pick one idea to investigate</h3>
+        <p><strong>Give it:</strong> The three candidate briefs and the papers you have checked so far.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Apply the Phase 10 Idea Scorecard to these candidates. Give the basis for each score. Mark novelty and gap evidence as provisional where coverage is thin. Rank the ideas for feasibility and list the one question that would most change each ranking.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> The student picks “Can we choose measurements that expose when a learned equation breaks?” It has a plausible small test. The score is a triage decision. Save the scorecard with the literature doubts attached. <a href="prompts.html#score-idea">Open the Phase 10 rubric ↗</a></p>
+      </li>
+      <li>
+        <h3>Search for work that could defeat the claim</h3>
+        <p><strong>Give it:</strong> A one-sentence novelty claim and search terms such as <em>active learning symbolic regression</em>, <em>query by committee equations</em>, and <em>equation extrapolation benchmark</em>.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Find papers that could make my idea less novel. Search for the mechanism under different names and in adjacent areas. For each close paper, give the source link, the passage or experiment you checked, the overlap, and what remains uncertain. Start with Phase 11. If browsing is unavailable, give searches I can run myself.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Existing work already uses disagreement among candidate symbolic equations to select new experiments. Open the source before updating the claim. Keep a log of the queries and what each paper actually supports. <a href="https://arxiv.org/abs/2305.10379" target="_blank" rel="noopener noreferrer">Medina and White, Active Learning in Symbolic Regression ↗</a></p>
+      </li>
+      <li>
+        <h3>Build the novelty matrix and invite a skeptical review</h3>
+        <p><strong>Give it:</strong> The idea, the closest verified papers, and your provisional evaluation plan.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Build a Phase 12 matrix comparing my proposal with the closest studies on what is selected, what the experiments test, and which baselines are used. Mark uncertain cells. Then do Phase 13: identify the strongest reason a skeptical reviewer would reject this version and say what evidence could change that view.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <div class="case-table-wrap"><table><caption>Two example rows from the novelty matrix</caption><thead><tr><th scope="col">Proposed contribution</th><th scope="col">What the cited study establishes</th><th scope="col">Decision</th></tr></thead><tbody>
+        <tr><th scope="row">Select points using equation disagreement</th><td>It already uses a committee of candidate equations to propose experiments.</td><td>Drop this as a novelty claim.</td></tr>
+        <tr><th scope="row">Compare how quickly methods expose wrong equations under shift</th><td>The abstract emphasizes rediscovering known equations. This comparison still needs a targeted literature search.</td><td>Keep as a candidate question only.</td></tr>
+        </tbody></table></div>
+        <p><strong>Check and save:</strong> Record the objection and how it changes the project. <a href="prompts.html#novelty-matrix">Open Phase 12</a> · <a href="prompts.html#attack-idea">Open Phase 13</a></p>
+      </li>
+      <li>
+        <h3>Reframe the question and run the novelty checks again</h3>
+        <p><strong>Give it:</strong> The rejected algorithm claim, the matrix, and the narrower proposal.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>We dropped the claim that choosing points by equation disagreement is new. The revised question is whether existing methods detect an incorrect equation faster after a regime change at the same measurement budget. Search for evaluations with this outcome and comparison. Give the strongest overlap, then recommend stop, narrow, or pilot with reasons.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Stop the novel-algorithm claim. Continue with the benchmark only if a targeted search leaves a defensible evaluation gap. Save the revised question and the reason you changed it.</p>
+      </li>
+      <li>
+        <h3>Plan a pilot that can make you stop</h3>
+        <p><strong>Give it:</strong> The narrowed question and verified nearest baselines.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Design a CPU pilot using a few equations with known ground truth and held-out shifts. Compare random sampling with an established disagreement method under equal measurement budgets. Specify how to count measurements until an invalid equation is detected, what false alarms to report, and when to stop. Keep hypotheses and expected outputs separate from measured results.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Freeze the equations, shifts, error threshold, budget, false-alarm rule and comparisons before coding. If the simple baseline matches the candidate method, reconsider the contribution before expanding the study. This example stops at pilot design.</p>
+      </li>
+    </ol>
+    <div class="case-exercise" data-exercise>
+      <h3>Try the decision yourself</h3>
+      <p>A paper already uses your proposed sampling mechanism. Its abstract reports formula recovery, and you have yet to check its experiments for evaluation under shift. What is your next step?</p>
+      <div class="exercise-options">
+        <button class="button secondary" type="button" data-feedback="Renaming the method leaves the overlap in place. The literature still defeats the mechanism claim.">Rename the method</button>
+        <button class="button secondary" type="button" data-feedback="Check the full paper and related benchmarks for the narrowed evaluation question. Keep it provisional until those comparisons are verified.">Verify the narrower gap</button>
+        <button class="button secondary" type="button" data-feedback="Coding now can consume time on an already answered question. Check the closest studies before investing in a full implementation.">Start full implementation</button>
+      </div>
+      <p class="exercise-feedback" role="status"></p>
+    </div>
+    <div class="prompt-actions"><a class="button primary" href="prompts.html#generate-ideas">Open the idea prompts →</a><a href="./#idea">Open Idea Discovery V5 in the workflow</a></div>
+  </section>
+
+  <section id="review-case" class="card case" aria-labelledby="review-title">
+    <p class="eyebrow">Worked example 2 · Review and revision</p>
+    <h2 id="review-title">From a reviewer concern to a verified fix</h2>
+    <p class="case-lead">A survey manuscript claims that an intervention improves student performance. The reviewer checks what was actually measured, asks for a targeted revision, and checks the revised manuscript against the original issue.</p>
+    <p class="st-intro">The whole story in 6 pictures. Watch the status change from <span class="st-tag bad">Not fixed</span> to <span class="st-tag warn">Partly fixed</span> to <span class="st-tag good">Fixed ✓</span>. The full prompts are further down.</p>
+    <ol class="story" aria-label="The review story in 6 steps">
+      <li class="st-card"><span class="st-num">1</span><strong>Give the AI the paper</strong>
+          <p class="st-q"><span>Ask</span>Review this paper and find the claim that matters most.</p><p class="st-a"><span>Result</span>Paper + review instructions attached. Main claim found.</p></li>
+      <li class="st-card bad"><span class="st-num">2</span><strong>Compare claim and evidence</strong><span class="st-tag bad">Problem found</span>
+          <p class="st-q"><span>Ask</span>The abstract says: “The study tool improved quiz performance.”</p><p class="st-a"><span>Result</span>But the study only asked how prepared students <em>felt</em>. No quiz scores were collected.</p></li>
+      <li class="st-card"><span class="st-num">3</span><strong>Ask for the smallest fix</strong>
+          <p class="st-q"><span>Ask</span>What can this kind of survey actually support?</p><p class="st-a"><span>Result</span>New wording: “Tool use was associated with higher self-reported preparation.” Must change in abstract, results, captions and conclusion.</p></li>
+      <li class="st-card warn"><span class="st-num">4</span><strong>Check the first revision</strong><span class="st-tag warn">Partly fixed</span>
+          <p class="st-q"><span>Ask</span>The abstract now says “self-reported preparation.”</p><p class="st-a"><span>Result</span>But the conclusion still says the tool improves quiz performance.</p></li>
+      <li class="st-card good"><span class="st-num">5</span><strong>Check the second revision</strong><span class="st-tag good">Fixed ✓</span>
+          <p class="st-q"><span>Ask</span>Is every place fixed now?</p><p class="st-a"><span>Result</span>Yes. All sections say “associated with”, and the Methods explain that students chose to use the tool.</p></li>
+      <li class="st-card warn"><span class="st-num">6</span><strong>Match each claim to evidence</strong><span class="st-tag warn">Still pending</span>
+          <p class="st-q"><span>Ask</span>A test run shows the code works.</p><p class="st-a"><span>Result</span>That is not a result. Keep the result as “pending” until real outputs are checked.</p></li>
+    </ol>
+    <p class="st-moral"><strong>Lesson:</strong> a fix only counts when <em>every</em> place in the paper is changed. Check again after each revision.</p>
+    <div class="decision-map" aria-labelledby="review-map">
+      <h3 id="review-map">How a review issue gets closed</h3>
+      <div class="map-root">Does the revised evidence meet the original closure test?</div>
+      <div class="map-branches">
+        <div><span>No change or no evidence</span><strong>OPEN</strong><p>Keep the issue on the list and specify the missing change or evidence.</p></div>
+        <div><span>Some locations fixed</span><strong>PARTIAL</strong><p>Point to the remaining unsupported sentence, analysis, or figure.</p></div>
+        <div><span>All required evidence checked</span><strong>VERIFIED CLOSED</strong><p>Record the revised passages and who checked them against the test.</p></div>
+      </div>
+    </div>
+    <ol class="case-steps">
+      <li>
+        <h3>Prepare the review packet</h3>
+        <p><strong>Give it:</strong> A numbered manuscript PDF, the review prompt, and Beihang Referee instructions. Add the supplement, outcome measures, or run artifacts if your claim depends on them.</p>
+        <details open><summary>Prompt to send</summary><div class="prompt-copy"><pre>Use the attached review instructions. Read the manuscript and identify the claim most likely to change the paper's conclusion. List the files you could inspect. For each major issue give an evidence location, the reason it matters, the smallest adequate fix, and a closure test. Flag any page number, citation, or analysis you could not verify.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Save the input manuscript version and initial report. <a href="demo/review-case-exercise.pdf" download>Download the practice excerpts and both revisions</a>. For the mechanics of attaching files, follow the <a href="./#how-to">three-file practice walkthrough</a>.</p>
+      </li>
+      <li>
+        <h3>Compare the claim with the evidence it needs</h3>
+        <div class="quote-pair">
+          <div><span>Abstract · original</span><p>“The study tool improved quiz performance.”</p></div>
+          <div><span>Methods · original</span><p>“Students reported whether they felt better prepared. Quiz scores were not collected. Students chose whether to use the tool.”</p></div>
+        </div>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Quote the exact claim and point to the outcome definition. What was measured? What would have to be measured or identified to support the stronger claim? Check whether the result is observational and whether the evidence really supports the review concern.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> Open the Methods yourself. The outcome is self-reported preparation, and the groups are self-selected. Save issue <strong>R1</strong> with both passages. This is a measurement problem and a causal interpretation problem.</p>
+      </li>
+      <li>
+        <h3>Ask for the smallest adequate fix</h3>
+        <p><strong>Give it:</strong> R1, the original passages, and the Results wording that the underlying evidence supports.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Suggest the minimum revision that preserves the supported finding. Give exact replacements for the abstract and conclusion. Then write a closure test that a fresh reviewer can apply to the abstract, results, figure captions, and conclusion. Explain what additional evidence would be needed if the authors want to retain the original claim.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> For this teaching case, use “Tool use was associated with higher self-reported preparation in the surveyed class.” The original performance claim would require actual performance evidence. A causal claim would also require a design or credible identification strategy that supports it.</p>
+      </li>
+      <li>
+        <h3>Revise every location that carries the claim</h3>
+        <div class="quote-pair">
+          <div><span>Abstract · revised</span><p>“Tool use was associated with higher self-reported preparation.”</p></div>
+          <div><span>Conclusion · still unchanged</span><p>“The tool improves quiz performance.”</p></div>
+        </div>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Search the revised draft for all occurrences of the unsupported performance or causal claim, including paraphrases and figure captions. Return original wording, proposed wording, and section. Preserve numerical results and flag anything you cannot validate against the supplied evidence.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> The abstract edit alone leaves R1 <strong>PARTIAL</strong>. Save the version and update the conclusion and any captions that repeat the unsupported claim.</p>
+      </li>
+      <li>
+        <h3>Re-review against the original issue</h3>
+        <p><strong>Give it:</strong> The original report, the revised PDF, the author’s response, and the original R1 closure test. A second reader can check the passages independently.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>Verify each original concern against the revised manuscript. For R1 check the abstract, outcome definition, results, figures and captions, and conclusion. Quote the revised evidence. Mark OPEN, PARTIAL, or VERIFIED CLOSED, and list any location you could not check. A response letter alone is insufficient evidence of a change.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <div class="case-table-wrap"><table><caption>Example revision-closure record</caption><thead><tr><th scope="col">Issue</th><th scope="col">What the second reader finds</th><th scope="col">Status</th></tr></thead><tbody>
+        <tr><th scope="row">R1 · First revision</th><td>Abstract corrected. Conclusion still claims improved quiz performance.</td><td>PARTIAL</td></tr>
+        <tr><th scope="row">R1 · Second revision</th><td>All checked sections describe an association with self-reported preparation. Methods disclose self-selection and the absence of quiz scores.</td><td>VERIFIED CLOSED</td></tr>
+        </tbody></table></div>
+      </li>
+      <li>
+        <h3>Check what the evidence can support</h3>
+        <p><strong>Give it:</strong> Your test log, run outputs, and claim list when the manuscript makes computational or empirical claims.</p>
+        <details><summary>Prompt to send</summary><div class="prompt-copy"><pre>For each claim, identify whether the evidence is a synthetic software check, a measured study result, an independent reproduction, or pending. Cite the artifact you inspected. If only synthetic inputs were used, explain which software behavior was checked and which scientific claim still needs evidence.</pre><button class="button secondary copy-case" type="button">Copy prompt</button></div></details>
+        <p><strong>Check and save:</strong> A synthetic fixture can show that a reporting script runs. An empirical claim needs the corresponding study outputs. Keep pending claims open, even when the writing is improved.</p>
+      </li>
+    </ol>
+    <div class="case-exercise" data-exercise>
+      <h3>Try the closure decision</h3>
+      <p>The abstract now says “self-reported preparation.” The conclusion still says “improves quiz performance.” What status does R1 receive?</p>
+      <div class="exercise-options">
+        <button class="button secondary" type="button" data-feedback="An edit did address part of the issue. The remaining unsupported conclusion prevents closure.">OPEN</button>
+        <button class="button secondary" type="button" data-feedback="PARTIAL. The abstract is fixed. The conclusion still fails the original closure test.">PARTIAL</button>
+        <button class="button secondary" type="button" data-feedback="VERIFIED CLOSED requires checking every location named in the closure test. The conclusion still fails it.">VERIFIED CLOSED</button>
+      </div>
+      <p class="exercise-feedback" role="status"></p>
+    </div>
+    <div class="prompt-actions"><a class="button primary" href="prompts.html#review-paper">Open the review prompts →</a><a href="./#review">Open Beihang Referee in the workflow</a></div>
+  </section>
+  <p class="case-note">These teaching cases adapt recurring research conversations. The manuscript passages are fictional, and the pilot is a proposed exercise.</p>
+  </div>
+  </div>
+  <footer>Student Research Workflow <a href="./">Back to the workflow ↗</a></footer>
+</main>
+</body>
+</html>

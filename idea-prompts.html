@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Prompts for every research step in beginner, researcher and expert versions, with example answers.">
+<title>Prompts by Level</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="idea-prompts.css?v=10">
+<script src="level-prompts-data.js?v=11" defer></script>
+<script src="answer-visual.js?v=9" defer></script>
+<script src="idea-prompts.js?v=11" defer></script>
+</head>
+<body>
+<a class="skip" href="#ip-main">Skip to the prompts</a>
+<header class="top"><div class="top-inner">
+  <a class="brand" href="./"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span> Research Workflow</a>
+  <nav aria-label="Resources"><a href="./#how-it-works">How it works</a><a href="idea-prompts.html" aria-current="page">Prompts</a><a href="cases.html">Worked examples</a><a href="prompts.html">All prompts</a></nav>
+</div></header>
+
+<main id="ip-main" class="shell ip-shell">
+  <header class="library-hero">
+    <p class="eyebrow">Ready-made prompts</p>
+    <h1>Prompts for every level</h1>
+    <p>Choose your step and your level, type your project once, then copy the prompts. That's it.</p>
+  </header>
+
+  <!-- Stage picker -->
+  <nav class="card ip-stages" aria-label="Research step">
+    <p class="eyebrow">Which research step are you on?</p>
+    <div id="stage-tabs" class="stage-tabs"></div>
+  </nav>
+
+  <!-- The 3-prompt chain for this stage -->
+  <section class="card ip-chain" aria-labelledby="chain-title">
+    <p class="eyebrow" id="chain-eyebrow">How the three prompts connect</p>
+    <h2 id="chain-title"></h2>
+    <ol class="chain" id="chain"></ol>
+    <p class="chain-loop"><span aria-hidden="true">↺</span><b id="chain-loop"></b></p>
+  </section>
+
+  <!-- Level picker -->
+  <section class="card" aria-labelledby="level-title">
+    <h2 id="level-title">Who are you?</h2>
+    <div class="levels" role="radiogroup" aria-label="Your level">
+      <button type="button" class="level" role="radio" data-level="beginner" aria-checked="true">
+        <span class="level-icon" aria-hidden="true">🌱</span>
+        <strong>Beginner</strong>
+        <span>First research project. Plain words, short answers, step-by-step.</span>
+      </button>
+      <button type="button" class="level" role="radio" data-level="researcher" aria-checked="false">
+        <span class="level-icon" aria-hidden="true">🔬</span>
+        <strong>Researcher</strong>
+        <span>You know the basics and want structured, checkable output.</span>
+      </button>
+      <button type="button" class="level" role="radio" data-level="expert" aria-checked="false">
+        <span class="level-icon" aria-hidden="true">🎓</span>
+        <strong>Expert</strong>
+        <span>You want a full reviewer-grade answer with exact sections.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Inputs -->
+  <section class="card" aria-labelledby="inputs-title">
+    <h2 id="inputs-title">Your project</h2>
+    <p class="ip-note">Type it once. It is added to every prompt for you. Not sure yet? Leave it empty or use the sample.</p>
+    <div class="ip-fields">
+      <div><label for="in-topic">Your topic or idea</label><textarea id="in-topic" rows="3"></textarea></div>
+      <div><label for="in-res" id="in-res-label">Details</label><textarea id="in-res" rows="3"></textarea></div>
+    </div>
+    <button type="button" class="button secondary" id="fill-example">Fill with a sample project</button>
+  </section>
+
+  <!-- The prompts -->
+  <section aria-labelledby="prompts-title">
+    <div class="ip-section-head">
+      <h2 id="prompts-title">Copy the prompts into ChatGPT or Claude</h2>
+      <p class="ip-note">Run them in the <strong>same chat</strong>, one after another, so the AI remembers your work. Attach the files each prompt lists.</p>
+    </div>
+    <div id="prompt-steps" class="ip-steps"></div>
+  </section>
+
+  <section class="card ip-paste" aria-labelledby="paste-title">
+    <h2 id="paste-title">Check the answer you got</h2>
+    <p class="ip-note">Paste the AI's whole answer here (use the chat's copy button). You'll see its score, its weak points, and a quick check of whether you can trust it. Nothing leaves your browser.</p>
+    <label for="paste-answer" class="visually-hidden">Paste the AI answer</label>
+    <textarea id="paste-answer" rows="6" placeholder="Paste the full answer from ChatGPT or Claude here…"></textarea>
+    <div class="prompt-actions"><button type="button" class="button primary" id="paste-go">Show it visually</button><button type="button" class="button secondary" id="paste-sample">Try with a sample answer</button><span class="hint" id="paste-msg" role="status"></span></div>
+
+    <div class="rounds" id="rounds-box">
+      <h3>Your score over rounds</h3>
+      <p class="ip-note">Each answer you paste that has a score is added here, so you can see your idea getting better round by round. Saved only in this browser.</p>
+      <div id="rounds-chart"></div>
+      <div class="prompt-actions" id="rounds-actions" hidden><button type="button" class="button secondary" id="rounds-undo">Remove last round</button><button type="button" class="button secondary" id="rounds-clear">Clear all</button></div>
+    </div>
+  </section>
+
+  <nav class="ip-next" id="stage-next" aria-label="Next step"></nav>
+
+  <section class="card ip-tips" aria-labelledby="tips-title">
+    <h2 id="tips-title">How to tell if the answer is good</h2>
+    <ul>
+      <li><strong>Every paper and number can be checked.</strong> Click 2–3 links, open 2–3 result files. If something is made up, tell the AI and ask it to remove it.</li>
+      <li><strong>Every score or judgement has a reason.</strong> A number with no reason is not useful.</li>
+      <li><strong>It says what it could not check.</strong> An honest answer lists what it did not see or run.</li>
+      <li><strong>It ends with one clear next action.</strong> That is what you do first.</li>
+    </ul>
+  </section>
+
+  <footer>Student Research Workflow <a href="./">Back to the workflow ↗</a></footer>
+</main>
+
+<dialog id="example-dialog" aria-labelledby="example-dialog-title">
+  <div class="dlg-head">
+    <h2 id="example-dialog-title">Example answer</h2>
+    <div><a id="example-raw" href="#" download>Download .md</a><button type="button" class="button secondary" id="example-close">Close</button></div>
+    <div class="dlg-tabs" role="tablist" aria-label="How to show the answer">
+      <button type="button" role="tab" id="tab-visual" aria-selected="true" aria-controls="example-visual">Visual summary</button>
+      <button type="button" role="tab" id="tab-full" aria-selected="false" aria-controls="example-body">Full answer</button>
+    </div>
+  </div>
+  <div id="example-visual" role="tabpanel" aria-labelledby="tab-visual"></div>
+  <article id="example-body" class="md" role="tabpanel" aria-labelledby="tab-full" hidden></article>
+</dialog>
+</body>
+</html>
