@@ -330,3 +330,10 @@
 .final-cta .secondary:hover{background:rgba(255,255,255,.12)}
 .papers-card{margin-top:0}
 @media(max-width:560px){#papers .gal-viewer{height:58vh;min-height:320px}}
+
+/* video card inside the practice section */
+.video-card{margin:18px 0 20px;max-width:680px}
+.video-card .hv-play{border-color:var(--line);box-shadow:var(--sh-2,0 18px 40px rgba(20,53,42,.14))}
+.video-card .hv-frame{border-color:var(--line);box-shadow:var(--sh-2,0 18px 40px rgba(20,53,42,.14))}
+.video-card figcaption{margin-top:9px;font-size:.88rem;color:#384c40;line-height:1.5}
+.video-card figcaption a{font-weight:700}
